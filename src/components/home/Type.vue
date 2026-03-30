@@ -12,11 +12,12 @@ export default {
   data() {
     return {
       strings: [
-        'Software Developer',
-        'Freelancer',
-        'MERN Stack Developer',
-        'Python Developer',
-        'Vue JS Developer',
+        'Full-Stack Developer',
+        'SaaS Builder',
+        'Vue & React Engineer',
+        'Node.js / Go Developer',
+        'Freelancer on Upwork',
+        'AI-powered Dev Workflows',
         'Open Source Contributor'
       ],
       currentString: '', // Holds the current string being typed

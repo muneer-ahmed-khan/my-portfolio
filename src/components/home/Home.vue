@@ -1,31 +1,35 @@
 <template>
   <section>
-    <TheContainer :fluid="true" custom-class="home-section" id="home">
+    <div class="container-fluid home-section" id="home">
       <Particle />
-      <TheContainer custom-class="home-content">
-        <TheRow>
-          <TheCol md="7" custom-class="home-header">
+      <div class="container home-content">
+        <div class="row align-items-center">
+          <div class="col-md-7 home-header">
             <h1 class="heading" style="padding-bottom: 15px">
               Good day
-              <span class="wave" role="img" aria-labelledby="wave">👋🏻</span>
+              <span class="wave" role="img" aria-label="waving hand">👋🏻</span>
             </h1>
 
             <h1 class="heading-name">
-              I'M
-              <strong class="main-name"> Muneer Ahmed</strong>
+              I'M <strong class="main-name"> Muneer Ahmed</strong>
             </h1>
 
-            <div style="padding: 50px; text-align: left">
+            <div style="padding: 50px 50px 50px; text-align: left">
               <Type />
             </div>
-          </TheCol>
+          </div>
 
-          <TheCol md="5" style="padding-bottom: 20px">
-            <img :src="homeLogo" alt="home pic" class="img-fluid" style="max-height: 450px" />
-          </TheCol>
-        </TheRow>
-      </TheContainer>
-    </TheContainer>
+          <div class="col-md-5" style="padding-bottom: 20px; text-align: center">
+            <img
+              :src="homeLogo"
+              alt="Muneer Ahmed – Full-Stack Developer"
+              class="img-fluid"
+              style="max-height: 450px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
     <Home2 />
   </section>
 </template>
@@ -34,26 +38,14 @@
 import { defineComponent } from 'vue'
 import Particle from '../Particles.vue'
 import Type from './Type.vue'
-import TheContainer from '@/components/bootstrap/Container.vue'
-import TheRow from '@/components/bootstrap/Row.vue'
-import TheCol from '@/components/bootstrap/Col.vue'
 import Home2 from './Home2.vue'
 import homeLogo from '@/assets/home-main.png'
 
 export default defineComponent({
   name: 'TheHome',
-  components: {
-    Particle,
-    Type,
-    TheContainer,
-    TheRow,
-    TheCol,
-    Home2
-  },
+  components: { Particle, Type, Home2 },
   data() {
-    return {
-      homeLogo
-    }
+    return { homeLogo }
   }
 })
 </script>
@@ -70,9 +62,5 @@ export default defineComponent({
 
 .main-name {
   color: #007bff;
-}
-
-.wave {
-  font-size: 1.5em;
 }
 </style>

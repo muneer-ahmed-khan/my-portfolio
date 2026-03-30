@@ -10,13 +10,18 @@ import {
   faCodeBranch,
   faStar,
   faHandPointRight,
-  faArrowDown
+  faArrowDown,
+  faBriefcase,
+  faPaperPlane,
+  faLocationDot,
+  faCircleCheck,
+  faRocket,
+  faCode
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGithub,
   faLinkedin,
   faStackOverflow,
-  faFacebook,
   faMediumM,
   faJs,
   faNode,
@@ -24,9 +29,7 @@ import {
   faReact,
   faPython,
   faGitAlt,
-  faAws,
-  faApple,
-  faSlack
+  faAws
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Particles from '@tsparticles/vue3'
@@ -38,6 +41,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import '@/assets/main.css'
 
 library.add(
+  // Solid icons
   faHome,
   faUser,
   faEnvelope,
@@ -46,36 +50,35 @@ library.add(
   faPenNib,
   faCodeBranch,
   faStar,
+  faHandPointRight,
+  faArrowDown,
+  faBriefcase,
+  faPaperPlane,
+  faLocationDot,
+  faCircleCheck,
+  faRocket,
+  faCode,
+  // Brand icons
   faGithub,
   faLinkedin,
   faStackOverflow,
-  faFacebook,
   faMediumM,
-  faHandPointRight,
   faJs,
   faNode,
   faVuejs,
   faReact,
   faPython,
   faGitAlt,
-  faGithub,
-  faAws,
-  faApple,
-  faSlack,
-  faArrowDown
+  faAws
 )
 
 import App from './App.vue'
 import router from './router/index'
-import { createPinia } from 'pinia'
 
 const app = createApp(App)
 
-app.use(createPinia())
-
 app.use(Particles, {
   init: async (engine) => {
-    // Load the tsParticles engine with all the available features
     await loadFull(engine)
   }
 })

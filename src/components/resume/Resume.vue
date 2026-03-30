@@ -1,24 +1,41 @@
 <template>
-  <Container :fluid="true" custom-class="resume-section">
+  <div class="container-fluid resume-section">
     <Particle />
-    <Row style="justify-content: center; position: relative">
-      <TheButton variant="primary" :href="pdf" target="_blank" style="max-width: 250px">
-        <font-awesome-icon :icon="['fa', 'arrow-down']" />
-        &nbsp;Download CV
-      </TheButton>
-    </Row>
+    <div style="position: relative; z-index: 1">
+      <h1 class="project-heading" style="text-align: center; margin-bottom: 30px">
+        My <strong class="blue">Resume</strong>
+      </h1>
+      <div class="row justify-content-center mb-4">
+        <a
+          :href="pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+          style="max-width: 220px"
+        >
+          <font-awesome-icon icon="arrow-down" style="margin-right: 6px" />
+          Download CV
+        </a>
+      </div>
 
-    <Row class="resume">
-      <VuePdf v-for="page in numOfPages" :key="page" :src="pdfSrc" :page="page" />
-    </Row>
+      <div class="resume">
+        <VuePdf v-for="page in numOfPages" :key="page" :src="pdfSrc" :page="page" />
+      </div>
 
-    <Row style="justify-content: center; position: relative">
-      <TheButton variant="primary" :href="pdf" target="_blank" style="max-width: 250px">
-        <font-awesome-icon :icon="['fa', 'arrow-down']" />
-        &nbsp;Download CV
-      </TheButton>
-    </Row>
-  </Container>
+      <div class="row justify-content-center mt-4 mb-4">
+        <a
+          :href="pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+          style="max-width: 220px"
+        >
+          <font-awesome-icon icon="arrow-down" style="margin-right: 6px" />
+          Download CV
+        </a>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -26,40 +43,22 @@ import { defineComponent, onMounted, ref } from 'vue'
 import { VuePdf, createLoadingTask } from 'vue3-pdfjs'
 import Particle from '@/components/Particles.vue'
 import pdf from '@/assets/Muneer-Ahmed-Resume.pdf'
-import Container from '@/components/bootstrap/Container.vue'
-import Row from '@/components/bootstrap/Row.vue'
-import TheButton from '@/components/bootstrap/Button.vue'
 
 export default defineComponent({
   name: 'ResumeNew',
-  data() {
-    return {
-      pdf
-    }
-  },
-  components: {
-    Container,
-    Row,
-    TheButton,
-    Particle,
-    VuePdf
-  },
+  components: { Particle, VuePdf },
   setup() {
-    const pdfSrc = ref<any>(pdf)
+    const pdfSrc = ref<string>(pdf)
     const numOfPages = ref(0)
 
     onMounted(() => {
       const loadingTask = createLoadingTask(pdfSrc.value)
-      loadingTask.promise.then((pdf: any) => {
-        numOfPages.value = pdf.numPages
+      loadingTask.promise.then((doc: { numPages: number }) => {
+        numOfPages.value = doc.numPages
       })
     })
-    return {
-      pdfSrc,
-      numOfPages
-    }
+
+    return { pdfSrc, numOfPages, pdf }
   }
 })
 </script>
-
-<style scoped></style>

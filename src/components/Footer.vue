@@ -1,85 +1,55 @@
 <template>
-  <Container custom-class="footer" :fluid="true">
-    <Row>
-      <Column md="4" custom-class="footer-copywright">
-        <h3>Designed and Developed by Muneer Ahmed</h3>
-      </Column>
-      <Column md="4" custom-class="footer-copywright">
-        <h3>
-          Copyright © {{ year }} <strong>{{ "<Ma. />" }}</strong>
-        </h3>
-      </Column>
-      <Column md="4" custom-class="footer-body">
-        <ul class="footer-icons">
-          <li class="social-icons">
-            <a
-              href="https://github.com/muneer-ahmed-khan"
-              target="_blank"
-              rel="noreferrer"
-              style="color: white"
-            >
-              <font-awesome-icon :icon="['fab', 'github']" />
-            </a>
-          </li>
-          <li class="social-icons">
-            <a
-              href="https://www.linkedin.com/in/muneer-ahmed-a59362140/"
-              target="_blank"
-              rel="noreferrer"
-              style="color: white"
-            >
-              <font-awesome-icon :icon="['fab', 'linkedin']" />
-            </a>
-          </li>
-          <li class="social-icons">
-            <a
-              href="https://stackoverflow.com/users/8422060/muneer-khan"
-              target="_blank"
-              rel="noreferrer"
-              style="color: white"
-            >
-              <font-awesome-icon :icon="['fab', 'stack-overflow']" />
-            </a>
-          </li>
-          <li class="social-icons">
-            <a
-              href="https://medium.com/@muneerkhan31886"
-              target="_blank"
-              rel="noreferrer"
-              style="color: white"
-            >
-              <font-awesome-icon :icon="['fab', 'medium-m']" />
-            </a>
-          </li>
-          <li class="social-icons">
-            <a
-              href="https://www.facebook.com/muneerkhan555/"
-              target="_blank"
-              rel="noreferrer"
-              style="color: white"
-            >
-              <font-awesome-icon :icon="['fab', 'facebook']" />
-            </a>
-          </li>
-        </ul>
-      </Column>
-    </Row>
-  </Container>
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row text-center py-2">
+        <div class="col-md-4 footer-copywright">
+          <h3>Designed and Developed by Muneer Ahmed</h3>
+        </div>
+        <div class="col-md-4 footer-copywright">
+          <h3>
+            Copyright © {{ year }}
+            <img src="/favicon.svg" alt="Muneer Ahmed logo" class="footer-logo" />
+          </h3>
+        </div>
+        <div class="col-md-4 footer-body">
+          <ul class="footer-icons list-inline mb-0">
+            <li class="social-icons list-inline-item">
+              <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer" style="color: white" aria-label="GitHub">
+                <font-awesome-icon :icon="['fab', 'github']" />
+              </a>
+            </li>
+            <li class="social-icons list-inline-item">
+              <a href="https://www.linkedin.com/in/muneer-ahmed-a59362140/" target="_blank" rel="noreferrer" style="color: white" aria-label="LinkedIn">
+                <font-awesome-icon :icon="['fab', 'linkedin']" />
+              </a>
+            </li>
+            <li class="social-icons list-inline-item">
+              <a href="https://stackoverflow.com/users/8422060/muneer-khan" target="_blank" rel="noreferrer" style="color: white" aria-label="Stack Overflow">
+                <font-awesome-icon :icon="['fab', 'stack-overflow']" />
+              </a>
+            </li>
+            <li class="social-icons list-inline-item">
+              <a href="https://medium.com/@muneerkhan31886" target="_blank" rel="noreferrer" style="color: white" aria-label="Medium">
+                <font-awesome-icon :icon="['fab', 'medium-m']" />
+              </a>
+            </li>
+            <li class="social-icons list-inline-item">
+              <a href="mailto:muneerkhan31886@gmail.com" style="color: white" aria-label="Email">
+                <font-awesome-icon :icon="['fas', 'envelope']" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import Container from './bootstrap/Container.vue'
-import Row from './bootstrap/Row.vue'
-import Column from './bootstrap/Col.vue'
 
 export default defineComponent({
   name: 'TheFooter',
-  components: {
-    Container,
-    Row,
-    Column
-  },
   setup() {
     const year = ref(new Date().getFullYear())
     return { year }
@@ -87,4 +57,11 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.footer-logo {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+</style>

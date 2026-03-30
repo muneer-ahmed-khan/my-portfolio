@@ -1,135 +1,85 @@
 <template>
-  <Container :fluid="true" custom-class="home-about-section" id="about">
-    <Container>
-      <Row>
-        <TheCol md="8" class="home-about-description">
-          <h1 style="font-size: 2.6em">LET ME <span class="azure"> INTRODUCE </span> MYSELF</h1>
+  <section class="home-about-section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 home-about-description">
+          <h1 style="font-size: 2.6em">
+            LET ME <span class="azure">INTRODUCE</span> MYSELF
+          </h1>
           <p class="home-about-body">
-            I've fallen in love with programming and picked up a thing or two along the way… I
-            think… 🤔💻
-            <br />
-            <br />I am fluent in classics like
-            <i>
-              <b class="azure"> Javascript and Python. </b>
-            </i>
-            <br />
-            <br />
-            My field of Interest's are building new &nbsp;
-            <i>
-              <b class="azure">Web Technologies and Products </b> and also in areas related
-              <b class="azure"> AI, ML and LLMs. </b>
-            </i>
-            <br />
-            <br />
-            Whenever possible, I also apply my passion for developing products with
-            <b class="azure">Node.js</b> and
-            <i>
-              <b class="azure"> Modern Javascript Libraries and Frameworks </b>
-            </i>
-            &nbsp; like
-            <i>
-              <b class="azure"> Vue.js and React.js </b>
-            </i>
+            I've spent the past <b class="azure">5+ years</b> building full-stack web applications
+            and SaaS products from the ground up — from polished frontends to distributed backend
+            systems that hold up under real-world traffic.
+            <br /><br />
+            I'm fluent across the stack:
+            <i><b class="azure">Vue 3, Nuxt, React, Next.js</b></i> on the frontend;
+            <i><b class="azure">Node.js, NestJS, Go, FastAPI</b></i> on the backend; and cloud
+            infrastructure on <b class="azure">AWS and Azure</b> that scales as you grow.
+            <br /><br />
+            Lately I've been integrating <b class="azure">AI-powered workflows</b> into production
+            apps — LLM pipelines, semantic search, real-time features — using tools like
+            <i><b class="azure">Claude, Cursor, and GitHub Copilot</b></i> to ship faster without
+            cutting corners on quality.
           </p>
-        </TheCol>
-        <TheCol md="4" custom-class="myAvtar">
+        </div>
+        <div class="col-md-4 myAvtar">
           <Tilt>
-            <img src="@/assets/avatar.png" class="img-fluid" alt="avatar" />
+            <img
+              src="@/assets/avatar.png"
+              class="img-fluid"
+              alt="Muneer Ahmed"
+              style="border-radius: 50%; max-width: 240px"
+            />
           </Tilt>
-        </TheCol>
-      </Row>
-      <Row>
-        <TheCol md="12" custom-class="home-about-social">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 home-about-social">
           <h1>FIND ME ON</h1>
-          <p>Feel free to <span class="azure">connect</span> with me</p>
+          <p>
+            Available for freelance projects —
+            <span class="azure">let's build something together</span>
+          </p>
+          <div class="availability-badge" style="margin: 0 auto 20px; width: fit-content">
+            <span class="availability-dot"></span>
+            Available for new projects
+          </div>
           <ul class="home-about-social-links">
-            <li class="social-icons">
+            <li v-for="link in socialLinks" :key="link.name" class="social-icons">
               <a
-                href="https://github.com/muneer-ahmed-khan"
-                target="_blank"
+                :href="link.url"
+                :target="link.url.startsWith('mailto') ? '_self' : '_blank'"
                 rel="noreferrer"
                 class="icon-colour home-social-icons"
+                :aria-label="link.name"
               >
-                <font-awesome-icon :icon="['fab', 'github']" />
-              </a>
-            </li>
-            <li class="social-icons">
-              <a
-                href="https://www.linkedin.com/in/muneer-ahmed-a59362140/"
-                target="_blank"
-                rel="noreferrer"
-                class="icon-colour home-social-icons"
-              >
-                <font-awesome-icon :icon="['fab', 'linkedin']" />
-              </a>
-            </li>
-            <li class="social-icons">
-              <a
-                href="https://stackoverflow.com/users/8422060/muneer-khan"
-                target="_blank"
-                rel="noreferrer"
-                class="icon-colour home-social-icons"
-              >
-                <font-awesome-icon :icon="['fab', 'stack-overflow']" />
-              </a>
-            </li>
-            <li class="social-icons">
-              <a
-                href="https://medium.com/@muneerkhan31886"
-                target="_blank"
-                rel="noreferrer"
-                class="icon-colour home-social-icons"
-              >
-                <font-awesome-icon :icon="['fab', 'medium-m']" />
-              </a>
-            </li>
-            <li class="social-icons">
-              <a
-                href="https://www.facebook.com/muneerkhan555/"
-                target="_blank"
-                rel="noreferrer"
-                class="icon-colour home-social-icons"
-              >
-                <font-awesome-icon :icon="['fab', 'facebook']" />
+                <font-awesome-icon :icon="link.icon" />
               </a>
             </li>
           </ul>
-        </TheCol>
-      </Row>
-    </Container>
-  </Container>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import TheCol from '@/components/bootstrap/Col.vue' // Importing custom Bootstrap components
-import Row from '@/components/bootstrap/Row.vue' // Importing custom Bootstrap components
-import Container from '@/components/bootstrap/Container.vue' // Importing custom Bootstrap components
 import Tilt from './Tilt.vue'
+import { socialLinks } from '@/data/socialLinks'
 
 export default defineComponent({
   name: 'TheHome2',
-  components: {
-    Container,
-    Row,
-    TheCol,
-    Tilt
+  components: { Tilt },
+  setup() {
+    return { socialLinks }
   }
 })
 </script>
 
 <style scoped>
-.home-about-description {
-  text-align: left;
-}
-
 .azure {
   color: #007bff;
-}
-
-.myAvtar img {
-  border-radius: 50%;
-  width: 100%;
-  max-width: 250px;
 }
 </style>
