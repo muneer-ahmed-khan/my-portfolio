@@ -51,16 +51,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.heading {
-  font-size: 2em;
-}
-
-.heading-name {
-  font-size: 2.5em;
-  font-weight: bold;
-}
-
-.main-name {
-  color: #007bff;
-}
+/* Typography handled globally in main.css via design tokens */
 </style>

@@ -5,8 +5,8 @@
       <!-- Bio section -->
       <div class="row justify-content-center" style="padding: 10px">
         <div class="col-md-7" style="padding-top: 30px; padding-bottom: 50px">
-          <h1 style="font-size: 2.1em; padding-bottom: 20px">
-            Know Who <strong class="blue">I'M</strong>
+          <h1 class="about-bio-heading">
+            Know Who <strong class="blue">I Am</strong>
           </h1>
           <AboutCard />
         </div>
@@ -50,5 +50,10 @@ export default defineComponent({
 <style scoped>
 .blue {
   color: #6c63ff;
+}
+
+.about-bio-heading {
+  font-size: var(--text-4xl);
+  padding-bottom: 20px;
 }
 </style>

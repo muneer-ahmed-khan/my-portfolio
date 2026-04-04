@@ -4,7 +4,7 @@
 
     <div v-if="loading" class="github-loading">
       <div class="github-skeleton"></div>
-      <p style="color: #64748b; font-size: 0.9rem; margin-top: 12px">Loading GitHub contributions...</p>
+      <p class="github-caption">Loading GitHub contributions...</p>
     </div>
 
     <div v-else-if="error" class="github-error">
@@ -24,7 +24,7 @@
         :round="2"
         style="border-radius: 8px"
       />
-      <p style="color: #64748b; font-size: 0.8rem; margin-top: 12px; text-align: right">
+      <p class="github-legend">
         Last 365 days · GitHub: <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer" style="color: #007bff">muneer-ahmed-khan</a>
       </p>
     </template>
@@ -109,5 +109,23 @@ export default defineComponent({
   background: rgba(24, 26, 39, 0.5);
   border-radius: 8px;
   border: 1px solid rgba(108, 99, 255, 0.15);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.github-caption {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: #64748b;
+  margin-top: 12px;
+}
+
+.github-legend {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: #64748b;
+  margin-top: 12px;
+  text-align: right;
 }
 </style>

@@ -29,7 +29,7 @@
 
       <!-- Process Section -->
       <div class="process-section">
-        <h2 class="project-heading" style="font-size: 1.8rem; margin-bottom: 40px">
+        <h2 class="section-subheading" style="margin-bottom: 40px">
           How I <strong class="blue">Work</strong>
         </h2>
         <div class="row">

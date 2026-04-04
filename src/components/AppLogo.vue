@@ -61,10 +61,10 @@ export default defineComponent({ name: 'AppLogo' })
 }
 
 .brand-wordmark {
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-none);
 }
 
 .brand-first {
@@ -73,8 +73,8 @@ export default defineComponent({ name: 'AppLogo' })
 
 .brand-dot {
   color: #007bff;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
 }
 
 .brand-last {

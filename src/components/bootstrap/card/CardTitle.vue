@@ -42,7 +42,10 @@ export default defineComponent({
 
 <style scoped>
 .card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: var(--text-xl);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
 }
 </style>

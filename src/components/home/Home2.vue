@@ -3,8 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 home-about-description">
-          <h1 style="font-size: 2.6em">
-            LET ME <span class="azure">INTRODUCE</span> MYSELF
+          <h1 class="introduce-heading">
+            Let me <span class="azure">Introduce</span> Myself
           </h1>
           <p class="home-about-body">
             I've been doing full-stack development for <b class="azure">6+</b> years. I've worked
@@ -39,7 +39,7 @@
 
       <div class="row">
         <div class="col-md-12 home-about-social">
-          <h1>FIND ME ON</h1>
+          <h2 class="social-section-heading">Find Me On</h2>
           <p>
             Available for freelance projects,
             <span class="azure">let's build something together</span>
@@ -84,5 +84,13 @@ export default defineComponent({
 <style scoped>
 .azure {
   color: #007bff;
+}
+
+.introduce-heading {
+  font-size: var(--text-5xl);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
 }
 </style>

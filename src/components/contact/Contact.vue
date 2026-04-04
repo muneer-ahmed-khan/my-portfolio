@@ -155,7 +155,7 @@
             <div v-if="submitted" class="form-success">
               <font-awesome-icon
                 icon="circle-check"
-                style="font-size: 1.5rem; margin-bottom: 8px"
+                class="success-icon"
               />
               <br />
               Thanks for reaching out! I'll get back to you within 24 hours.
@@ -234,8 +234,14 @@ export default defineComponent({
 
 <style scoped>
 .form-error {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   color: #f87171;
-  font-size: 0.9rem;
   margin-top: 4px;
+}
+
+.success-icon {
+  font-size: var(--text-2xl);
+  margin-bottom: 8px;
 }
 </style>

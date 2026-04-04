@@ -3,7 +3,7 @@
     <Particle />
     <div class="container">
       <h1 class="project-heading">My Recent <strong class="blue">Works</strong></h1>
-      <p style="color: #94a3b8; margin-bottom: 40px; font-size: 1rem">
+      <p class="projects-subtitle">
         Here are a few projects I've worked on — real project details coming soon.
       </p>
       <div class="row justify-content-center">
@@ -33,3 +33,14 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.projects-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: 40px;
+}
+</style>

@@ -159,9 +159,9 @@ export default defineComponent({
   border-radius: 8px;
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 450;
-  letter-spacing: 0.01em;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-normal);
   transition: color 0.2s ease, background 0.2s ease;
   white-space: nowrap;
   position: relative;
@@ -193,7 +193,7 @@ export default defineComponent({
 }
 
 .nav-link-icon {
-  font-size: 0.82rem;
+  font-size: var(--text-xs);
   opacity: 0.8;
 }
 
@@ -217,7 +217,7 @@ export default defineComponent({
   border-radius: 8px;
   background: #007bff;
   color: white;
-  font-size: 0.88rem;
+  font-size: var(--text-sm);
   text-decoration: none;
   transition: all 0.25s ease;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -302,7 +302,7 @@ export default defineComponent({
   .nav-link-item,
   .nav-link-cta {
     padding: 11px 14px;
-    font-size: 1rem;
+    font-size: var(--text-base);
     border-radius: 8px;
   }
 

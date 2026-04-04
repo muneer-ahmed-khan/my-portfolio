@@ -4,10 +4,8 @@
       <img :src="imgPath" :alt="title" class="card-img-top w-100" />
     </div>
     <div class="card-body d-flex flex-column p-3">
-      <h5 class="card-title" style="color: white; font-size: 1.05rem; font-weight: 600; margin-bottom: 8px">
-        {{ title }}
-      </h5>
-      <p class="card-text text-justify" style="color: #94a3b8; font-size: 0.875rem; line-height: 1.6; flex: 1">
+      <h5 class="card-title project-card-title">{{ title }}</h5>
+      <p class="card-text project-card-text text-justify">
         {{ description }}
       </p>
 
@@ -78,7 +76,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ProjectCards',
+  name: 'ProjectCard',
   props: {
     imgPath: { type: String, required: true },
     title: { type: String, required: true },
@@ -90,3 +88,23 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.project-card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: white;
+  margin-bottom: 8px;
+}
+
+.project-card-text {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+  flex: 1;
+}
+</style>

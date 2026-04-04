@@ -41,8 +41,9 @@ export default defineComponent({
 
 <style scoped>
 .card-text {
-  font-size: 1rem;
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  line-height: var(--leading-relaxed);
   margin-bottom: 1rem;
-  /* You can add additional styles as needed */
 }
 </style>

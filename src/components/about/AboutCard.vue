@@ -2,7 +2,7 @@
   <div class="quote-card-view card">
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <p style="text-align: justify; color: #e2e8f0; line-height: 1.8">
+        <p class="bio-text">
           Hi, I'm <span class="blue">Muneer Ahmed</span>, a Full-Stack Developer from
           <span class="blue">Karachi, Pakistan</span> with
           <span class="blue">6+</span> years of experience. I've built web apps, SaaS products and
@@ -65,6 +65,15 @@ export default { name: 'AboutCard' }
   color: #e2e8f0;
 }
 
+.bio-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: #e2e8f0;
+  text-align: justify;
+}
+
 .blue {
   color: #007bff;
 }
@@ -78,7 +87,10 @@ export default { name: 'AboutCard' }
 .about-activity {
   margin-bottom: 8px;
   color: #cbd5e1;
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
 }
 
 .activity-icon {
@@ -87,8 +99,12 @@ export default { name: 'AboutCard' }
 }
 
 .motto {
-  color: #a5b4fc;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
   font-style: italic;
+  line-height: var(--leading-relaxed);
+  color: #a5b4fc;
   margin-top: 16px;
   border-left: 3px solid #6c63ff;
   padding-left: 12px;
@@ -96,7 +112,7 @@ export default { name: 'AboutCard' }
 
 .blockquote-footer {
   color: #64748b;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   margin-top: 8px;
 }
 </style>
