@@ -83,7 +83,7 @@ export default defineComponent({
 
 <style scoped>
 .azure {
-  color: #007bff;
+  color: var(--color-primary);
 }
 
 .introduce-heading {

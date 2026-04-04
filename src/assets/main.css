@@ -4,16 +4,18 @@
 /* Design Tokens         */
 /* ===================== */
 :root {
-  /* Color */
-  --color-primary: #007bff;
-  --color-accent: #6c63ff;
-  --color-bg: #0c0513;
-  --color-surface: #181a27;
-  --color-surface-2: #1e2235;
+  /* Color — Dark mode (default) */
+  --color-primary: #2dd4bf;
+  --color-accent: #fbbf24;
+  --color-bg: #040d10;
+  --color-surface: #0a1a20;
+  --color-surface-2: #0f2430;
   --color-text: #e2e8f0;
   --color-text-muted: #94a3b8;
-  --color-border: rgba(108, 99, 255, 0.25);
-  --color-glow: rgba(0, 123, 255, 0.35);
+  --color-border: rgba(45, 212, 191, 0.2);
+  --color-glow: rgba(45, 212, 191, 0.3);
+  --color-scrollbar-track: #061318;
+  --color-footer-bg: #030c0f;
 
   /* Typography — Font Families */
   --font-heading: 'Space Grotesk', 'Inter', system-ui, sans-serif;
@@ -55,14 +57,68 @@
 
   --section-background-color: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
+    rgba(10, 26, 32, 0.65),
+    rgba(4, 13, 16, 0.95)
   );
   --image-gradient: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
+    rgba(4, 13, 16, 0.30),
+    rgba(4, 13, 16, 0.65)
   );
+}
+
+/* ===================== */
+/* Light Mode Tokens     */
+/* ===================== */
+html[data-theme="light"] {
+  --color-bg: #d0ede8;
+  --color-surface: #ffffff;
+  --color-surface-2: #e8f7f4;
+  --color-primary: #0d9488;
+  --color-accent: #d97706;
+  --color-text: #0f1f22;
+  --color-text-muted: #4b6a6f;
+  --color-border: rgba(13, 148, 136, 0.22);
+  --color-glow: rgba(13, 148, 136, 0.15);
+  --color-scrollbar-track: #9dd4cc;
+  --color-footer-bg: #061a1e;
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(208, 237, 232, 0.92),
+    rgba(180, 235, 228, 0.88)
+  );
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(208, 237, 232, 0.04),
+    rgba(208, 237, 232, 0.06)
+  );
+}
+
+/* System preference fallback — applies before JS sets data-theme */
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) {
+    --color-bg: #d0ede8;
+    --color-surface: #ffffff;
+    --color-surface-2: #e8f7f4;
+    --color-primary: #0d9488;
+    --color-accent: #d97706;
+    --color-text: #0f1f22;
+    --color-text-muted: #4b6a6f;
+    --color-border: rgba(13, 148, 136, 0.22);
+    --color-glow: rgba(13, 148, 136, 0.15);
+    --color-scrollbar-track: #9dd4cc;
+    --color-footer-bg: #061a1e;
+    --section-background-color: linear-gradient(
+      to bottom left,
+      rgba(208, 237, 232, 0.92),
+      rgba(180, 235, 228, 0.88)
+    );
+    --image-gradient: linear-gradient(
+      to bottom left,
+      rgba(208, 237, 232, 0.04),
+      rgba(208, 237, 232, 0.06)
+    );
+  }
 }
 
 /* ===================== */
@@ -140,7 +196,7 @@ button:focus {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #191d50;
+  background: var(--color-scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
@@ -195,16 +251,33 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  background-image: var(--image-gradient), url(./home-bg.png);
+  background-image: var(--image-gradient), url(./home-bg.svg);
   background-position: top;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
   padding-top: 30px !important;
 }
 
+/* Light mode — blur the SVG background via pseudo-element (filter can't target bg-image directly) */
+html[data-theme="light"] .home-section {
+  background-image: var(--image-gradient);
+}
+
+html[data-theme="light"] .home-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url(./home-bg.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(48px);
+}
+
 .home-content {
   padding: 9rem 0 2rem !important;
-  color: whitesmoke;
+  color: var(--color-text);
   text-align: left;
 }
 
@@ -272,7 +345,7 @@ button:focus {
 }
 
 .home-about-description {
-  color: white !important;
+  color: var(--color-text) !important;
   padding-top: 60px !important;
   padding-bottom: 20px !important;
   text-align: left;
@@ -290,7 +363,7 @@ button:focus {
 .home-about-social {
   text-align: center !important;
   padding-top: 25px;
-  color: white !important;
+  color: var(--color-text) !important;
 }
 
 .home-about-social-links {
@@ -323,7 +396,7 @@ button:focus {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #68187a;
+  background: var(--color-primary);
   transition: 0.5s;
   transform: scale(0.9);
   z-index: -1;
@@ -383,7 +456,7 @@ button:focus {
 /* Footer                */
 /* ===================== */
 .footer {
-  background-color: rgb(10, 4, 22);
+  background-color: var(--color-footer-bg);
   bottom: 0 !important;
   padding-top: 10px !important;
   padding-bottom: 8px !important;
@@ -411,7 +484,7 @@ button:focus {
   font-size: var(--text-sm);
   font-family: var(--font-body);
   font-weight: var(--weight-regular);
-  color: white !important;
+  color: #e2e8f0 !important;
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
   letter-spacing: var(--tracking-normal);
@@ -424,7 +497,7 @@ button:focus {
 }
 
 .blockquote-footer {
-  color: #888bc0 !important;
+  color: var(--color-text-muted) !important;
 }
 
 /* ===================== */
@@ -446,9 +519,9 @@ button:focus {
 }
 
 .project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(65, 53, 136, 0.459) !important;
-  color: white !important;
-  background-color: rgba(24, 26, 39, 0.8) !important;
+  box-shadow: 0 4px 5px 3px rgba(45, 212, 191, 0.15) !important;
+  color: var(--color-text) !important;
+  background-color: var(--color-surface) !important;
   border: 1px solid var(--color-border) !important;
   opacity: 1 !important;
   transition: all 0.4s ease 0s !important;
@@ -459,8 +532,8 @@ button:focus {
 
 .project-card-view:hover {
   transform: translateY(-6px) !important;
-  box-shadow: 0 12px 30px rgba(108, 99, 255, 0.35) !important;
-  border-color: rgba(108, 99, 255, 0.5) !important;
+  box-shadow: 0 12px 30px rgba(45, 212, 191, 0.25) !important;
+  border-color: rgba(45, 212, 191, 0.45) !important;
 }
 
 .card-img-wrapper {
@@ -475,7 +548,7 @@ button:focus {
   left: 0;
   right: 0;
   height: 50%;
-  background: linear-gradient(to bottom, transparent, rgba(24, 26, 39, 0.85));
+  background: linear-gradient(to bottom, transparent, rgba(10, 26, 32, 0.85));
   pointer-events: none;
 }
 
@@ -500,24 +573,24 @@ button:focus {
   font-weight: var(--weight-medium);
   padding: 3px 10px;
   border-radius: 20px;
-  background: rgba(108, 99, 255, 0.15);
-  border: 1px solid rgba(108, 99, 255, 0.35);
-  color: #a5b4fc;
+  background: rgba(45, 212, 191, 0.12);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  color: var(--color-primary);
   letter-spacing: var(--tracking-normal);
 }
 
 /* Buttons */
 .btn-primary {
   color: #fff !important;
-  background-color: #363b86 !important;
-  border-color: #363786 !important;
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
   transition: all 0.3s ease !important;
 }
 
 .btn-primary:hover {
   color: #fff !important;
-  background-color: #5120c5d7 !important;
-  border-color: #4d17cb !important;
+  background-color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
   transform: translateY(-1px);
 }
 
@@ -527,7 +600,7 @@ button:focus {
 }
 
 .project-heading {
-  color: white !important;
+  color: var(--color-text) !important;
   font-size: var(--text-4xl) !important;
   font-family: var(--font-heading) !important;
   font-weight: var(--weight-bold) !important;
@@ -544,7 +617,7 @@ button:focus {
   padding-top: 150px !important;
   padding-bottom: 30px !important;
   background-image: var(--section-background-color) !important;
-  color: white !important;
+  color: var(--color-text) !important;
 }
 
 /* New tech stack grid */
@@ -602,9 +675,9 @@ button:focus {
 }
 
 .skill-icon-box:hover {
-  border-color: rgba(108, 99, 255, 0.55);
-  background: rgba(108, 99, 255, 0.08);
-  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.2);
+  border-color: rgba(45, 212, 191, 0.5);
+  background: rgba(45, 212, 191, 0.08);
+  box-shadow: 0 4px 16px rgba(45, 212, 191, 0.2);
 }
 
 .skill-icon-box img {
@@ -645,7 +718,7 @@ button:focus {
   text-align: center !important;
   border-radius: 5px !important;
   display: table !important;
-  box-shadow: 4px 5px 4px 3px rgba(42, 4, 168, 0.137) !important;
+  box-shadow: 4px 5px 4px 3px rgba(45, 212, 191, 0.1) !important;
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
 }
@@ -659,7 +732,7 @@ button:focus {
 .tech-icons:hover {
   transform: scale(1.05) !important;
   overflow: hidden !important;
-  border: 2.2px solid rgba(115, 125, 230, 0.883) !important;
+  border: 2.2px solid rgba(45, 212, 191, 0.8) !important;
 }
 
 .tech-icon-images {
@@ -669,7 +742,7 @@ button:focus {
 
 .quote-card-view {
   border: none !important;
-  color: white !important;
+  color: var(--color-text) !important;
   background-color: transparent !important;
 }
 
@@ -693,7 +766,7 @@ button:focus {
   padding-top: 150px !important;
   padding-bottom: 60px !important;
   background-image: var(--section-background-color) !important;
-  color: white !important;
+  color: var(--color-text) !important;
   min-height: 100vh;
 }
 
@@ -713,7 +786,7 @@ button:focus {
 }
 
 .service-card {
-  background: rgba(24, 26, 39, 0.9);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 14px;
   padding: 32px 28px;
@@ -737,8 +810,8 @@ button:focus {
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(108, 99, 255, 0.5);
-  box-shadow: 0 16px 40px rgba(108, 99, 255, 0.2);
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 16px 40px rgba(45, 212, 191, 0.15);
 }
 
 .service-card:hover::before {
@@ -755,7 +828,7 @@ button:focus {
   font-size: var(--text-xl);
   font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
-  color: white;
+  color: var(--color-text);
   margin-bottom: 12px;
   letter-spacing: var(--tracking-tight);
 }
@@ -779,15 +852,15 @@ button:focus {
   font-family: var(--font-mono);
   padding: 3px 10px;
   border-radius: 20px;
-  background: rgba(0, 123, 255, 0.12);
-  border: 1px solid rgba(0, 123, 255, 0.3);
-  color: #93c5fd;
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  color: var(--color-primary);
 }
 
 .process-section {
   margin-top: 80px;
   padding: 50px 40px;
-  background: rgba(24, 26, 39, 0.6);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 16px;
 }
@@ -813,7 +886,7 @@ button:focus {
   font-size: var(--text-base);
   font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
-  color: white;
+  color: var(--color-text);
   margin-bottom: 8px;
 }
 
@@ -828,8 +901,8 @@ button:focus {
   text-align: center;
   margin-top: 60px;
   padding: 50px 30px;
-  background: rgba(108, 99, 255, 0.06);
-  border: 1px solid rgba(108, 99, 255, 0.2);
+  background: rgba(45, 212, 191, 0.05);
+  border: 1px solid rgba(45, 212, 191, 0.15);
   border-radius: 16px;
 }
 
@@ -878,7 +951,7 @@ button:focus {
   padding-top: 150px !important;
   padding-bottom: 60px !important;
   background-image: var(--section-background-color) !important;
-  color: white !important;
+  color: var(--color-text) !important;
   min-height: 100vh;
 }
 
@@ -898,7 +971,7 @@ button:focus {
 }
 
 .contact-info-card {
-  background: rgba(24, 26, 39, 0.85);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 14px;
   padding: 32px;
@@ -916,8 +989,8 @@ button:focus {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: rgba(0, 123, 255, 0.12);
-  border: 1px solid rgba(0, 123, 255, 0.25);
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -938,13 +1011,13 @@ button:focus {
 }
 
 .contact-info-value {
-  color: white;
+  color: var(--color-text);
   font-size: var(--text-base);
   font-family: var(--font-body);
 }
 
 .contact-info-value a {
-  color: white;
+  color: var(--color-text);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -976,14 +1049,14 @@ button:focus {
 }
 
 .contact-social-link:hover {
-  background: rgba(0, 123, 255, 0.15);
-  border-color: rgba(0, 123, 255, 0.4);
+  background: rgba(45, 212, 191, 0.12);
+  border-color: rgba(45, 212, 191, 0.35);
   color: var(--color-primary);
   transform: translateY(-2px);
 }
 
 .contact-form-card {
-  background: rgba(24, 26, 39, 0.85);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 14px;
   padding: 36px;
@@ -1004,7 +1077,7 @@ button:focus {
 .form-control {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid var(--color-border) !important;
-  color: white !important;
+  color: var(--color-text) !important;
   border-radius: 8px !important;
   padding: 12px 16px !important;
   font-family: var(--font-body) !important;
@@ -1014,9 +1087,9 @@ button:focus {
 
 .form-control:focus {
   background: rgba(255, 255, 255, 0.07) !important;
-  border-color: rgba(0, 123, 255, 0.5) !important;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1) !important;
-  color: white !important;
+  border-color: rgba(45, 212, 191, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1) !important;
+  color: var(--color-text) !important;
 }
 
 .form-control::placeholder {
@@ -1067,7 +1140,7 @@ button:focus {
   justify-content: center;
   background-image: var(--section-background-color);
   text-align: center;
-  color: white;
+  color: var(--color-text);
   padding: 40px 20px;
 }
 
@@ -1108,7 +1181,7 @@ button:focus {
   padding-top: 110px !important;
   padding-bottom: 30px !important;
   background-image: var(--section-background-color) !important;
-  color: white !important;
+  color: var(--color-text) !important;
 }
 
 .resume {
@@ -1163,15 +1236,15 @@ button:focus {
 /* Tippy Tooltip         */
 /* ===================== */
 .tippy-box {
-  background-color: #1e2235 !important;
-  color: #e2e8f0 !important;
-  border: 1px solid rgba(108, 99, 255, 0.3) !important;
+  background-color: var(--color-surface-2) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
   font-size: var(--text-xs) !important;
   font-family: var(--font-body) !important;
 }
 
 .tippy-arrow {
-  color: #1e2235 !important;
+  color: var(--color-surface-2) !important;
 }
 
 /* ===================== */
@@ -1193,4 +1266,125 @@ button:focus {
   align-items: center !important;
   margin-top: 8px;
   gap: 6px;
+}
+
+/* ===================== */
+/* Light Mode Overrides  */
+/* Component-level fixes */
+/* ===================== */
+
+/* --- Navbar (light mode) — solid teal-mint, consistent base and scrolled --- */
+html[data-theme="light"] .portfolio-nav,
+html[data-theme="light"] .portfolio-nav.scrolled {
+  background: #d0ede8 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 2px 12px rgba(13, 148, 136, 0.12) !important;
+  border-bottom: none !important;
+}
+
+/* Mobile nav menu — same solid color, no border, no shadow */
+html[data-theme="light"] .nav-menu {
+  background: #d0ede8 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* --- Scrolled navbar border in dark mode too --- */
+.portfolio-nav.scrolled {
+  border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+}
+html[data-theme="light"] .portfolio-nav.scrolled {
+  border-bottom: 1px solid rgba(13, 148, 136, 0.12) !important;
+}
+
+/* --- Home social icons (circle icons after "Find Me On") --- */
+/* Dark mode already fine with white bg. Light mode: teal-tinted with border */
+html[data-theme="light"] .home-social-icons {
+  background: #ffffff !important;
+  border: 2px solid var(--color-primary) !important;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.15) !important;
+}
+
+html[data-theme="light"] .home-social-icons::before {
+  background: rgba(13, 148, 136, 0.12) !important;
+}
+
+/* --- Availability badge (green) — darker green for light mode contrast --- */
+html[data-theme="light"] .availability-badge {
+  background: rgba(21, 128, 61, 0.1);
+  border: 1px solid rgba(21, 128, 61, 0.3);
+  color: #15803d;
+}
+
+html[data-theme="light"] .availability-dot {
+  background: #15803d;
+}
+
+/* --- AboutCard & quote card --- */
+html[data-theme="light"] .quote-card-view {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(13, 148, 136, 0.2) !important;
+  color: var(--color-text) !important;
+}
+
+/* --- Github heatmap skeleton / error --- */
+html[data-theme="light"] .github-skeleton {
+  background: linear-gradient(90deg, #ccfbf1 25%, #99f6e4 50%, #ccfbf1 75%) !important;
+  background-size: 200% 100% !important;
+}
+
+html[data-theme="light"] .github-error {
+  background: rgba(204, 251, 241, 0.5) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-muted) !important;
+}
+
+html[data-theme="light"] .vch__container svg.vch__wrapper text.vch__month__label,
+html[data-theme="light"] .vch__container svg.vch__wrapper text.vch__day__label,
+html[data-theme="light"] .vch__container svg.vch__wrapper .vch__legend__wrapper text {
+  fill: var(--color-text-muted) !important;
+}
+
+/* --- Card image gradient overlay --- */
+html[data-theme="light"] .card-img-wrapper::after {
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.88));
+}
+
+/* --- Skill icon boxes --- */
+html[data-theme="light"] .skill-icon-box {
+  background: rgba(13, 148, 136, 0.05);
+  border-color: rgba(13, 148, 136, 0.15);
+}
+
+/* Inverted icons (GitHub, Next.js etc.) — don't invert on light bg */
+html[data-theme="light"] .invert-icon {
+  filter: none !important;
+}
+
+/* --- Contact form --- */
+html[data-theme="light"] .form-control {
+  background: rgba(13, 148, 136, 0.04) !important;
+  color: var(--color-text) !important;
+}
+
+html[data-theme="light"] .form-control:focus {
+  background: rgba(13, 148, 136, 0.07) !important;
+  color: var(--color-text) !important;
+}
+
+/* Form success — green too light on white bg */
+html[data-theme="light"] .form-success {
+  background: rgba(21, 128, 61, 0.08);
+  border-color: rgba(21, 128, 61, 0.25);
+  color: #15803d;
+}
+
+/* Form error — red-400 low contrast on white */
+html[data-theme="light"] .form-error {
+  color: #dc2626 !important;
 }

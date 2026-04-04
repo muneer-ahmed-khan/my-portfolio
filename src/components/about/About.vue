@@ -49,7 +49,7 @@ export default defineComponent({
 
 <style scoped>
 .blue {
-  color: #6c63ff;
+  color: var(--color-primary);
 }
 
 .about-bio-heading {

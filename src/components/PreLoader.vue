@@ -22,7 +22,7 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 999999;
-  background-color: #0c0513;
+  background-color: var(--color-bg);
   background-image: url(../assets/preloader.svg);
   background-repeat: no-repeat;
   background-position: center;

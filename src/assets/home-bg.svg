@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <!-- Darker teal — contrasts on light bg, glows on dark bg -->
+    <radialGradient id="teal-lg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#0d9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="teal-md" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0f766e" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#0f766e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="teal-sm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Amber — naturally high contrast on both themes -->
+    <radialGradient id="amber-lg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d97706" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber-sm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#b45309" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Large background blobs -->
+  <ellipse cx="1600" cy="200" rx="520" ry="480" fill="url(#teal-lg)"/>
+  <ellipse cx="200"  cy="800" rx="460" ry="420" fill="url(#teal-lg)"/>
+  <ellipse cx="960"  cy="540" rx="380" ry="340" fill="url(#teal-md)"/>
+
+  <!-- Amber accent blobs -->
+  <ellipse cx="1750" cy="680" rx="300" ry="280" fill="url(#amber-lg)"/>
+  <ellipse cx="120"  cy="180" rx="260" ry="240" fill="url(#amber-sm)"/>
+
+  <!-- Medium teal circles -->
+  <circle cx="380"  cy="260" r="180" fill="url(#teal-md)"/>
+  <circle cx="1540" cy="820" r="200" fill="url(#teal-md)"/>
+  <circle cx="1100" cy="160" r="140" fill="url(#teal-sm)"/>
+  <circle cx="720"  cy="880" r="160" fill="url(#teal-sm)"/>
+
+  <!-- Small accent circles -->
+  <circle cx="1300" cy="420" r="90"  fill="url(#amber-sm)"/>
+  <circle cx="560"  cy="620" r="80"  fill="url(#amber-sm)"/>
+  <circle cx="1820" cy="400" r="70"  fill="url(#teal-sm)"/>
+  <circle cx="80"   cy="520" r="75"  fill="url(#teal-sm)"/>
+  <circle cx="860"  cy="300" r="60"  fill="url(#amber-sm)"/>
+  <circle cx="1440" cy="960" r="65"  fill="url(#teal-sm)"/>
+  <circle cx="300"  cy="1000" r="55" fill="url(#amber-sm)"/>
+
+  <!-- Teal ring outlines -->
+  <circle cx="1600" cy="200"  r="310" fill="none" stroke="#0d9488" stroke-width="2"   stroke-opacity="0.07"/>
+  <circle cx="200"  cy="800"  r="280" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-opacity="0.06"/>
+  <circle cx="380"  cy="260"  r="220" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.07"/>
+  <circle cx="1540" cy="820"  r="260" fill="none" stroke="#0d9488" stroke-width="1.8" stroke-opacity="0.06"/>
+  <circle cx="960"  cy="540"  r="340" fill="none" stroke="#0f766e" stroke-width="1.5" stroke-opacity="0.05"/>
+  <circle cx="1100" cy="160"  r="180" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.06"/>
+  <circle cx="720"  cy="880"  r="210" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-opacity="0.06"/>
+
+  <!-- Amber ring outlines -->
+  <circle cx="1750" cy="680" r="200" fill="none" stroke="#d97706" stroke-width="2"   stroke-opacity="0.07"/>
+  <circle cx="120"  cy="180" r="170" fill="none" stroke="#b45309" stroke-width="1.8" stroke-opacity="0.06"/>
+  <circle cx="1300" cy="420" r="130" fill="none" stroke="#d97706" stroke-width="1.5" stroke-opacity="0.07"/>
+  <circle cx="560"  cy="620" r="120" fill="none" stroke="#d97706" stroke-width="1.5" stroke-opacity="0.06"/>
+  <circle cx="860"  cy="300" r="100" fill="none" stroke="#b45309" stroke-width="1.5" stroke-opacity="0.06"/>
+</svg>

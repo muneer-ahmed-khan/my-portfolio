@@ -80,12 +80,17 @@ src/
 
 Design tokens live in `src/assets/main.css` under `:root`. See `docs/design-system.md` for the full token reference.
 
-**Color palette summary:**
-- Background: `#0c0513` (deep dark purple-black)
-- Surface: `#181a27` / `#1e2235`
-- Primary: `#007bff` (blue)
-- Accent: `#6c63ff` (purple)
-- Text: `#e2e8f0` / muted `#94a3b8`
+**Color palette — "Deep Ocean" (dark/light dual-mode):**
+- Dark bg: `#040d10` / surfaces: `#0a1a20`, `#0f2430`
+- Light bg: `#d0ede8` (teal-mint) / surfaces: `#ffffff`, `#e8f7f4`
+- Primary: `#2dd4bf` (Teal 400 dark) / `#0d9488` (Teal 600 light)
+- Accent: `#fbbf24` (Amber 400 dark) / `#d97706` (Amber 600 light)
+- Text: `#e2e8f0` dark / `#0f1f22` light; muted `#94a3b8` / `#4b6a6f`
+- Theme toggle: navbar button + `data-theme` on `<html>` + `localStorage`
+
+**Home section background:**
+- `home-bg.svg` — themed SVG with dark teal (`#0d9488`, `#0f766e`) and amber (`#d97706`, `#b45309`) blobs and ring outlines. Works on both dark and light backgrounds by using mid-to-dark saturation colors only (never light teal like `#2dd4bf` or `#5eead4` which vanish on the light bg).
+- `--image-gradient` layers on top of the SVG. In light mode this must be near-transparent (≤ 0.06) — see design-system.md for the critical rule.
 
 **Fonts:** Space Grotesk (headings), Inter (body), JetBrains Mono (code)
 
@@ -102,6 +107,6 @@ Design tokens live in `src/assets/main.css` under `:root`. See `docs/design-syst
 
 ## Planned Improvements
 
-1. **Colors & Theme** — Refine or replace the color palette, possibly add light/dark mode toggle
+1. **Colors & Theme** — ✅ Done — "Deep Ocean" teal/amber palette, dark+light modes, navbar toggle
 2. **Icons** — Audit and upgrade icon usage (FontAwesome → alternatives, or expand usage)
 3. **Animations** — Add/improve micro-interactions, scroll animations, transitions

@@ -96,7 +96,7 @@ export default defineComponent({
   font-weight: var(--weight-semibold);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
-  color: white;
+  color: var(--color-text);
   margin-bottom: 8px;
 }
 

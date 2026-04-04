@@ -9,7 +9,7 @@
 
     <div v-else-if="error" class="github-error">
       <p>Could not load GitHub contributions. View on
-        <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer" style="color: #007bff">GitHub</a>.
+        <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer" class="github-link">GitHub</a>.
       </p>
     </div>
 
@@ -19,13 +19,13 @@
         :end-date="new Date()"
         :range="365"
         :max="heatmapMax"
-        :range-color="['#93c5fd', '#93c5fd', '#3b82f6', '#1d4ed8', '#1e3a8a']"
+        :range-color="['#0a1a20', '#0d9488', '#2dd4bf', '#5eead4', '#99f6e4']"
         :dark-mode="true"
         :round="2"
         style="border-radius: 8px"
       />
       <p class="github-legend">
-        Last 365 days · GitHub: <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer" style="color: #007bff">muneer-ahmed-khan</a>
+        Last 365 days · GitHub: <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer" class="github-link">muneer-ahmed-khan</a>
       </p>
     </template>
   </div>
@@ -81,7 +81,16 @@ export default defineComponent({
 
 <style scoped>
 .blue {
-  color: #6c63ff;
+  color: var(--color-primary);
+}
+
+.github-link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.github-link:hover {
+  color: var(--color-accent);
 }
 
 .github-loading {
@@ -91,7 +100,7 @@ export default defineComponent({
 
 .github-skeleton {
   height: 130px;
-  background: linear-gradient(90deg, #1e2235 25%, #252a40 50%, #1e2235 75%);
+  background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-surface-2) 50%, var(--color-surface) 75%);
   background-size: 200% 100%;
   border-radius: 8px;
   animation: shimmer 1.5s infinite;
@@ -105,10 +114,10 @@ export default defineComponent({
 .github-error {
   text-align: center;
   padding: 30px;
-  color: #64748b;
-  background: rgba(24, 26, 39, 0.5);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
   border-radius: 8px;
-  border: 1px solid rgba(108, 99, 255, 0.15);
+  border: 1px solid var(--color-border);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
@@ -117,14 +126,14 @@ export default defineComponent({
 .github-caption {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: #64748b;
+  color: var(--color-text-muted);
   margin-top: 12px;
 }
 
 .github-legend {
   font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: #64748b;
+  color: var(--color-text-muted);
   margin-top: 12px;
   text-align: right;
 }

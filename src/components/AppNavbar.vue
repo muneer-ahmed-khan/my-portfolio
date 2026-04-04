@@ -61,6 +61,11 @@
           <font-awesome-icon icon="code-branch" />
           <font-awesome-icon icon="star" style="margin-left: 2px" />
         </a>
+
+        <!-- Theme toggle -->
+        <button class="nav-theme-toggle" @click="toggleTheme" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+          <font-awesome-icon :icon="isDark ? 'sun' : 'moon'" />
+        </button>
       </div>
     </div>
   </nav>
@@ -76,6 +81,7 @@ export default defineComponent({
   setup() {
     const navColour = ref(false)
     const menuOpen = ref(false)
+    const isDark = ref(true)
 
     const navLinks = [
       { to: '/', label: 'Home', icon: 'home', exact: true },
@@ -84,6 +90,17 @@ export default defineComponent({
       { to: '/services', label: 'Services', icon: 'briefcase', exact: false },
       { to: '/resume', label: 'Resume', icon: 'file-lines', exact: false }
     ]
+
+    const applyTheme = (dark: boolean) => {
+      const theme = dark ? 'dark' : 'light'
+      document.documentElement.setAttribute('data-theme', theme)
+      localStorage.setItem('theme', theme)
+      isDark.value = dark
+    }
+
+    const toggleTheme = () => {
+      applyTheme(!isDark.value)
+    }
 
     const scrollHandler = () => {
       navColour.value = window.scrollY >= 20
@@ -97,10 +114,16 @@ export default defineComponent({
       menuOpen.value = false
     }
 
-    onMounted(() => window.addEventListener('scroll', scrollHandler, { passive: true }))
+    onMounted(() => {
+      const saved = localStorage.getItem('theme')
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const dark = saved ? saved === 'dark' : prefersDark
+      applyTheme(dark)
+      window.addEventListener('scroll', scrollHandler, { passive: true })
+    })
     onUnmounted(() => window.removeEventListener('scroll', scrollHandler))
 
-    return { navColour, menuOpen, navLinks, toggleMenu, closeNavbar }
+    return { navColour, menuOpen, navLinks, toggleMenu, closeNavbar, isDark, toggleTheme }
   }
 })
 </script>
@@ -118,7 +141,7 @@ export default defineComponent({
 }
 
 .portfolio-nav.scrolled {
-  background: rgba(18, 16, 30, 0.92);
+  background: rgba(4, 13, 16, 0.92);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
@@ -157,7 +180,7 @@ export default defineComponent({
   gap: 6px;
   padding: 7px 12px;
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-text-muted);
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
@@ -168,15 +191,15 @@ export default defineComponent({
 }
 
 .nav-link-item:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.07);
+  color: var(--color-text);
+  background: rgba(45, 212, 191, 0.08);
 }
 
 /* Active state from Vue Router */
 .nav-link-item.router-link-exact-active,
 .nav-link-item.router-link-active:not([href="/"]) {
-  color: #ffffff;
-  background: rgba(0, 123, 255, 0.12);
+  color: var(--color-text);
+  background: rgba(45, 212, 191, 0.1);
 }
 
 .nav-link-item.router-link-exact-active::after,
@@ -189,7 +212,7 @@ export default defineComponent({
   width: 18px;
   height: 2.5px;
   border-radius: 4px;
-  background: linear-gradient(90deg, #007bff, #6c63ff);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
 }
 
 .nav-link-icon {
@@ -199,12 +222,12 @@ export default defineComponent({
 
 /* Contact CTA styling */
 .nav-link-cta {
-  color: #93c5fd;
+  color: var(--color-primary);
 }
 
 .nav-link-cta:hover {
-  color: #007bff;
-  background: rgba(0, 123, 255, 0.1);
+  color: var(--color-text);
+  background: rgba(45, 212, 191, 0.1);
 }
 
 /* ---- Fork/star button ---- */
@@ -215,8 +238,8 @@ export default defineComponent({
   padding: 7px 14px;
   margin-left: 8px;
   border-radius: 8px;
-  background: #007bff;
-  color: white;
+  background: var(--color-primary);
+  color: #fff;
   font-size: var(--text-sm);
   text-decoration: none;
   transition: all 0.25s ease;
@@ -224,10 +247,34 @@ export default defineComponent({
 }
 
 .nav-fork-btn:hover {
-  background: #6c63ff;
-  color: white;
+  background: var(--color-accent);
+  color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 4px 14px var(--color-glow);
+}
+
+/* ---- Theme toggle ---- */
+.nav-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-left: 6px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.nav-theme-toggle:hover {
+  background: rgba(45, 212, 191, 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 /* ---- Mobile toggler ---- */
@@ -248,14 +295,14 @@ export default defineComponent({
 }
 
 .nav-toggler:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(45, 212, 191, 0.08);
 }
 
 .toggler-line {
   display: block;
   width: 22px;
   height: 2px;
-  background: #007bff;
+  background: var(--color-primary);
   border-radius: 4px;
   transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
 }
@@ -287,10 +334,10 @@ export default defineComponent({
     right: 0;
     flex-direction: column;
     align-items: stretch;
-    background: rgba(14, 12, 28, 0.97);
+    background: rgba(4, 13, 16, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-top: 1px solid var(--color-border);
     padding: 12px 16px 20px;
     gap: 4px;
   }
@@ -313,8 +360,8 @@ export default defineComponent({
 
   .nav-link-item.router-link-exact-active,
   .nav-link-item.router-link-active:not([href="/"]) {
-    background: rgba(0, 123, 255, 0.15);
-    border-left: 3px solid #007bff;
+    background: rgba(45, 212, 191, 0.12);
+    border-left: 3px solid var(--color-primary);
   }
 
   .nav-fork-btn {

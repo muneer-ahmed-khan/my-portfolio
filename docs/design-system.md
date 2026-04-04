@@ -7,23 +7,52 @@
 
 ## Color Tokens
 
+### Dark Mode (default — `[data-theme="dark"]`)
 ```css
---color-primary:      #007bff              /* Blue — CTAs, highlights, links */
---color-accent:       #6c63ff              /* Purple — secondary highlights, hover states */
---color-bg:           #0c0513             /* Page background — deep dark purple-black */
---color-surface:      #181a27             /* Card/panel background */
---color-surface-2:    #1e2235             /* Elevated surface (nested cards, modals) */
+--color-primary:      #2dd4bf              /* Teal 400 — CTAs, highlights, links */
+--color-accent:       #fbbf24              /* Amber 400 — warm accent, hover states */
+--color-bg:           #040d10             /* Page background — deep dark teal-black */
+--color-surface:      #0a1a20             /* Card/panel background */
+--color-surface-2:    #0f2430             /* Elevated surface (nested cards, modals) */
 --color-text:         #e2e8f0             /* Primary text */
 --color-text-muted:   #94a3b8             /* Secondary/caption text */
---color-border:       rgba(108,99,255,.25) /* Border — translucent accent */
---color-glow:         rgba(0,123,255,.35)  /* Box-shadow glow */
+--color-border:       rgba(45,212,191,.2)  /* Border — translucent teal */
+--color-glow:         rgba(45,212,191,.3)  /* Box-shadow glow */
+--color-scrollbar-track: #061318
+--color-footer-bg:    #030c0f
+```
+
+### Light Mode (`[data-theme="light"]`)
+```css
+--color-primary:      #0d9488              /* Teal 600 — darker for AA contrast on white */
+--color-accent:       #d97706              /* Amber 600 — darker for light mode */
+--color-bg:           #d0ede8             /* Teal-mint — visible, professional, not white */
+--color-surface:      #ffffff             /* White cards pop cleanly on teal bg */
+--color-surface-2:    #e8f7f4
+--color-text:         #0f1f22
+--color-text-muted:   #4b6a6f
+--color-border:       rgba(13,148,136,.18)
+--color-glow:         rgba(13,148,136,.12)
+--color-scrollbar-track: #b2dfdb
+--color-footer-bg:    #061a1e
 ```
 
 **Gradients:**
 ```css
---section-background-color: linear-gradient(to bottom left, rgba(17,16,16,.582), rgba(12,8,24,.904))
---image-gradient:            linear-gradient(to bottom left, rgba(17,16,16,.678), rgba(12,10,22,.863))
+/* Dark */
+--section-background-color: linear-gradient(to bottom left, rgba(10,26,32,.65), rgba(4,13,16,.95))
+--image-gradient:            linear-gradient(to bottom left, rgba(4,13,16,.30), rgba(4,13,16,.65))
+
+/* Light — intentionally near-transparent so SVG background shapes remain visible */
+--section-background-color: linear-gradient(to bottom left, rgba(208,237,232,.92), rgba(180,235,228,.88))
+--image-gradient:            linear-gradient(to bottom left, rgba(208,237,232,.04), rgba(208,237,232,.06))
 ```
+
+> **Critical rule:** The light `--image-gradient` MUST stay at ≤ 0.06 opacity.
+> It renders on top of `home-bg.svg`. Using the same teal-mint color as `--color-bg` at higher opacity
+> paints over the SVG shapes entirely, making the background look blank.
+
+**Theme switching:** Navbar button toggles `data-theme` attribute on `<html>`. Defaults to system preference (`prefers-color-scheme`), persisted to `localStorage`. Anti-FOUC inline script in `index.html`.
 
 ---
 

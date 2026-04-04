@@ -16,7 +16,9 @@ import {
   faLocationDot,
   faCircleCheck,
   faRocket,
-  faCode
+  faCode,
+  faSun,
+  faMoon
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGithub,
@@ -59,6 +61,8 @@ library.add(
   faCircleCheck,
   faRocket,
   faCode,
+  faSun,
+  faMoon,
   // Brand icons
   faGithub,
   faLinkedin,

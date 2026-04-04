@@ -59,10 +59,10 @@ export default { name: 'AboutCard' }
 
 <style scoped>
 .quote-card-view {
-  background-color: rgba(24, 26, 39, 0.85);
-  border: 1px solid rgba(108, 99, 255, 0.2);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
-  color: #e2e8f0;
+  color: var(--color-text);
 }
 
 .bio-text {
@@ -70,12 +70,12 @@ export default { name: 'AboutCard' }
   font-size: var(--text-base);
   font-weight: var(--weight-regular);
   line-height: var(--leading-relaxed);
-  color: #e2e8f0;
+  color: var(--color-text);
   text-align: justify;
 }
 
 .blue {
-  color: #007bff;
+  color: var(--color-primary);
 }
 
 .activities-list {
@@ -86,7 +86,7 @@ export default { name: 'AboutCard' }
 
 .about-activity {
   margin-bottom: 8px;
-  color: #cbd5e1;
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: var(--weight-regular);
@@ -94,7 +94,7 @@ export default { name: 'AboutCard' }
 }
 
 .activity-icon {
-  color: #007bff;
+  color: var(--color-primary);
   margin-right: 8px;
 }
 
@@ -104,14 +104,14 @@ export default { name: 'AboutCard' }
   font-weight: var(--weight-regular);
   font-style: italic;
   line-height: var(--leading-relaxed);
-  color: #a5b4fc;
+  color: var(--color-text-muted);
   margin-top: 16px;
-  border-left: 3px solid #6c63ff;
+  border-left: 3px solid var(--color-primary);
   padding-left: 12px;
 }
 
 .blockquote-footer {
-  color: #64748b;
+  color: var(--color-text-muted);
   font-size: var(--text-sm);
   margin-top: 8px;
 }

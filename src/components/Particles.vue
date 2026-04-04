@@ -24,6 +24,9 @@ export default defineComponent({
               value_area: 1500
             }
           },
+          color: {
+            value: '#ffffff'
+          },
           line_linked: {
             enable: false,
             opacity: 0.03
@@ -36,10 +39,11 @@ export default defineComponent({
             value: 1
           },
           opacity: {
+            value: 0.2,
             anim: {
               enable: true,
               speed: 1,
-              opacity_min: 0.05
+              opacity_min: 0.04
             }
           }
         },

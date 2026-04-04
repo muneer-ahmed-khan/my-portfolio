@@ -12,8 +12,8 @@
     >
       <defs>
         <linearGradient id="brandGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#007bff" />
-          <stop offset="100%" stop-color="#6c63ff" />
+          <stop offset="0%" stop-color="#2dd4bf" />
+          <stop offset="100%" stop-color="#fbbf24" />
         </linearGradient>
       </defs>
       <!-- Rounded square background -->
@@ -52,12 +52,12 @@ export default defineComponent({ name: 'AppLogo' })
 
 .brand-mark {
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 8px rgba(0, 123, 255, 0.4));
+  filter: drop-shadow(0 2px 8px rgba(45, 212, 191, 0.4));
   transition: filter 0.3s ease;
 }
 
 .brand-logo:hover .brand-mark {
-  filter: drop-shadow(0 4px 14px rgba(108, 99, 255, 0.6));
+  filter: drop-shadow(0 4px 14px rgba(251, 191, 36, 0.5));
 }
 
 .brand-wordmark {
@@ -68,16 +68,16 @@ export default defineComponent({ name: 'AppLogo' })
 }
 
 .brand-first {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .brand-dot {
-  color: #007bff;
+  color: var(--color-primary);
   font-size: var(--text-xl);
   font-weight: var(--weight-bold);
 }
 
 .brand-last {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-text-muted);
 }
 </style>

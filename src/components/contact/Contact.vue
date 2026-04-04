@@ -73,7 +73,7 @@
               </div>
             </div>
 
-            <hr style="border-color: rgba(108, 99, 255, 0.2); margin: 20px 0" />
+            <hr style="border-color: var(--color-border); margin: 20px 0" />
 
             <p class="contact-info-label" style="margin-bottom: 12px">Connect with me</p>
             <div class="contact-social-links">
