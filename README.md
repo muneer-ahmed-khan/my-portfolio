@@ -73,7 +73,7 @@ Key design decisions:
 - Project cards with tech stack tags, GitHub links, and live demo links
 - Services page with a six-card offer grid and a four-step process section
 - Inline PDF resume viewer with download button (vue3-pdfjs)
-- Contact form that opens the user's mail client pre-filled with message content
+- Contact form powered by EmailJS — sends directly to Gmail from the browser with no backend required
 - Smooth scroll-to-top on every route transition
 - GitHub contribution heatmap (vue3-calendar-heatmap)
 - Responsive navbar with animated hamburger toggle and active-route underline indicator
@@ -96,6 +96,7 @@ Key design decisions:
 | Particles | tsParticles / @tsparticles/vue3 |
 | PDF viewer | vue3-pdfjs |
 | Heatmap | vue3-calendar-heatmap |
+| Contact email | @emailjs/browser 4.x |
 | Testing | Vitest + @vue/test-utils |
 | Linting | ESLint + eslint-plugin-vue |
 | Formatting | Prettier |
@@ -214,7 +215,7 @@ The app will be available at `http://localhost:5173`.
 | `/projects` | `Projects.vue` | Project cards with tags and links |
 | `/services` | `Services.vue` | Six service cards + four-step process + CTA |
 | `/resume` | `Resume.vue` | Inline PDF viewer + download button |
-| `/contact` | `Contact.vue` | Contact info panel + mailto form |
+| `/contact` | `Contact.vue` | Contact info panel + EmailJS contact form |
 | `/*` | `NotFound.vue` | 404 fallback |
 
 ---
@@ -255,6 +256,20 @@ Drop your PDF into `src/assets/` and update the import in `src/components/resume
 ```ts
 import pdf from '@/assets/Your-Resume.pdf'
 ```
+
+### Configure EmailJS (contact form)
+
+The contact form uses [EmailJS](https://emailjs.com) to send emails directly from the browser. To set it up with your own account, open `src/components/contact/Contact.vue` and replace the three constants near the top of the `<script>` block:
+
+```ts
+const EMAILJS_SERVICE_ID  = 'your_service_id'   // EmailJS > Email Services
+const EMAILJS_TEMPLATE_ID = 'your_template_id'  // EmailJS > Email Templates
+const EMAILJS_PUBLIC_KEY  = 'your_public_key'   // EmailJS > Account > General
+```
+
+Your email template should use these variables: `{{from_name}}`, `{{from_email}}`, `{{subject}}`, `{{message}}`, `{{reply_to}}`.
+
+The free EmailJS tier allows 200 emails per month with no backend required.
 
 ### Design tokens
 
@@ -332,7 +347,7 @@ This is a personal portfolio, but if you spot a bug or have a suggestion:
 ## Author
 
 **Muneer Ahmed**
-Senior Full-Stack Developer — Karachi, Pakistan
+Senior Full-Stack Developer, Karachi, Pakistan
 
 | | |
 |---|---|
