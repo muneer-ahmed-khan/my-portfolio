@@ -58,6 +58,8 @@ Key design decisions:
 
 ## Live Demo
 
+> **[muneer-ahmed.vercel.app](https://muneer-ahmed.vercel.app)** ← Portfolio (live on Vercel)
+
 > **[nest-of-blogs.vercel.app](https://nest-of-blogs.vercel.app/)** ← Blog demo (linked from portfolio)
 
 ---

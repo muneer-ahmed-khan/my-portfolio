@@ -18,10 +18,11 @@
         :values="calendarData"
         :end-date="new Date()"
         :range="365"
-        :max="10"
-        :range-color="['#1e2235', '#1e3a5f', '#1d4ed8', '#2563eb', '#60a5fa']"
+        :max="heatmapMax"
+        :range-color="['#93c5fd', '#93c5fd', '#3b82f6', '#1d4ed8', '#1e3a8a']"
+        :dark-mode="true"
         :round="2"
-        style="border-radius: 8px; overflow: hidden"
+        style="border-radius: 8px"
       />
       <p style="color: #64748b; font-size: 0.8rem; margin-top: 12px; text-align: right">
         Last 365 days · GitHub: <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer" style="color: #007bff">muneer-ahmed-khan</a>
@@ -31,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref, onMounted, computed } from 'vue'
 import { CalendarHeatmap } from 'vue3-calendar-heatmap'
 
 export default defineComponent({
@@ -41,6 +42,10 @@ export default defineComponent({
     const calendarData = ref<{ date: string; count: number }[]>([])
     const loading = ref(true)
     const error = ref(false)
+    const heatmapMax = computed(() => {
+      if (!calendarData.value.length) return 10
+      return Math.max(...calendarData.value.map(d => d.count)) + 1
+    })
 
     const fetchContributions = async () => {
       try {
@@ -51,10 +56,12 @@ export default defineComponent({
         const data = await response.json()
 
         if (data.contributions && Array.isArray(data.contributions)) {
-          calendarData.value = data.contributions.map((entry: { date: string; count: number }) => ({
-            date: entry.date,
-            count: entry.count
-          }))
+          calendarData.value = data.contributions
+            .filter((entry: { date: string; count: number }) => entry.count > 0)
+            .map((entry: { date: string; count: number }) => ({
+              date: entry.date,
+              count: entry.count
+            }))
         } else {
           throw new Error('Invalid data')
         }
@@ -67,7 +74,7 @@ export default defineComponent({
 
     onMounted(fetchContributions)
 
-    return { calendarData, loading, error }
+    return { calendarData, loading, error, heatmapMax }
   }
 })
 </script>

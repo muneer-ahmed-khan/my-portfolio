@@ -7,19 +7,22 @@
             LET ME <span class="azure">INTRODUCE</span> MYSELF
           </h1>
           <p class="home-about-body">
-            I've spent the past <b class="azure">5+ years</b> building full-stack web applications
-            and SaaS products from the ground up — from polished frontends to distributed backend
-            systems that hold up under real-world traffic.
+            I've been doing full-stack development for <b class="azure">6+</b> years. I've worked
+            on web apps, SaaS products and backend systems for clients from different countries,
+            from AI chatbot platforms in Germany to styling apps in the UAE and real estate tools
+            used across the US and Canada.
             <br /><br />
-            I'm fluent across the stack:
-            <i><b class="azure">Vue 3, Nuxt, React, Next.js</b></i> on the frontend;
-            <i><b class="azure">Node.js, NestJS, Go, FastAPI</b></i> on the backend; and cloud
-            infrastructure on <b class="azure">AWS and Azure</b> that scales as you grow.
+            On the frontend I mostly use
+            <i><b class="azure">Vue 3, Nuxt, React and Next.js</b></i>. On the backend it's usually
+            <i><b class="azure">Node.js, NestJS, Django or FastAPI</b></i>, depending on what
+            fits. For cloud I've worked with both <b class="azure">AWS and Azure</b>. I also work
+            on Go (Golang) when projects need it, handling it myself with Claude Code and AI dev
+            tools, with a Go developer on the team as backup.
             <br /><br />
-            Lately I've been integrating <b class="azure">AI-powered workflows</b> into production
-            apps — LLM pipelines, semantic search, real-time features — using tools like
-            <i><b class="azure">Claude, Cursor, and GitHub Copilot</b></i> to ship faster without
-            cutting corners on quality.
+            I also work with <b class="azure">AI tools</b> in actual production projects, things
+            like LLM integrations, semantic search and smart features using
+            <i><b class="azure">Claude, Cursor and GitHub Copilot</b></i>. It makes a real
+            difference in delivery speed and overall quality.
           </p>
         </div>
         <div class="col-md-4 myAvtar">
@@ -38,7 +41,7 @@
         <div class="col-md-12 home-about-social">
           <h1>FIND ME ON</h1>
           <p>
-            Available for freelance projects —
+            Available for freelance projects,
             <span class="azure">let's build something together</span>
           </p>
           <div class="availability-badge" style="margin: 0 auto 20px; width: fit-content">
@@ -49,7 +52,7 @@
             <li v-for="link in socialLinks" :key="link.name" class="social-icons">
               <a
                 :href="link.url"
-                :target="link.url.startsWith('mailto') ? '_self' : '_blank'"
+                :target="link.url.startsWith('http') ? '_blank' : '_self'"
                 rel="noreferrer"
                 class="icon-colour home-social-icons"
                 :aria-label="link.name"

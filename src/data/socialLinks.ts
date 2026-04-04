@@ -27,7 +27,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'Email',
-    url: 'mailto:muneerkhan31886@gmail.com',
+    url: '/contact',
     icon: ['fas', 'envelope']
   }
 ]

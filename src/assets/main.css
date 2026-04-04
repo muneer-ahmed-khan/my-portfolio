@@ -213,21 +213,22 @@ button:focus {
 }
 
 .home-about-social-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
   justify-content: center !important;
   padding-top: 15px !important;
-  display: inline-block !important;
-  position: relative !important;
   padding-inline-start: 0 !important;
+  list-style: none !important;
 }
 
 .home-social-icons {
   position: relative !important;
-  display: inline-block !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   width: 42px !important;
   height: 42px !important;
-  text-align: center !important;
   font-size: 1.2em !important;
-  line-height: 2em !important;
   background: rgba(255, 255, 255, 0.972) !important;
   border-radius: 50% !important;
   transition: 0.5s !important;
@@ -476,8 +477,8 @@ button:focus {
 }
 
 .skill-icons-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 80px);
   gap: 14px;
   justify-content: center;
 }
@@ -534,9 +535,9 @@ button:focus {
 
 /* Tools section */
 .tools-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 80px);
+  gap: 14px;
   justify-content: center;
   padding-bottom: 30px;
 }
@@ -1035,4 +1036,39 @@ button:focus {
 
 .fork-btn-inner::after {
   display: none !important;
+}
+
+/* ===================== */
+/* Tippy Tooltip         */
+/* ===================== */
+.tippy-box {
+  background-color: #1e2235 !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(108, 99, 255, 0.3) !important;
+  font-size: 0.82rem !important;
+}
+
+.tippy-arrow {
+  color: #1e2235 !important;
+}
+
+/* ===================== */
+/* GitHub Heatmap        */
+/* Hide empty/zero day squares */
+
+/* ===================== */
+/* Month/day labels visible on dark background */
+.vch__container svg.vch__wrapper text.vch__month__label,
+.vch__container svg.vch__wrapper text.vch__day__label,
+.vch__container svg.vch__wrapper .vch__legend__wrapper text {
+  fill: #94a3b8 !important;
+}
+
+/* Less / More legend: single line, correct order (Less left → More right) */
+.vch__container .vch__legend {
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  margin-top: 8px;
+  gap: 6px;
 }

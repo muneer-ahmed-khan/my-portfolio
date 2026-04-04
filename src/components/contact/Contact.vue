@@ -3,11 +3,9 @@
     <Particle />
     <div class="container" style="position: relative; z-index: 1">
       <!-- Header -->
-      <h1 class="project-heading contact-heading">
-        Get In <strong class="blue">Touch</strong>
-      </h1>
+      <h1 class="project-heading contact-heading">Get In <strong class="blue">Touch</strong></h1>
       <p class="contact-subheading">
-        Have a project in mind or want to explore a collaboration? Send me a message — I typically
+        Have a project in mind or want to explore a collaboration? Send me a message. I typically
         respond within 24 hours.
       </p>
 
@@ -68,11 +66,7 @@
               <div>
                 <p class="contact-info-label">GitHub</p>
                 <p class="contact-info-value">
-                  <a
-                    href="https://github.com/muneer-ahmed-khan"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer">
                     muneer-ahmed-khan
                   </a>
                 </p>
@@ -87,7 +81,7 @@
                 v-for="link in socialLinks"
                 :key="link.name"
                 :href="link.url"
-                :target="link.url.startsWith('mailto') ? '_self' : '_blank'"
+                :target="link.url.startsWith('http') ? '_blank' : '_self'"
                 rel="noreferrer"
                 class="contact-social-link"
                 :aria-label="link.name"
@@ -144,16 +138,25 @@
                   ></textarea>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-submit" :disabled="submitted">
-                    <font-awesome-icon icon="paper-plane" />
-                    {{ submitted ? 'Message Sent!' : 'Send Message' }}
+                  <button type="submit" class="btn btn-submit" :disabled="sending || submitted">
+                    <font-awesome-icon
+                      :icon="sending ? 'spinner' : 'paper-plane'"
+                      :spin="sending"
+                    />
+                    {{ submitted ? 'Message Sent!' : sending ? 'Sending...' : 'Send Message' }}
                   </button>
+                </div>
+                <div v-if="errorMsg" class="col-12">
+                  <p class="form-error">{{ errorMsg }}</p>
                 </div>
               </div>
             </form>
 
             <div v-if="submitted" class="form-success">
-              <font-awesome-icon icon="circle-check" style="font-size: 1.5rem; margin-bottom: 8px" />
+              <font-awesome-icon
+                icon="circle-check"
+                style="font-size: 1.5rem; margin-bottom: 8px"
+              />
               <br />
               Thanks for reaching out! I'll get back to you within 24 hours.
             </div>
@@ -166,14 +169,21 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue'
+import emailjs from '@emailjs/browser'
 import Particle from '@/components/Particles.vue'
 import { socialLinks } from '@/data/socialLinks'
+
+const EMAILJS_SERVICE_ID = 'service_93szg14'
+const EMAILJS_TEMPLATE_ID = 'template_551yede'
+const EMAILJS_PUBLIC_KEY = 'Nsv5qp2kuAPze5MdL'
 
 export default defineComponent({
   name: 'ContactPage',
   components: { Particle },
   setup() {
     const submitted = ref(false)
+    const sending = ref(false)
+    const errorMsg = ref('')
 
     const form = reactive({
       name: '',
@@ -182,25 +192,50 @@ export default defineComponent({
       message: ''
     })
 
-    const submitForm = () => {
-      // Open default mail client with pre-filled content
-      const mailto = `mailto:muneerkhan31886@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(
-        `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
-      )}`
-      window.location.href = mailto
-      submitted.value = true
+    const submitForm = async () => {
+      sending.value = true
+      errorMsg.value = ''
 
-      // Reset form after delay
-      setTimeout(() => {
+      try {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          {
+            from_name: form.name,
+            from_email: form.email,
+            subject: form.subject,
+            message: form.message,
+            reply_to: form.email
+          },
+          EMAILJS_PUBLIC_KEY
+        )
+
+        submitted.value = true
         form.name = ''
         form.email = ''
         form.subject = ''
         form.message = ''
-        submitted.value = false
-      }, 5000)
+
+        setTimeout(() => {
+          submitted.value = false
+        }, 5000)
+      } catch {
+        errorMsg.value =
+          'Something went wrong. Please try emailing me directly at muneerkhan31886@gmail.com'
+      } finally {
+        sending.value = false
+      }
     }
 
-    return { form, submitted, submitForm, socialLinks }
+    return { form, submitted, sending, errorMsg, submitForm, socialLinks }
   }
 })
 </script>
+
+<style scoped>
+.form-error {
+  color: #f87171;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+</style>

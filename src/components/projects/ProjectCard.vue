@@ -23,9 +23,9 @@
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-primary btn-sm"
-          style="flex: 1; text-align: center"
+          style="flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 5px"
         >
-          <font-awesome-icon :icon="['fab', 'github']" style="margin-right: 5px" />
+          <font-awesome-icon :icon="['fab', 'github']" />
           {{ isBlog ? 'Blog' : 'GitHub' }}
         </a>
         <a
@@ -34,7 +34,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-primary btn-sm"
-          style="flex: 1; text-align: center"
+          style="flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 5px"
         >
           <svg
             stroke="currentColor"
@@ -43,7 +43,7 @@
             viewBox="0 0 24 24"
             height="1em"
             width="1em"
-            style="margin-right: 4px"
+            style="flex-shrink: 0"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -65,7 +65,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-primary btn-sm"
-          style="flex: 1; text-align: center"
+          style="flex: 1; display: inline-flex; align-items: center; justify-content: center"
         >
           Demo
         </a>

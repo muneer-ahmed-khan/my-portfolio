@@ -3,16 +3,30 @@
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <p style="text-align: justify; color: #e2e8f0; line-height: 1.8">
-          Hi, I'm <span class="blue">Muneer Ahmed</span> — a Full-Stack Developer based in
+          Hi, I'm <span class="blue">Muneer Ahmed</span>, a Full-Stack Developer from
           <span class="blue">Karachi, Pakistan</span> with
-          <span class="blue">5+ years</span> of experience building scalable web applications, SaaS
-          platforms, and cloud-deployed systems.
+          <span class="blue">6+</span> years of experience. I've built web apps, SaaS products and
+          cloud-based systems for clients across different industries, with Python and
+          <span class="blue">Django</span> being a regular part of my backend work alongside
+          Node.js and other frameworks. I also work on Go (Golang) projects myself using
+          Claude Code and AI-assisted development, and I have a Go developer on my team as well.
           <br /><br />
-          I hold a Bachelor's degree in Computer Science from Iqra University. Currently working as
-          a Senior Application Engineer at <span class="blue">Nextgeni</span>, and also available
-          for freelance projects through Upwork.
+          Some of the products I've contributed to include
+          <span class="blue">Heronos</span>, a German platform for deploying AI-powered digital
+          specialists and workflow automation across enterprise sectors;
+          <span class="blue">Wear That</span>, a UAE and KSA personal styling platform that
+          connects customers with professional stylists for curated fashion recommendations;
+          <span class="blue">SmartMentor</span>, an entrepreneurial education platform that helps
+          founders validate and grow their businesses through structured mentorship;
+          <span class="blue">Voiceflip</span>, a Canadian company building custom AI assistants
+          for real estate organizations; and <span class="blue">ARDI</span>, their flagship AI
+          product used by real estate associations and MLSs across the US and Canada.
           <br /><br />
-          When I'm not coding, I enjoy:
+          I did my Bachelor's in Computer Science from Iqra University. Currently working as a
+          Senior Application Engineer at <span class="blue">Nextgeni</span>, and I also take
+          freelance projects through Upwork.
+          <br /><br />
+          Outside of work I like:
         </p>
         <ul class="activities-list">
           <li class="about-activity">
@@ -32,7 +46,7 @@
             Experimenting with AI / LLM tools
           </li>
         </ul>
-        <p class="motto">"Build things that ship — and hold up after they do."</p>
+        <p class="motto">"Build it right the first time, then keep improving it."</p>
         <footer class="blockquote-footer">Muneer Ahmed</footer>
       </blockquote>
     </div>

@@ -6,7 +6,7 @@
           <h3>Designed and Developed by Muneer Ahmed</h3>
         </div>
         <div class="col-md-4 footer-copywright">
-          <h3>
+          <h3 style="display: flex; align-items: center; justify-content: center; gap: 6px">
             Copyright © {{ year }}
             <img src="/favicon.svg" alt="Muneer Ahmed logo" class="footer-logo" />
           </h3>
@@ -34,9 +34,9 @@
               </a>
             </li>
             <li class="social-icons list-inline-item">
-              <a href="mailto:muneerkhan31886@gmail.com" style="color: white" aria-label="Email">
+              <router-link to="/contact" style="color: white" aria-label="Contact">
                 <font-awesome-icon :icon="['fas', 'envelope']" />
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>
@@ -61,7 +61,6 @@ export default defineComponent({
 .footer-logo {
   width: 28px;
   height: 28px;
-  vertical-align: middle;
-  margin-left: 6px;
+  flex-shrink: 0;
 }
 </style>

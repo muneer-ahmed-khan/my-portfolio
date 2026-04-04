@@ -38,6 +38,7 @@ import VuePdf from 'vue3-pdfjs'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import 'vue3-calendar-heatmap/dist/style.css'
 import '@/assets/main.css'
 
 library.add(

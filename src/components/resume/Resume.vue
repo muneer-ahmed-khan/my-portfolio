@@ -6,16 +6,18 @@
         My <strong class="blue">Resume</strong>
       </h1>
       <div class="row justify-content-center mb-4">
-        <a
-          :href="pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-          style="max-width: 220px"
-        >
-          <font-awesome-icon icon="arrow-down" style="margin-right: 6px" />
-          Download CV
-        </a>
+        <div class="col-auto">
+          <a
+            :href="pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            style="display: inline-flex; align-items: center; gap: 6px; min-width: 180px; justify-content: center"
+          >
+            <font-awesome-icon icon="arrow-down" />
+            Download CV
+          </a>
+        </div>
       </div>
 
       <div class="resume">
@@ -23,16 +25,18 @@
       </div>
 
       <div class="row justify-content-center mt-4 mb-4">
-        <a
-          :href="pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-          style="max-width: 220px"
-        >
-          <font-awesome-icon icon="arrow-down" style="margin-right: 6px" />
-          Download CV
-        </a>
+        <div class="col-auto">
+          <a
+            :href="pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            style="display: inline-flex; align-items: center; gap: 6px; min-width: 180px; justify-content: center"
+          >
+            <font-awesome-icon icon="arrow-down" />
+            Download CV
+          </a>
+        </div>
       </div>
     </div>
   </div>
