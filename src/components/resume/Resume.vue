@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid resume-section">
-    <Particle />
+    <Particles />
     <div style="position: relative; z-index: 1">
       <h1 class="project-heading" style="text-align: center; margin-bottom: 30px">
         My <strong class="blue">Resume</strong>
@@ -58,27 +58,19 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue'
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import { VuePdf, createLoadingTask } from 'vue3-pdfjs'
-import Particle from '@/components/Particles.vue'
+import Particles from '@/components/ui/Particles.vue'
 import pdf from '@/assets/Muneer-Ahmed-Resume.pdf'
 
-export default defineComponent({
-  name: 'ResumeNew',
-  components: { Particle, VuePdf },
-  setup() {
-    const pdfSrc = ref<string>(pdf)
-    const numOfPages = ref(0)
+const pdfSrc = ref<string>(pdf)
+const numOfPages = ref(0)
 
-    onMounted(() => {
-      const loadingTask = createLoadingTask(pdfSrc.value)
-      loadingTask.promise.then((doc: { numPages: number }) => {
-        numOfPages.value = doc.numPages
-      })
-    })
-
-    return { pdfSrc, numOfPages, pdf }
-  }
+onMounted(() => {
+  const loadingTask = createLoadingTask(pdfSrc.value)
+  loadingTask.promise.then((doc: { numPages: number }) => {
+    numOfPages.value = doc.numPages
+  })
 })
 </script>

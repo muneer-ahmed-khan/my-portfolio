@@ -1,0 +1,119 @@
+/* ===================== */
+/* About Section         */
+/* ===================== */
+.about-section {
+  position: relative !important;
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+  color: var(--color-text) !important;
+}
+
+@media (max-width: 767px) {
+  .about-section {
+    padding-top: 90px !important;
+  }
+  .about-img {
+    padding-top: 0 !important;
+  }
+}
+
+/* Skill grid */
+.skill-categories {
+  padding-bottom: 30px;
+}
+
+.skill-category {
+  margin-bottom: 40px;
+}
+
+.skill-category-title {
+  font-size: var(--text-xs);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.skill-icons-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 80px);
+  gap: 14px;
+  justify-content: center;
+}
+
+.skill-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+  transition: transform 0.3s ease;
+}
+
+.skill-icon-item:hover {
+  transform: translateY(-4px);
+}
+
+.skill-icon-box {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon-box:hover {
+  border-color: rgba(45, 212, 191, 0.5);
+  background: rgba(45, 212, 191, 0.08);
+  box-shadow: 0 4px 16px rgba(45, 212, 191, 0.2);
+}
+
+.skill-icon-box img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.skill-icon-box img.invert-icon {
+  filter: invert(1) brightness(0.9);
+}
+
+.skill-icon-label {
+  font-size: var(--text-xs);
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: var(--leading-snug);
+}
+
+/* Tools section */
+.tools-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 80px);
+  gap: 14px;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+/* AboutCard */
+.quote-card-view {
+  border: none !important;
+  color: var(--color-text) !important;
+  background-color: transparent !important;
+}
+
+.about-activity {
+  list-style: none !important;
+  text-align: left !important;
+  padding-left: 1px !important;
+}

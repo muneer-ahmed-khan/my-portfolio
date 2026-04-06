@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid contact-section">
-    <Particle />
+    <Particles />
     <div class="container" style="position: relative; z-index: 1">
       <!-- Header -->
       <h1 class="project-heading contact-heading" v-reveal="{ direction: 'up' }">Get In <strong class="blue">Touch</strong></h1>
@@ -167,69 +167,61 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, reactive } from 'vue'
+<script setup lang="ts">
+import { ref, reactive } from 'vue'
 import emailjs from '@emailjs/browser'
-import Particle from '@/components/Particles.vue'
-import { socialLinks } from '@/data/socialLinks'
+import Particles from '@/components/ui/Particles.vue'
+import { socialLinks } from '@/data/social-links'
 
-const EMAILJS_SERVICE_ID = 'service_93szg14'
-const EMAILJS_TEMPLATE_ID = 'template_551yede'
-const EMAILJS_PUBLIC_KEY = 'Nsv5qp2kuAPze5MdL'
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string
 
-export default defineComponent({
-  name: 'ContactPage',
-  components: { Particle },
-  setup() {
-    const submitted = ref(false)
-    const sending = ref(false)
-    const errorMsg = ref('')
+const submitted = ref(false)
+const sending = ref(false)
+const errorMsg = ref('')
 
-    const form = reactive({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    })
-
-    const submitForm = async () => {
-      sending.value = true
-      errorMsg.value = ''
-
-      try {
-        await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          {
-            from_name: form.name,
-            from_email: form.email,
-            subject: form.subject,
-            message: form.message,
-            reply_to: form.email
-          },
-          EMAILJS_PUBLIC_KEY
-        )
-
-        submitted.value = true
-        form.name = ''
-        form.email = ''
-        form.subject = ''
-        form.message = ''
-
-        setTimeout(() => {
-          submitted.value = false
-        }, 5000)
-      } catch {
-        errorMsg.value =
-          'Something went wrong. Please try emailing me directly at muneerkhan31886@gmail.com'
-      } finally {
-        sending.value = false
-      }
-    }
-
-    return { form, submitted, sending, errorMsg, submitForm, socialLinks }
-  }
+const form = reactive({
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
 })
+
+const submitForm = async () => {
+  sending.value = true
+  errorMsg.value = ''
+
+  try {
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        from_email: form.email,
+        subject: form.subject,
+        message: form.message,
+        reply_to: form.email
+      },
+      EMAILJS_PUBLIC_KEY
+    )
+
+    submitted.value = true
+    form.name = ''
+    form.email = ''
+    form.subject = ''
+    form.message = ''
+
+    setTimeout(() => {
+      submitted.value = false
+    }, 5000)
+  } catch {
+    errorMsg.value =
+      'Something went wrong. Please try emailing me directly at muneerkhan31886@gmail.com'
+  } finally {
+    sending.value = false
+  }
+}
 </script>
 
 <style scoped>

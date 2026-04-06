@@ -24,16 +24,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { skillCategories } from '@/data/skills'
-
-export default defineComponent({
-  name: 'TechStack',
-  setup() {
-    return { skillCategories }
-  }
-})
 </script>
 
 <style scoped>

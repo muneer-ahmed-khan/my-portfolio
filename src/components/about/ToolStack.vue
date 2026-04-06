@@ -19,16 +19,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { tools } from '@/data/skills'
-
-export default defineComponent({
-  name: 'ToolStack',
-  setup() {
-    return { tools }
-  }
-})
 </script>
 
 <style scoped>

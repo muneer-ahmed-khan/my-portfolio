@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faHome,
@@ -25,7 +26,8 @@ import {
   faGamepad,
   faPlane,
   faMicrochip,
-  faArrowUpRightFromSquare
+  faArrowUpRightFromSquare,
+  faStar
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGithub,
@@ -39,7 +41,6 @@ import { loadFull } from 'tsparticles'
 import VuePdf from 'vue3-pdfjs'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'vue3-calendar-heatmap/dist/style.css'
 import '@/assets/main.css'
 import '@/assets/animations.css'
@@ -71,6 +72,7 @@ library.add(
   faPlane,
   faMicrochip,
   faArrowUpRightFromSquare,
+  faStar,
   // Brand icons
   faGithub,
   faLinkedin,
@@ -80,9 +82,11 @@ library.add(
 
 import App from './App.vue'
 import router from './router/index'
-import vReveal from './directives/vReveal'
+import vReveal from './directives/v-reveal'
 
 const app = createApp(App)
+
+app.use(createPinia())
 
 app.use(Particles, {
   init: async (engine) => {

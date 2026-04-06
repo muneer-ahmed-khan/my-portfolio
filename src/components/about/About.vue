@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid about-section">
-    <Particle />
+    <Particles />
     <div class="container">
       <!-- Bio section -->
       <div class="row justify-content-center" style="padding: 10px">
@@ -28,23 +28,17 @@
       <ToolStack />
 
       <!-- GitHub contributions -->
-      <Github />
+      <GithubHeatmap />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import Particle from '../Particles.vue'
-import Github from './Github.vue'
+<script setup lang="ts">
+import Particles from '@/components/ui/Particles.vue'
+import GithubHeatmap from './GitHubHeatmap.vue'
 import TechStack from './TechStack.vue'
 import AboutCard from './AboutCard.vue'
 import ToolStack from './ToolStack.vue'
-
-export default defineComponent({
-  name: 'TheAbout',
-  components: { Particle, Github, TechStack, AboutCard, ToolStack }
-})
 </script>
 
 <style scoped>

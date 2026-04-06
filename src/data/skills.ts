@@ -1,13 +1,4 @@
-export interface Skill {
-  name: string
-  icon: string
-  invert?: boolean
-}
-
-export interface SkillCategory {
-  name: string
-  skills: Skill[]
-}
+import type { Skill, SkillCategory } from '@/types/skill'
 
 const D = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
 

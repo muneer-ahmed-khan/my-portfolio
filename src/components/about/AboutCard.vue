@@ -53,8 +53,7 @@
   </div>
 </template>
 
-<script lang="ts">
-export default { name: 'AboutCard' }
+<script setup lang="ts">
 </script>
 
 <style scoped>

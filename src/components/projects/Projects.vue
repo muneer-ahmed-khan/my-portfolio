@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid project-section">
-    <Particle />
+    <Particles />
     <div class="container">
       <h1 class="project-heading" v-reveal="{ direction: 'up' }">My Recent <strong class="blue">Works</strong></h1>
       <p class="projects-subtitle" v-reveal="{ direction: 'up', delay: 100 }">
@@ -20,19 +20,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import Particles from '@/components/ui/Particles.vue'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
-import Particle from '@/components/Particles.vue'
 import { projects } from '@/data/projects'
-
-export default defineComponent({
-  name: 'TheProjects',
-  components: { ProjectCard, Particle },
-  setup() {
-    return { projects }
-  }
-})
 </script>
 
 <style scoped>

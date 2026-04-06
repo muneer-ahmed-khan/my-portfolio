@@ -1,0 +1,19 @@
+/* ===================== */
+/* Vendor Overrides      */
+/* ===================== */
+
+/* GitHub heatmap — month/day labels */
+.vch__container svg.vch__wrapper text.vch__month__label,
+.vch__container svg.vch__wrapper text.vch__day__label,
+.vch__container svg.vch__wrapper .vch__legend__wrapper text {
+  fill: #94a3b8 !important;
+}
+
+/* Less / More legend */
+.vch__container .vch__legend {
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  margin-top: 8px;
+  gap: 6px;
+}

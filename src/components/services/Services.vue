@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid services-section">
-    <Particle />
+    <Particles />
     <div class="container" style="position: relative; z-index: 1">
       <!-- Header -->
       <h1 class="project-heading services-heading" v-reveal="{ direction: 'up' }">
@@ -39,7 +39,7 @@
         </h2>
         <div class="row">
           <div
-            v-for="(step, index) in process"
+            v-for="(step, index) in processSteps"
             :key="step.number"
             class="col-6 col-md-3 process-step"
             v-reveal="{ direction: 'up', delay: index * 100 }"
@@ -67,87 +67,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import Particle from '@/components/Particles.vue'
-
-export default defineComponent({
-  name: 'ServicesPage',
-  components: { Particle },
-  setup() {
-    const services = [
-      {
-        title: 'Custom SaaS Platforms',
-        icon: 'rocket',
-        description:
-          'End-to-end SaaS application development — from multi-tenant architecture and subscription billing to onboarding flows and admin dashboards. Built to scale.',
-        tags: ['Vue 3', 'Nuxt.js', 'React', 'Next.js', 'NestJS', 'PostgreSQL']
-      },
-      {
-        title: 'Backend APIs & Microservices',
-        icon: 'code',
-        description:
-          'High-performance REST and GraphQL APIs with clean architecture. Microservices designed for horizontal scaling, resiliency, and long-term maintainability.',
-        tags: ['Node.js', 'NestJS', 'Go', 'FastAPI', 'GraphQL', 'Docker']
-      },
-      {
-        title: 'Real-time Systems',
-        icon: 'bolt',
-        description:
-          'Live dashboards, chat systems, notifications, and event-driven data flows. WebSocket and MQTT-powered features that deliver instant updates at scale.',
-        tags: ['Socket.IO', 'WebSockets', 'MQTT', 'Redis', 'Node.js']
-      },
-      {
-        title: 'Cloud Deployment & DevOps',
-        icon: 'cloud',
-        description:
-          'Infrastructure setup and CI/CD pipelines on AWS or Azure. Docker containerization, automated deployments via GitHub Actions, monitoring, and rollback strategies.',
-        tags: ['AWS', 'Azure', 'Docker', 'GitHub Actions', 'Terraform']
-      },
-      {
-        title: 'LLM & AI Integrations',
-        icon: 'wand-magic-sparkles',
-        description:
-          'AI-powered features integrated into your product — semantic search, document Q&A, automated content pipelines, and custom LLM workflows using OpenAI, Claude, and more.',
-        tags: ['OpenAI', 'Claude API', 'FastAPI', 'Python', 'Redis', 'AWS Lambda']
-      },
-      {
-        title: 'MVP & Rapid Prototyping',
-        icon: 'fire',
-        description:
-          'Fast, focused MVP builds to validate your idea quickly. I build iteratively so you can give feedback early, keeping scope realistic and delivery date predictable.',
-        tags: ['Vue 3', 'React', 'Supabase', 'Tailwind CSS', 'Vercel']
-      }
-    ]
-
-    const process = [
-      {
-        number: '01',
-        title: 'Discovery',
-        description:
-          'A short call to understand your actual goal — not just the feature list, but the business problem behind it.'
-      },
-      {
-        number: '02',
-        title: 'Scoping',
-        description:
-          'A realistic scope proposal with milestones so there are no surprises on delivery day.'
-      },
-      {
-        number: '03',
-        title: 'Build',
-        description:
-          'Iterative development with early feedback checkpoints. Clean code that whoever touches it next will thank you for.'
-      },
-      {
-        number: '04',
-        title: 'Deliver',
-        description:
-          'Deployment, documentation, and ongoing support. I stay available after launch, not just during it.'
-      }
-    ]
-
-    return { services, process }
-  }
-})
+<script setup lang="ts">
+import Particles from '@/components/ui/Particles.vue'
+import { services, processSteps } from '@/data/services'
 </script>

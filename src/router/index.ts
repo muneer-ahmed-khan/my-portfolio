@@ -1,21 +1,51 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Home from '../components/home/Home.vue'
-import About from '../components/about/About.vue'
-import Projects from '../components/projects/Projects.vue'
-import Resume from '../components/resume/Resume.vue'
-import Services from '../components/services/Services.vue'
-import Contact from '../components/contact/Contact.vue'
-import NotFound from '../components/NotFound.vue'
+export const RouteNames = {
+  Home: 'home',
+  About: 'about',
+  Projects: 'projects',
+  Services: 'services',
+  Contact: 'contact',
+  Resume: 'resume',
+  NotFound: 'not-found'
+} as const
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
-  { path: '/projects', component: Projects },
-  { path: '/services', component: Services },
-  { path: '/contact', component: Contact },
-  { path: '/resume', component: Resume },
-  { path: '/:pathMatch(.*)*', component: NotFound }
+  {
+    path: '/',
+    name: RouteNames.Home,
+    component: () => import('@/components/home/HomeHero.vue')
+  },
+  {
+    path: '/about',
+    name: RouteNames.About,
+    component: () => import('@/components/about/About.vue')
+  },
+  {
+    path: '/projects',
+    name: RouteNames.Projects,
+    component: () => import('@/components/projects/Projects.vue')
+  },
+  {
+    path: '/services',
+    name: RouteNames.Services,
+    component: () => import('@/components/services/Services.vue')
+  },
+  {
+    path: '/contact',
+    name: RouteNames.Contact,
+    component: () => import('@/components/contact/Contact.vue')
+  },
+  {
+    path: '/resume',
+    name: RouteNames.Resume,
+    component: () => import('@/components/resume/Resume.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: RouteNames.NotFound,
+    component: () => import('@/components/NotFound.vue')
+  }
 ]
 
 const router = createRouter({

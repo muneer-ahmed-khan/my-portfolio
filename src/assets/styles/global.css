@@ -1,0 +1,213 @@
+/* ===================== */
+/* Global Utilities      */
+/* ===================== */
+.blue {
+  color: var(--color-primary) !important;
+}
+
+.accent {
+  color: var(--color-accent) !important;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.section-intro-heading {
+  font-size: var(--text-4xl);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.section-subheading {
+  font-size: var(--text-3xl);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.social-section-heading {
+  font-size: var(--text-2xl);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+button:focus {
+  box-shadow: none !important;
+}
+
+/* ===================== */
+/* Scrollbar             */
+/* ===================== */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 12px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+  border-radius: 12px;
+}
+
+/* ===================== */
+/* Shared Buttons        */
+/* ===================== */
+.btn-primary {
+  color: #fff !important;
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+  color: #fff !important;
+  background-color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  transform: translateY(-1px);
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-cta {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent)) !important;
+  border: none !important;
+  color: white !important;
+  padding: 12px 32px !important;
+  border-radius: 8px !important;
+  font-size: var(--text-base) !important;
+  font-weight: var(--weight-semibold) !important;
+  font-family: var(--font-body) !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease !important;
+}
+
+.btn-cta:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px var(--color-glow) !important;
+}
+
+/* ===================== */
+/* Shared Section Headings */
+/* ===================== */
+.project-heading {
+  color: var(--color-text) !important;
+  font-size: var(--text-4xl) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: var(--weight-bold) !important;
+  letter-spacing: var(--tracking-tight) !important;
+  line-height: var(--leading-tight) !important;
+  padding-top: 10px !important;
+}
+
+/* ===================== */
+/* Particles             */
+/* ===================== */
+#tsparticles {
+  position: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===================== */
+/* Availability Badge    */
+/* ===================== */
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 200, 100, 0.12);
+  border: 1px solid rgba(0, 200, 100, 0.35);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  color: #4ade80;
+  margin-top: 16px;
+}
+
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ===================== */
+/* Footer                */
+/* ===================== */
+.footer {
+  background-color: var(--color-footer-bg);
+  bottom: 0 !important;
+  padding-top: 10px !important;
+  padding-bottom: 8px !important;
+}
+
+.footer-copywright {
+  text-align: center !important;
+}
+
+.footer-body {
+  z-index: 1;
+  text-align: center !important;
+}
+
+@media (max-width: 767px) {
+  .footer-copywright {
+    text-align: center !important;
+  }
+  .footer-body {
+    text-align: center !important;
+  }
+}
+
+.footer h3 {
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  color: #e2e8f0 !important;
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
+  letter-spacing: var(--tracking-normal);
+}
+
+.footer-icons {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
+  padding: 0 !important;
+}
+
+.blockquote-footer {
+  color: var(--color-text-muted) !important;
+}

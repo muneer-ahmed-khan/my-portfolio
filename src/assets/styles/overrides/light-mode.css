@@ -1,0 +1,114 @@
+/* ===================== */
+/* Light Mode Overrides  */
+/* Component-level fixes */
+/* ===================== */
+
+/* --- Navbar (light mode) --- */
+html[data-theme="light"] .portfolio-nav,
+html[data-theme="light"] .portfolio-nav.scrolled {
+  background: #d0ede8 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 2px 12px rgba(13, 148, 136, 0.12) !important;
+  border-bottom: none !important;
+}
+
+html[data-theme="light"] .nav-menu {
+  background: #d0ede8 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.portfolio-nav.scrolled {
+  border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+}
+html[data-theme="light"] .portfolio-nav.scrolled {
+  border-bottom: 1px solid rgba(13, 148, 136, 0.12) !important;
+}
+
+/* --- Home social icons --- */
+html[data-theme="light"] .home-social-icons {
+  background: #ffffff !important;
+  border: 2px solid var(--color-primary) !important;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.15) !important;
+}
+
+html[data-theme="light"] .home-social-icons::before {
+  background: rgba(13, 148, 136, 0.12) !important;
+}
+
+/* --- Availability badge --- */
+html[data-theme="light"] .availability-badge {
+  background: rgba(21, 128, 61, 0.1);
+  border: 1px solid rgba(21, 128, 61, 0.3);
+  color: #15803d;
+}
+
+html[data-theme="light"] .availability-dot {
+  background: #15803d;
+}
+
+/* --- AboutCard --- */
+html[data-theme="light"] .quote-card-view {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(13, 148, 136, 0.2) !important;
+  color: var(--color-text) !important;
+}
+
+/* --- GitHub heatmap --- */
+html[data-theme="light"] .github-skeleton {
+  background: linear-gradient(90deg, #ccfbf1 25%, #99f6e4 50%, #ccfbf1 75%) !important;
+  background-size: 200% 100% !important;
+}
+
+html[data-theme="light"] .github-error {
+  background: rgba(204, 251, 241, 0.5) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-muted) !important;
+}
+
+html[data-theme="light"] .vch__container svg.vch__wrapper text.vch__month__label,
+html[data-theme="light"] .vch__container svg.vch__wrapper text.vch__day__label,
+html[data-theme="light"] .vch__container svg.vch__wrapper .vch__legend__wrapper text {
+  fill: var(--color-text-muted) !important;
+}
+
+/* --- Card image gradient overlay --- */
+html[data-theme="light"] .card-img-wrapper::after {
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.88));
+}
+
+/* --- Skill icon boxes --- */
+html[data-theme="light"] .skill-icon-box {
+  background: rgba(13, 148, 136, 0.05);
+  border-color: rgba(13, 148, 136, 0.15);
+}
+
+html[data-theme="light"] .invert-icon {
+  filter: none !important;
+}
+
+/* --- Contact form --- */
+html[data-theme="light"] .form-control {
+  background: rgba(13, 148, 136, 0.04) !important;
+  color: var(--color-text) !important;
+}
+
+html[data-theme="light"] .form-control:focus {
+  background: rgba(13, 148, 136, 0.07) !important;
+  color: var(--color-text) !important;
+}
+
+html[data-theme="light"] .form-success {
+  background: rgba(21, 128, 61, 0.08);
+  border-color: rgba(21, 128, 61, 0.25);
+  color: #15803d;
+}
+
+html[data-theme="light"] .form-error {
+  color: #dc2626 !important;
+}

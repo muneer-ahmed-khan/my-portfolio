@@ -1,0 +1,67 @@
+/* ===================== */
+/* Resume Section        */
+/* ===================== */
+.resume-section {
+  position: relative !important;
+  padding-top: 110px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+  color: var(--color-text) !important;
+}
+
+@media (max-width: 767px) {
+  .resume-section {
+    padding-top: 80px !important;
+  }
+}
+
+.resume {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  justify-content: center;
+}
+
+@media (min-width: 320px) {
+  .resume { margin: 0 1rem; }
+}
+
+@media (min-width: 767px) {
+  .resume { margin: 0 2rem; }
+}
+
+@media (min-width: 1020px) {
+  .resume { margin: 0 4rem; }
+}
+
+@media (min-width: 1500px) {
+  .resume { margin: 0 10rem; }
+}
+
+/* Hide PDF on mobile, show download CTA instead */
+.resume-mobile-cta {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .resume-pdf-wrapper {
+    display: none;
+  }
+
+  .resume-mobile-cta {
+    display: block;
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    margin: 20px 0 30px;
+  }
+
+  .resume-mobile-cta p {
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    margin-bottom: 24px;
+    line-height: var(--leading-relaxed);
+  }
+}

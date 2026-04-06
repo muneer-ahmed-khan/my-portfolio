@@ -52,21 +52,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import type { Project } from '@/types/project'
 
-export default defineComponent({
-  name: 'ProjectCard',
-  props: {
-    imgPath: { type: String, required: true },
-    title: { type: String, required: true },
-    description: { type: String, required: true },
-    ghLink: { type: String, required: true },
-    demoLink: { type: String, default: null },
-    isBlog: { type: Boolean, default: false },
-    techStack: { type: Array as () => string[], default: () => [] }
-  }
-})
+defineProps<Omit<Project, 'id'>>()
 </script>
 
 <style scoped>

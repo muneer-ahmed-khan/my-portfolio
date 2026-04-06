@@ -1,0 +1,120 @@
+/* ===================== */
+/* Design Tokens         */
+/* ===================== */
+:root {
+  /* Color — Dark mode (default) */
+  --color-primary: #2dd4bf;
+  --color-accent: #fbbf24;
+  --color-bg: #040d10;
+  --color-surface: #0a1a20;
+  --color-surface-2: #0f2430;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-border: rgba(45, 212, 191, 0.2);
+  --color-glow: rgba(45, 212, 191, 0.3);
+  --color-scrollbar-track: #061318;
+  --color-footer-bg: #030c0f;
+
+  /* Typography — Font Families */
+  --font-heading: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Typography — Type Scale (fluid where applicable) */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  clamp(1.75rem, 3vw, 2.25rem);
+  --text-4xl:  clamp(2rem, 4vw, 2.75rem);
+  --text-5xl:  clamp(2.5rem, 6vw, 4rem);
+
+  /* Typography — Font Weights */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* Typography — Line Heights */
+  --leading-none:    1;
+  --leading-tight:   1.2;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+  --leading-loose:   1.85;
+
+  /* Typography — Letter Spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.05em;
+  --tracking-wider:   0.08em;
+  --tracking-widest:  0.12em;
+
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(10, 26, 32, 0.65),
+    rgba(4, 13, 16, 0.95)
+  );
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(4, 13, 16, 0.30),
+    rgba(4, 13, 16, 0.65)
+  );
+}
+
+/* ===================== */
+/* Light Mode Tokens     */
+/* ===================== */
+html[data-theme="light"] {
+  --color-bg: #d0ede8;
+  --color-surface: #ffffff;
+  --color-surface-2: #e8f7f4;
+  --color-primary: #0d9488;
+  --color-accent: #d97706;
+  --color-text: #0f1f22;
+  --color-text-muted: #4b6a6f;
+  --color-border: rgba(13, 148, 136, 0.22);
+  --color-glow: rgba(13, 148, 136, 0.15);
+  --color-scrollbar-track: #9dd4cc;
+  --color-footer-bg: #061a1e;
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(208, 237, 232, 0.92),
+    rgba(180, 235, 228, 0.88)
+  );
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(208, 237, 232, 0.04),
+    rgba(208, 237, 232, 0.06)
+  );
+}
+
+/* System preference fallback — applies before JS sets data-theme */
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) {
+    --color-bg: #d0ede8;
+    --color-surface: #ffffff;
+    --color-surface-2: #e8f7f4;
+    --color-primary: #0d9488;
+    --color-accent: #d97706;
+    --color-text: #0f1f22;
+    --color-text-muted: #4b6a6f;
+    --color-border: rgba(13, 148, 136, 0.22);
+    --color-glow: rgba(13, 148, 136, 0.15);
+    --color-scrollbar-track: #9dd4cc;
+    --color-footer-bg: #061a1e;
+    --section-background-color: linear-gradient(
+      to bottom left,
+      rgba(208, 237, 232, 0.92),
+      rgba(180, 235, 228, 0.88)
+    );
+    --image-gradient: linear-gradient(
+      to bottom left,
+      rgba(208, 237, 232, 0.04),
+      rgba(208, 237, 232, 0.06)
+    );
+  }
+}

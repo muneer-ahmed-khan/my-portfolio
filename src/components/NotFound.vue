@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid not-found-section">
-    <Particle />
+    <Particles />
     <div style="position: relative; z-index: 1">
       <div class="not-found-code">404</div>
       <h2 class="not-found-title">Page Not Found</h2>
@@ -15,12 +15,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import Particle from '@/components/Particles.vue'
-
-export default defineComponent({
-  name: 'NotFound',
-  components: { Particle }
-})
+<script setup lang="ts">
+import Particles from '@/components/ui/Particles.vue'
 </script>
