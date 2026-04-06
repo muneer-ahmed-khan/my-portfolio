@@ -14,16 +14,18 @@
     </div>
 
     <template v-else-if="calendarData.length > 0">
-      <CalendarHeatmap
-        :values="calendarData"
-        :end-date="new Date()"
-        :range="365"
-        :max="heatmapMax"
-        :range-color="['#0a1a20', '#0d9488', '#2dd4bf', '#5eead4', '#99f6e4']"
-        :dark-mode="true"
-        :round="2"
-        style="border-radius: 8px"
-      />
+      <div class="heatmap-scroll-wrapper">
+        <CalendarHeatmap
+          :values="calendarData"
+          :end-date="new Date()"
+          :range="365"
+          :max="heatmapMax"
+          :range-color="['#0a1a20', '#0d9488', '#2dd4bf', '#5eead4', '#99f6e4']"
+          :dark-mode="true"
+          :round="2"
+          style="border-radius: 8px"
+        />
+      </div>
       <p class="github-legend">
         Last 365 days · GitHub: <a href="https://github.com/muneer-ahmed-khan" target="_blank" rel="noreferrer" class="github-link">muneer-ahmed-khan</a>
       </p>
@@ -136,5 +138,10 @@ export default defineComponent({
   color: var(--color-text-muted);
   margin-top: 12px;
   text-align: right;
+}
+
+.heatmap-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 </style>

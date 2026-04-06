@@ -221,5 +221,5 @@ Custom scrollbar defined globally in `main.css`:
 - [ ] **Colors & Theme** — Revisit palette, consider theme switching (dark/light), ensure WCAG AA contrast
 - [x] **Icons** — Audited and standardized: semantic icons per service, distinct hobby icons in About, inline SVG replaced in ProjectCard, dead brand icons purged from bundle, `aria-hidden` applied consistently, `faSpinner` bug fixed
 - [ ] **Animations** — Scroll-reveal on section entry, stagger effects on skill cards, hero entrance animation
-- [ ] **Typography** — Fine-tune fluid scale, improve readability on mobile
+- [x] **Typography** — Mobile readability: heading padding reduced, `.type-wrapper` class controls Type component spacing at all breakpoints, section top padding reduced from 150px → 90px on mobile
 - [ ] **Micro-interactions** — Button hover states, card hover lifts, link underline animations

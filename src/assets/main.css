@@ -1388,3 +1388,144 @@ html[data-theme="light"] .form-success {
 html[data-theme="light"] .form-error {
   color: #dc2626 !important;
 }
+
+/* ===================== */
+/* Mobile Responsiveness */
+/* ===================== */
+
+/* --- Home hero: type wrapper (replaces inline style) --- */
+.type-wrapper {
+  padding: 50px 50px 50px;
+  text-align: left;
+}
+
+/* --- Home hero: heading & content padding --- */
+@media (max-width: 767px) {
+  .type-wrapper {
+    padding: 20px 0 30px;
+  }
+
+  .heading {
+    padding-left: 1rem !important;
+  }
+
+  .heading-name {
+    padding-left: 0.75rem !important;
+  }
+
+  .home-content {
+    padding: 5rem 0 1rem !important;
+  }
+
+  .home-header {
+    padding-top: 40px !important;
+  }
+}
+
+/* --- Home about: reduce fixed paddings on mobile --- */
+@media (max-width: 767px) {
+  .home-about-description {
+    padding-top: 20px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .home-about-body {
+    padding-top: 20px !important;
+  }
+
+  .home-about-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* --- Section top padding: reduce 150px → 90px on mobile --- */
+@media (max-width: 767px) {
+  .project-section {
+    padding-top: 90px !important;
+  }
+
+  .about-section {
+    padding-top: 90px !important;
+  }
+
+  .services-section {
+    padding-top: 90px !important;
+  }
+
+  .contact-section {
+    padding-top: 90px !important;
+  }
+
+  .resume-section {
+    padding-top: 80px !important;
+  }
+}
+
+/* --- Services: process section padding on mobile --- */
+@media (max-width: 767px) {
+  .process-section {
+    padding: 30px 16px !important;
+    margin-top: 50px !important;
+  }
+}
+
+/* --- Resume: hide PDF on mobile, show download CTA instead --- */
+.resume-mobile-cta {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .resume-pdf-wrapper {
+    display: none;
+  }
+
+  .resume-mobile-cta {
+    display: block;
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    margin: 20px 0 30px;
+  }
+
+  .resume-mobile-cta p {
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    margin-bottom: 24px;
+    line-height: var(--leading-relaxed);
+  }
+}
+
+/* --- Avatar: cap size on very small screens --- */
+@media (max-width: 400px) {
+  .home-section .img-fluid {
+    max-height: 280px !important;
+  }
+
+  .about-img .img-fluid {
+    max-width: 240px !important;
+  }
+}
+
+/* --- Contact form columns: stack on mobile (Bootstrap handles this,
+       but ensure the row gap doesn't create excess whitespace) --- */
+@media (max-width: 767px) {
+  .contact-form-card {
+    padding: 24px 16px !important;
+  }
+
+  .contact-info-card {
+    padding: 24px 16px !important;
+  }
+}
+
+/* --- Services CTA: tighten padding on mobile --- */
+@media (max-width: 767px) {
+  .services-cta {
+    padding: 36px 20px !important;
+    margin-top: 40px !important;
+  }
+}

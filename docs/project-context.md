@@ -109,4 +109,5 @@ Design tokens live in `src/assets/main.css` under `:root`. See `docs/design-syst
 
 1. **Colors & Theme** — ✅ Done — "Deep Ocean" teal/amber palette, dark+light modes, navbar toggle
 2. **Icons** — ✅ Done — Standardized FA6 icon usage: semantic service icons, distinct hobby icons, inline SVG eliminated, dead bundle imports purged, aria-hidden applied throughout
-3. **Animations** — Add/improve micro-interactions, scroll animations, transitions
+3. **Mobile Responsiveness** — ✅ Done — Hero heading/content padding fixed, section `padding-top` reduced to 90px on mobile, `.type-wrapper` class replaces inline style, Resume page hides PDF and shows download CTA on mobile, GitHub heatmap scrollable horizontally, Services process steps render as 2×2 grid on mobile, contact/services card padding tightened
+4. **Animations** — Add/improve micro-interactions, scroll animations, transitions

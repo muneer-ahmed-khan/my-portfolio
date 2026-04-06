@@ -14,7 +14,7 @@
               I'M <strong class="main-name"> Muneer Ahmed</strong>
             </h1>
 
-            <div style="padding: 50px 50px 50px; text-align: left">
+            <div class="type-wrapper">
               <Type />
             </div>
           </div>

@@ -33,7 +33,7 @@
           How I <strong class="blue">Work</strong>
         </h2>
         <div class="row">
-          <div v-for="step in process" :key="step.number" class="col-md-3 process-step">
+          <div v-for="step in process" :key="step.number" class="col-6 col-md-3 process-step">
             <div class="process-number">{{ step.number }}</div>
             <h4 class="process-title">{{ step.title }}</h4>
             <p class="process-desc">{{ step.description }}</p>

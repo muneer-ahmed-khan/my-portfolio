@@ -20,8 +20,24 @@
         </div>
       </div>
 
-      <div class="resume">
-        <VuePdf v-for="page in numOfPages" :key="page" :src="pdfSrc" :page="page" />
+      <div class="resume-mobile-cta">
+        <p>The resume is best viewed on desktop.<br />Download the PDF to view on mobile.</p>
+        <a
+          :href="pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+          style="display: inline-flex; align-items: center; gap: 6px; min-width: 200px; justify-content: center; font-size: 1rem; padding: 14px 28px"
+        >
+          <font-awesome-icon icon="arrow-down" aria-hidden="true" />
+          Download CV
+        </a>
+      </div>
+
+      <div class="resume-pdf-wrapper">
+        <div class="resume">
+          <VuePdf v-for="page in numOfPages" :key="page" :src="pdfSrc" :page="page" />
+        </div>
       </div>
 
       <div class="row justify-content-center mt-4 mb-4">
