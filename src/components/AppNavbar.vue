@@ -1,5 +1,5 @@
 <template>
-  <nav :class="['portfolio-nav', navColour ? 'scrolled' : '']">
+  <nav :class="['portfolio-nav', 'nav-slide-down', navColour ? 'scrolled' : '']">
     <div class="nav-container">
       <!-- Brand -->
       <router-link to="/" class="nav-brand" @click="closeNavbar">

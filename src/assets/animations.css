@@ -1,0 +1,180 @@
+/* ============================================================ */
+/* Animation System — Deep Ocean Portfolio                      */
+/* All animations use transform + opacity only (GPU-composited) */
+/* ============================================================ */
+
+/* ---- Animation Tokens ---- */
+:root {
+  --anim-duration-fast:   0.3s;
+  --anim-duration-base:   0.65s;
+  --anim-duration-slow:   0.9s;
+  --anim-easing:          cubic-bezier(0.16, 1, 0.3, 1);   /* snappy spring */
+  --anim-easing-smooth:   cubic-bezier(0.4, 0, 0.2, 1);    /* material */
+  --reveal-delay:         0ms;
+}
+
+/* ============================================================ */
+/* Scroll-Reveal System (v-reveal directive)                     */
+/* Elements start hidden; directive adds .reveal--visible when  */
+/* they enter the viewport via IntersectionObserver             */
+/* ============================================================ */
+
+.reveal {
+  will-change: opacity, transform;
+}
+
+/* Initial hidden states */
+.reveal--up    { opacity: 0; transform: translateY(36px); }
+.reveal--down  { opacity: 0; transform: translateY(-36px); }
+.reveal--left  { opacity: 0; transform: translateX(-40px); }
+.reveal--right { opacity: 0; transform: translateX(40px); }
+.reveal--fade  { opacity: 0; }
+.reveal--scale { opacity: 0; transform: scale(0.88); }
+
+/* Transition settings */
+.reveal--up,
+.reveal--down,
+.reveal--left,
+.reveal--right,
+.reveal--fade,
+.reveal--scale {
+  transition:
+    opacity var(--anim-duration-base) var(--anim-easing),
+    transform var(--anim-duration-base) var(--anim-easing);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Visible state — resets all transforms */
+.reveal--visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ============================================================ */
+/* Hero Entrance (CSS keyframes — above-the-fold, fires on load) */
+/* ============================================================ */
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-scale-in {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes nav-slide-down {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Hero stagger classes */
+.hero-anim-1 { animation: hero-fade-up var(--anim-duration-base) var(--anim-easing) 0.10s both; }
+.hero-anim-2 { animation: hero-fade-up var(--anim-duration-base) var(--anim-easing) 0.25s both; }
+.hero-anim-3 { animation: hero-fade-up var(--anim-duration-base) var(--anim-easing) 0.40s both; }
+.hero-anim-img { animation: hero-scale-in var(--anim-duration-slow) var(--anim-easing) 0.20s both; }
+
+/* Navbar entrance */
+.nav-slide-down {
+  animation: nav-slide-down 0.45s var(--anim-easing-smooth) both;
+}
+
+/* ============================================================ */
+/* Micro-interactions                                            */
+/* ============================================================ */
+
+/* Tech tag hover shimmer */
+.tech-tag {
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    transform 0.2s ease !important;
+}
+.tech-tag:hover {
+  background: rgba(45, 212, 191, 0.22) !important;
+  border-color: rgba(45, 212, 191, 0.6) !important;
+  transform: translateY(-1px);
+}
+
+/* Service card lift */
+.service-card {
+  transition:
+    transform 0.3s var(--anim-easing),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease !important;
+}
+.service-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 48px rgba(45, 212, 191, 0.18) !important;
+  border-color: rgba(45, 212, 191, 0.45) !important;
+}
+
+/* Contact info item nudge */
+.contact-info-item {
+  transition: transform 0.22s ease !important;
+  cursor: default;
+}
+.contact-info-item:hover {
+  transform: translateX(5px) !important;
+}
+
+/* Process step number pulse on hover */
+.process-step:hover .process-number {
+  transform: scale(1.08);
+  transition: transform 0.25s var(--anim-easing);
+}
+
+/* Social icon glow pulse on footer */
+.footer .social-icons a {
+  transition: color 0.25s ease, transform 0.25s ease !important;
+}
+.footer .social-icons a:hover {
+  transform: translateY(-3px) !important;
+}
+
+/* Nav link icon subtle spin on hover */
+.nav-link-item:hover .nav-link-icon {
+  transform: scale(1.15);
+  transition: transform 0.2s var(--anim-easing);
+}
+
+/* ============================================================ */
+/* prefers-reduced-motion — disable ALL decorative animations  */
+/* ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal--up,
+  .reveal--down,
+  .reveal--left,
+  .reveal--right,
+  .reveal--fade,
+  .reveal--scale {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-anim-1,
+  .hero-anim-2,
+  .hero-anim-3,
+  .hero-anim-img,
+  .nav-slide-down {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .tech-tag,
+  .service-card,
+  .contact-info-item {
+    transition: none !important;
+  }
+}

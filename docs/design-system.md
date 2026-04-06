@@ -190,12 +190,43 @@ Used in `TechStack.vue` and `ToolStack.vue` as `<img>` tags rendered from `src/d
 | Typewriter | `home/Type.vue` | Typing effect for role titles |
 | 3D Tilt | `home/Tilt.vue` | Mouse-tracking tilt on home avatar image |
 | Scroll to top | `ScrollToTop.vue` | Fade-in button after scroll threshold |
+| **v-reveal directive** | `src/directives/vReveal.ts` | IntersectionObserver scroll-reveal — `v-reveal="{ direction, delay, threshold }"` |
+| **Hero entrance** | `animations.css` `.hero-anim-1/2/3/img` | CSS keyframe sequence for above-fold content |
+| **Navbar slide-down** | `animations.css` `.nav-slide-down` | Slides nav in from top on page load |
+| **Stagger reveals** | TechStack, ToolStack, Projects, Services | `v-reveal` with `delay: index * N` |
+
+### Animation Tokens (`animations.css`)
+
+```css
+--anim-duration-fast:   0.3s
+--anim-duration-base:   0.65s
+--anim-duration-slow:   0.9s
+--anim-easing:          cubic-bezier(0.16, 1, 0.3, 1)   /* snappy spring */
+--anim-easing-smooth:   cubic-bezier(0.4, 0, 0.2, 1)    /* material */
+```
+
+### v-reveal Directive Usage
+
+```html
+<!-- Basic scroll-reveal (defaults: direction='up', delay=0, threshold=0.1) -->
+<div v-reveal>...</div>
+
+<!-- With options -->
+<div v-reveal="{ direction: 'left', delay: 200 }">...</div>
+
+<!-- Stagger in a list -->
+<div v-for="(item, i) in items" v-reveal="{ direction: 'scale', delay: i * 60 }">...</div>
+```
+
+**Direction options:** `up` | `down` | `left` | `right` | `fade` | `scale`
 
 ### Animation Patterns to Follow
 - Use CSS custom properties for durations/easings when adding new animations
 - Prefer `transform` and `opacity` for performance (avoid animating `width`, `height`, `top`, `left`)
-- Respect `prefers-reduced-motion` — wrap decorative animations in the media query
+- Respect `prefers-reduced-motion` — `animations.css` has a blanket `@media (prefers-reduced-motion: reduce)` block that disables everything
 - tsParticles config is in `Particles.vue` — edit there for particle behavior changes
+- Above-fold content: use `hero-anim-*` CSS classes (keyframe, fires on load)
+- Below-fold content: use `v-reveal` directive (IntersectionObserver, fires on scroll)
 
 ---
 
@@ -220,6 +251,6 @@ Custom scrollbar defined globally in `main.css`:
 
 - [ ] **Colors & Theme** — Revisit palette, consider theme switching (dark/light), ensure WCAG AA contrast
 - [x] **Icons** — Audited and standardized: semantic icons per service, distinct hobby icons in About, inline SVG replaced in ProjectCard, dead brand icons purged from bundle, `aria-hidden` applied consistently, `faSpinner` bug fixed
-- [ ] **Animations** — Scroll-reveal on section entry, stagger effects on skill cards, hero entrance animation
+- [x] **Animations** — `v-reveal` directive + `animations.css` system: scroll-reveal on all sections, stagger on skill/tool/project/service cards, hero entrance keyframes, navbar slide-down, micro-interactions on service cards, tech tags, contact items, footer icons
 - [x] **Typography** — Mobile readability: heading padding reduced, `.type-wrapper` class controls Type component spacing at all breakpoints, section top padding reduced from 150px → 90px on mobile
-- [ ] **Micro-interactions** — Button hover states, card hover lifts, link underline animations
+- [x] **Micro-interactions** — Service card hover lift (`translateY(-8px)` + glow), tech tag shimmer, contact info item nudge, footer icon float, nav icon scale on hover

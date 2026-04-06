@@ -4,10 +4,11 @@
       <p class="skill-category-title">{{ category.name }}</p>
       <div class="skill-icons-row">
         <div
-          v-for="skill in category.skills"
+          v-for="(skill, index) in category.skills"
           :key="skill.name"
           class="skill-icon-item"
           :title="skill.name"
+          v-reveal="{ direction: 'scale', delay: index * 55 }"
         >
           <div class="skill-icon-box">
             <img

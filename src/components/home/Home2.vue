@@ -2,7 +2,7 @@
   <section class="home-about-section" id="about">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 home-about-description">
+        <div class="col-md-8 home-about-description" v-reveal="{ direction: 'left' }">
           <h1 class="introduce-heading">
             Let me <span class="azure">Introduce</span> Myself
           </h1>
@@ -25,7 +25,7 @@
             difference in delivery speed and overall quality.
           </p>
         </div>
-        <div class="col-md-4 myAvtar">
+        <div class="col-md-4 myAvtar" v-reveal="{ direction: 'right', delay: 150 }">
           <Tilt>
             <img
               src="@/assets/avatar.svg"
@@ -38,7 +38,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12 home-about-social">
+        <div class="col-md-12 home-about-social" v-reveal="{ direction: 'up', delay: 100 }">
           <h2 class="social-section-heading">Find Me On</h2>
           <p>
             Available for freelance projects,
@@ -49,7 +49,12 @@
             Available for new projects
           </div>
           <ul class="home-about-social-links">
-            <li v-for="link in socialLinks" :key="link.name" class="social-icons">
+            <li
+              v-for="(link, index) in socialLinks"
+              :key="link.name"
+              class="social-icons"
+              v-reveal="{ direction: 'scale', delay: index * 80 }"
+            >
               <a
                 :href="link.url"
                 :target="link.url.startsWith('http') ? '_blank' : '_self'"

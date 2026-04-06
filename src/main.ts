@@ -42,6 +42,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'vue3-calendar-heatmap/dist/style.css'
 import '@/assets/main.css'
+import '@/assets/animations.css'
 
 library.add(
   // Solid icons
@@ -79,6 +80,7 @@ library.add(
 
 import App from './App.vue'
 import router from './router/index'
+import vReveal from './directives/vReveal'
 
 const app = createApp(App)
 
@@ -91,5 +93,6 @@ app.use(Particles, {
 app.use(VuePdf)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
+app.directive('reveal', vReveal)
 app.use(router)
 app.mount('#app')

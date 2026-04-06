@@ -1,10 +1,11 @@
 <template>
   <div class="tools-row">
     <div
-      v-for="tool in tools"
+      v-for="(tool, index) in tools"
       :key="tool.name"
       class="skill-icon-item"
       :title="tool.name"
+      v-reveal="{ direction: 'scale', delay: index * 55 }"
     >
       <div class="skill-icon-box">
         <img

@@ -3,15 +3,15 @@
     <Particle />
     <div class="container" style="position: relative; z-index: 1">
       <!-- Header -->
-      <h1 class="project-heading contact-heading">Get In <strong class="blue">Touch</strong></h1>
-      <p class="contact-subheading">
+      <h1 class="project-heading contact-heading" v-reveal="{ direction: 'up' }">Get In <strong class="blue">Touch</strong></h1>
+      <p class="contact-subheading" v-reveal="{ direction: 'up', delay: 100 }">
         Have a project in mind or want to explore a collaboration? Send me a message. I typically
         respond within 24 hours.
       </p>
 
       <div class="row g-4">
         <!-- Contact Info Panel -->
-        <div class="col-md-5">
+        <div class="col-md-5" v-reveal="{ direction: 'left', delay: 150 }">
           <div class="contact-info-card">
             <!-- Availability badge -->
             <div class="availability-badge mb-4">
@@ -93,7 +93,7 @@
         </div>
 
         <!-- Contact Form -->
-        <div class="col-md-7">
+        <div class="col-md-7" v-reveal="{ direction: 'right', delay: 200 }">
           <div class="contact-form-card">
             <form @submit.prevent="submitForm">
               <div class="row g-3">

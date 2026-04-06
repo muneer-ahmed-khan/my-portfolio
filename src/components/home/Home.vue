@@ -5,21 +5,21 @@
       <div class="container home-content">
         <div class="row align-items-center">
           <div class="col-md-7 home-header">
-            <h1 class="heading" style="padding-bottom: 15px">
+            <h1 class="heading hero-anim-1" style="padding-bottom: 15px">
               Good day
               <span class="wave" role="img" aria-label="waving hand">👋🏻</span>
             </h1>
 
-            <h1 class="heading-name">
+            <h1 class="heading-name hero-anim-2">
               I'M <strong class="main-name"> Muneer Ahmed</strong>
             </h1>
 
-            <div class="type-wrapper">
+            <div class="type-wrapper hero-anim-3">
               <Type />
             </div>
           </div>
 
-          <div class="col-md-5" style="padding-bottom: 20px; text-align: center">
+          <div class="col-md-5 hero-anim-img" style="padding-bottom: 20px; text-align: center">
             <img
               :src="homeLogo"
               alt="Muneer Ahmed – Full-Stack Developer"

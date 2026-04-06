@@ -2,15 +2,16 @@
   <div class="container-fluid project-section">
     <Particle />
     <div class="container">
-      <h1 class="project-heading">My Recent <strong class="blue">Works</strong></h1>
-      <p class="projects-subtitle">
+      <h1 class="project-heading" v-reveal="{ direction: 'up' }">My Recent <strong class="blue">Works</strong></h1>
+      <p class="projects-subtitle" v-reveal="{ direction: 'up', delay: 100 }">
         Here are a few projects I've worked on — real project details coming soon.
       </p>
       <div class="row justify-content-center">
         <div
-          v-for="project in projects"
+          v-for="(project, index) in projects"
           :key="project.id"
           class="col-md-4 project-card"
+          v-reveal="{ direction: 'up', delay: (index % 3) * 120 }"
         >
           <ProjectCard v-bind="project" />
         </div>

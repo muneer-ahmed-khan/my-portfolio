@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="footer" v-reveal="{ direction: 'up', threshold: 0.05 }">
     <div class="container-fluid">
       <div class="row text-center py-2">
         <div class="col-md-4 footer-copywright">
