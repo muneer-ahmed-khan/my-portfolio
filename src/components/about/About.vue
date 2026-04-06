@@ -11,7 +11,7 @@
           <AboutCard />
         </div>
         <div class="col-md-5 about-img" style="padding-top: 30px; padding-bottom: 50px; text-align: center">
-          <img src="@/assets/about.png" alt="Muneer Ahmed" class="img-fluid" style="border-radius: 12px; max-width: 340px" />
+          <img src="@/assets/about.svg" alt="Muneer Ahmed" class="img-fluid" style="border-radius: 12px; max-width: 340px" />
         </div>
       </div>
 

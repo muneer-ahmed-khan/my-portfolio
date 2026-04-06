@@ -28,7 +28,7 @@
         <div class="col-md-4 myAvtar">
           <Tilt>
             <img
-              src="@/assets/avatar.png"
+              src="@/assets/avatar.svg"
               class="img-fluid"
               alt="Muneer Ahmed"
               style="border-radius: 50%; max-width: 240px"

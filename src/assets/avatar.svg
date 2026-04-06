@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" fill="none">
+  <defs>
+    <radialGradient id="avBg" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </radialGradient>
+    <linearGradient id="avRing" x1="0" y1="0" x2="240" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#2dd4bf"/>
+      <stop offset="60%"  stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <radialGradient id="avGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0d9488" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="avClip">
+      <circle cx="120" cy="120" r="114"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer glow (helps on dark bg) -->
+  <circle cx="120" cy="120" r="124" fill="url(#avGlow)"/>
+
+  <!-- Gradient ring -->
+  <circle cx="120" cy="120" r="117" fill="none" stroke="url(#avRing)" stroke-width="5"/>
+  <!-- Main background circle — solid teal (replaces the original purple) -->
+  <circle cx="120" cy="120" r="114" fill="url(#avBg)"/>
+  <!-- Inner highlight ring -->
+  <circle cx="120" cy="120" r="108" fill="none" stroke="white" stroke-width="1" opacity="0.1"/>
+
+  <!-- Subtle top highlight for depth -->
+  <ellipse cx="120" cy="78" rx="66" ry="50" fill="white" opacity="0.06"/>
+
+  <!-- ── BODY / SHOULDERS ── -->
+  <path d="M34 215 Q34 168 120 168 Q206 168 206 215 L206 240 L34 240Z"
+        fill="#0a6b62" clip-path="url(#avClip)"/>
+  <!-- Chest highlight -->
+  <path d="M60 215 Q60 176 120 176 Q180 176 180 215 L180 240 L60 240Z"
+        fill="white" opacity="0.07" clip-path="url(#avClip)"/>
+  <!-- Collar V-shape -->
+  <path d="M104 168 L120 186 L136 168" fill="#0d9488" opacity="0.8" clip-path="url(#avClip)"/>
+  <path d="M104 168 L120 186 L136 168" stroke="white" stroke-width="1.5"
+        stroke-opacity="0.3" fill="none" clip-path="url(#avClip)"/>
+
+  <!-- ── NECK ── -->
+  <rect x="110" y="140" width="20" height="32" rx="8" fill="#f4b183" clip-path="url(#avClip)"/>
+
+  <!-- ── HEAD (oval — more human proportions) ── -->
+  <ellipse cx="120" cy="118" rx="43" ry="46" fill="#f4b183"/>
+
+  <!-- ── EARS ── -->
+  <ellipse cx="77"  cy="123" rx="11" ry="14" fill="#e8a070"/>
+  <ellipse cx="163" cy="123" rx="11" ry="14" fill="#e8a070"/>
+  <ellipse cx="77"  cy="123" rx="6.5" ry="8.5" fill="#d4905a"/>
+  <ellipse cx="163" cy="123" rx="6.5" ry="8.5" fill="#d4905a"/>
+
+  <!-- ── HAIR ── -->
+  <path d="M77 117 Q77 68 120 66 Q163 68 163 117 Q159 84 120 82 Q81 84 77 117Z"
+        fill="#2d1b0e"/>
+  <!-- Hair sheen / depth -->
+  <path d="M98 73 Q120 67 142 73" stroke="#4a2e14" stroke-width="5"
+        fill="none" stroke-linecap="round" opacity="0.45"/>
+  <!-- Sideburns -->
+  <path d="M77 117 Q74 125 76 134" stroke="#2d1b0e" stroke-width="10"
+        stroke-linecap="round" fill="none"/>
+  <path d="M163 117 Q166 125 164 134" stroke="#2d1b0e" stroke-width="10"
+        stroke-linecap="round" fill="none"/>
+
+  <!-- ── CHEEK BLUSH ── -->
+  <ellipse cx="94"  cy="130" rx="11" ry="6.5" fill="#f87171" opacity="0.17"/>
+  <ellipse cx="146" cy="130" rx="11" ry="6.5" fill="#f87171" opacity="0.17"/>
+
+  <!-- ── EYES ── -->
+  <!-- Whites -->
+  <ellipse cx="107" cy="117" rx="11" ry="9.5" fill="white"/>
+  <ellipse cx="133" cy="117" rx="11" ry="9.5" fill="white"/>
+  <!-- Iris -->
+  <circle  cx="107" cy="117" r="6.5"  fill="#0d9488"/>
+  <circle  cx="133" cy="117" r="6.5"  fill="#0d9488"/>
+  <!-- Pupil -->
+  <circle  cx="107" cy="117" r="3.8"  fill="#1a2535"/>
+  <circle  cx="133" cy="117" r="3.8"  fill="#1a2535"/>
+  <!-- Primary shine -->
+  <circle  cx="109.5" cy="114"   r="2.2" fill="white"/>
+  <circle  cx="135.5" cy="114"   r="2.2" fill="white"/>
+  <!-- Secondary shine -->
+  <circle  cx="104.5" cy="120.5" r="1"   fill="white" opacity="0.5"/>
+  <circle  cx="130.5" cy="120.5" r="1"   fill="white" opacity="0.5"/>
+  <!-- Upper eyelid arc (key for friendly/natural look) -->
+  <path d="M96 112 Q107 106.5 118 112"  stroke="#2d1b0e" stroke-width="2.8"
+        fill="none" stroke-linecap="round"/>
+  <path d="M122 112 Q133 106.5 144 112" stroke="#2d1b0e" stroke-width="2.8"
+        fill="none" stroke-linecap="round"/>
+  <!-- Lower lash line (subtle) -->
+  <path d="M98 123.5 Q107 126 116 123.5"  stroke="#2d1b0e" stroke-width="1.2"
+        fill="none" stroke-linecap="round" opacity="0.28"/>
+  <path d="M124 123.5 Q133 126 142 123.5" stroke="#2d1b0e" stroke-width="1.2"
+        fill="none" stroke-linecap="round" opacity="0.28"/>
+
+  <!-- ── EYEBROWS ── -->
+  <path d="M95 104 Q107 98.5 119 103"  stroke="#2d1b0e" stroke-width="4"
+        fill="none" stroke-linecap="round"/>
+  <path d="M121 103 Q133 98.5 145 104" stroke="#2d1b0e" stroke-width="4"
+        fill="none" stroke-linecap="round"/>
+
+  <!-- ── GLASSES ── -->
+  <!-- Left lens frame -->
+  <rect x="96" y="109" width="22" height="15" rx="5" fill="none" stroke="#1a2535" stroke-width="2.5"/>
+  <!-- Right lens frame -->
+  <rect x="122" y="109" width="22" height="15" rx="5" fill="none" stroke="#1a2535" stroke-width="2.5"/>
+  <!-- Nose bridge -->
+  <path d="M118 116 L122 116" stroke="#1a2535" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Left temple -->
+  <path d="M96 113 Q86 112 77 116" stroke="#1a2535" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Right temple -->
+  <path d="M144 113 Q154 112 163 116" stroke="#1a2535" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Lens glass tint -->
+  <rect x="96" y="109" width="22" height="15" rx="5" fill="#2dd4bf" opacity="0.07"/>
+  <rect x="122" y="109" width="22" height="15" rx="5" fill="#2dd4bf" opacity="0.07"/>
+
+  <!-- ── NOSE ── -->
+  <path d="M114 132 Q117 138 120 136 Q123 138 126 132"
+        stroke="#c4845a" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <!-- Nostrils -->
+  <circle cx="116.5" cy="136" r="2"  fill="#c4845a" opacity="0.42"/>
+  <circle cx="123.5" cy="136" r="2"  fill="#c4845a" opacity="0.42"/>
+
+  <!-- ── MOUTH / SMILE ── -->
+  <!-- Upper lip (M-curve) -->
+  <path d="M109 140 Q115 137 120 139 Q125 137 131 140"
+        stroke="#c07850" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Smile curve -->
+  <path d="M108 141 Q120 154 132 141"
+        stroke="#c07850" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <!-- Teeth -->
+  <path d="M112 142 Q120 152 128 142 Q120 154 112 142Z" fill="white" opacity="0.7"/>
+
+  <!-- ── DECORATIVE DOTS ── -->
+  <circle cx="52"  cy="64"  r="4"   fill="white" opacity="0.18"/>
+  <circle cx="188" cy="58"  r="3"   fill="#fbbf24" opacity="0.5"/>
+  <circle cx="44"  cy="180" r="3"   fill="#fbbf24" opacity="0.35"/>
+  <circle cx="194" cy="176" r="4"   fill="white" opacity="0.18"/>
+</svg>

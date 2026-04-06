@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 420" width="460" height="420" fill="none">
+  <defs>
+    <radialGradient id="abBgGlow" cx="40%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0d9488" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="deskGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a3548"/>
+      <stop offset="100%" stop-color="#0d2030"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient glow -->
+  <ellipse cx="200" cy="210" rx="200" ry="185" fill="url(#abBgGlow)"/>
+
+  <!-- ── FLOATING CODE CARDS ── -->
+
+  <!-- Card 1: HTML (top left) -->
+  <rect x="12" y="12" width="112" height="82" rx="12" fill="#0d2030" stroke="#2dd4bf" stroke-width="1.5" stroke-opacity="0.5"/>
+  <rect x="12" y="12" width="112" height="24" rx="12" fill="#0f2a3a"/>
+  <rect x="12" y="26" width="112" height="10" fill="#0f2a3a"/>
+  <circle cx="27" cy="24" r="4" fill="#f87171" opacity="0.75"/>
+  <circle cx="40" cy="24" r="4" fill="#fbbf24" opacity="0.75"/>
+  <circle cx="53" cy="24" r="4" fill="#2dd4bf" opacity="0.75"/>
+  <!-- HTML bars -->
+  <rect x="22" y="44" width="14" height="7" rx="2" fill="#fbbf24" opacity="0.9"/>
+  <rect x="40" y="44" width="22" height="7" rx="2" fill="#e2e8f0" opacity="0.5"/>
+  <rect x="66" y="44" width="10" height="7" rx="2" fill="#fbbf24" opacity="0.9"/>
+  <rect x="30" y="56" width="48" height="6" rx="2" fill="#2dd4bf" opacity="0.6"/>
+  <rect x="22" y="66" width="14" height="7" rx="2" fill="#fbbf24" opacity="0.9"/>
+  <rect x="40" y="66" width="22" height="7" rx="2" fill="#e2e8f0" opacity="0.5"/>
+  <rect x="66" y="66" width="10" height="7" rx="2" fill="#fbbf24" opacity="0.9"/>
+  <rect x="22" y="78" width="62" height="5" rx="2" fill="#94a3b8" opacity="0.28"/>
+
+  <!-- Card 2: JS/Vue (bottom left) -->
+  <rect x="12" y="305" width="112" height="82" rx="12" fill="#0d2030" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.5"/>
+  <rect x="12" y="305" width="112" height="24" rx="12" fill="#0f2a3a"/>
+  <rect x="12" y="319" width="112" height="10" fill="#0f2a3a"/>
+  <circle cx="27" cy="317" r="4" fill="#f87171" opacity="0.75"/>
+  <circle cx="40" cy="317" r="4" fill="#fbbf24" opacity="0.75"/>
+  <circle cx="53" cy="317" r="4" fill="#2dd4bf" opacity="0.75"/>
+  <!-- JS bars -->
+  <rect x="22" y="337" width="20" height="7" rx="2" fill="#2dd4bf"/>
+  <rect x="46" y="337" width="30" height="7" rx="2" fill="#e2e8f0" opacity="0.5"/>
+  <rect x="22" y="349" width="16" height="7" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <rect x="43" y="349" width="44" height="7" rx="2" fill="#2dd4bf" opacity="0.6"/>
+  <rect x="30" y="361" width="56" height="6" rx="2" fill="#e2e8f0" opacity="0.3"/>
+  <rect x="22" y="372" width="16" height="7" rx="2" fill="#fbbf24" opacity="0.7"/>
+
+  <!-- Connection lines card → laptop -->
+  <path d="M124 53 Q158 70 172 108" stroke="#2dd4bf" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.3" fill="none"/>
+  <path d="M124 346 Q155 335 168 272" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.25" fill="none"/>
+
+  <!-- ── LAPTOP ── -->
+  <!-- Screen outer frame -->
+  <rect x="68" y="72" width="228" height="150" rx="12" fill="#0d2030"/>
+  <rect x="68" y="72" width="228" height="150" rx="12" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-opacity="0.45"/>
+  <!-- Screen panel / VS Code bg -->
+  <rect x="76" y="80" width="212" height="134" rx="8" fill="#040d10"/>
+
+  <!-- ── VS CODE TITLE BAR ── -->
+  <rect x="76" y="80" width="212" height="20" rx="8" fill="#0f2430"/>
+  <rect x="76" y="90" width="212" height="10" fill="#0f2430"/>
+  <!-- Traffic lights -->
+  <circle cx="90"  cy="90" r="4" fill="#f87171" opacity="0.85"/>
+  <circle cx="103" cy="90" r="4" fill="#fbbf24" opacity="0.85"/>
+  <circle cx="116" cy="90" r="4" fill="#2dd4bf" opacity="0.85"/>
+  <!-- Menu items -->
+  <rect x="130" y="86" width="16" height="8" rx="2" fill="#1a3548"/>
+  <rect x="150" y="86" width="16" height="8" rx="2" fill="#1a3548"/>
+  <rect x="170" y="86" width="20" height="8" rx="2" fill="#1a3548"/>
+  <rect x="194" y="86" width="14" height="8" rx="2" fill="#1a3548"/>
+
+  <!-- ── TAB BAR ── -->
+  <rect x="76" y="100" width="212" height="14" fill="#0d1e2a"/>
+  <!-- Active tab -->
+  <rect x="80" y="100" width="58" height="14" rx="3" fill="#0f2a3a"/>
+  <rect x="80" y="100" width="58" height="2" fill="#2dd4bf"/>
+  <rect x="84" y="104" width="6" height="6" rx="1" fill="#fbbf24" opacity="0.9"/>
+  <rect x="93" y="105" width="30" height="5" rx="1" fill="#e2e8f0" opacity="0.7"/>
+  <!-- Inactive tab -->
+  <rect x="141" y="100" width="50" height="14" rx="3" fill="#0a1a26"/>
+  <rect x="145" y="104" width="6" height="6" rx="1" fill="#2dd4bf" opacity="0.7"/>
+  <rect x="154" y="105" width="24" height="5" rx="1" fill="#94a3b8" opacity="0.4"/>
+
+  <!-- ── ACTIVITY BAR (left strip) ── -->
+  <rect x="76" y="114" width="14" height="100" fill="#0a1620"/>
+  <!-- Icons -->
+  <rect x="79" y="117" width="8" height="8" rx="2" fill="#2dd4bf" opacity="0.8"/>
+  <rect x="79" y="130" width="8" height="8" rx="2" fill="#94a3b8" opacity="0.4"/>
+  <rect x="79" y="143" width="8" height="8" rx="2" fill="#94a3b8" opacity="0.4"/>
+  <rect x="79" y="156" width="8" height="8" rx="2" fill="#94a3b8" opacity="0.4"/>
+  <!-- Active indicator -->
+  <rect x="76" y="117" width="2" height="8" fill="#2dd4bf"/>
+
+  <!-- ── FILE EXPLORER ── -->
+  <rect x="90" y="114" width="46" height="100" fill="#0c1e2c"/>
+  <!-- Folder header -->
+  <rect x="90" y="114" width="46" height="10" fill="#0d2030"/>
+  <rect x="92" y="117" width="30" height="5" rx="1" fill="#94a3b8" opacity="0.5"/>
+  <!-- File entries -->
+  <rect x="93" y="127" width="6" height="5" rx="1" fill="#fbbf24" opacity="0.8"/>
+  <rect x="101" y="127" width="28" height="5" rx="1" fill="#e2e8f0" opacity="0.55"/>
+  <rect x="95" y="136" width="6" height="5" rx="1" fill="#2dd4bf" opacity="0.9"/>
+  <rect x="103" y="136" width="24" height="5" rx="1" fill="#e2e8f0" opacity="0.5"/>
+  <!-- Active file highlight -->
+  <rect x="90" y="145" width="46" height="8" rx="2" fill="#0d9488" opacity="0.2"/>
+  <rect x="95" y="147" width="6" height="4" rx="1" fill="#2dd4bf"/>
+  <rect x="103" y="147" width="22" height="4" rx="1" fill="#2dd4bf" opacity="0.8"/>
+  <rect x="93" y="157" width="6" height="5" rx="1" fill="#fbbf24" opacity="0.7"/>
+  <rect x="101" y="157" width="26" height="5" rx="1" fill="#e2e8f0" opacity="0.4"/>
+  <rect x="93" y="166" width="6" height="5" rx="1" fill="#94a3b8" opacity="0.5"/>
+  <rect x="101" y="166" width="20" height="5" rx="1" fill="#e2e8f0" opacity="0.35"/>
+  <rect x="93" y="175" width="6" height="5" rx="1" fill="#fbbf24" opacity="0.6"/>
+  <rect x="101" y="175" width="24" height="5" rx="1" fill="#e2e8f0" opacity="0.35"/>
+  <rect x="93" y="185" width="6" height="5" rx="1" fill="#2dd4bf" opacity="0.6"/>
+  <rect x="101" y="185" width="20" height="5" rx="1" fill="#e2e8f0" opacity="0.3"/>
+  <rect x="93" y="195" width="6" height="5" rx="1" fill="#94a3b8" opacity="0.4"/>
+  <rect x="101" y="195" width="18" height="5" rx="1" fill="#e2e8f0" opacity="0.25"/>
+
+  <!-- ── CODE EDITOR AREA ── -->
+  <!-- Line numbers gutter -->
+  <rect x="136" y="114" width="12" height="100" fill="#0a1a25"/>
+  <rect x="136" y="119" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.3"/>
+  <rect x="136" y="128" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.3"/>
+  <rect x="136" y="137" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.3"/>
+  <rect x="136" y="146" width="10" height="4" rx="1" fill="#2dd4bf" opacity="0.6"/>
+  <rect x="136" y="155" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.3"/>
+  <rect x="136" y="164" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.3"/>
+  <rect x="136" y="173" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.3"/>
+  <rect x="136" y="182" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.25"/>
+  <rect x="136" y="191" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.25"/>
+  <rect x="136" y="200" width="10" height="4" rx="1" fill="#94a3b8" opacity="0.25"/>
+
+  <!-- Code lines -->
+  <rect x="150" y="119" width="16" height="4" rx="1" fill="#2dd4bf" opacity="0.9"/>
+  <rect x="169" y="119" width="26" height="4" rx="1" fill="#fbbf24" opacity="0.75"/>
+  <rect x="198" y="119" width="12" height="4" rx="1" fill="#e2e8f0" opacity="0.4"/>
+
+  <rect x="154" y="128" width="12" height="4" rx="1" fill="#fbbf24" opacity="0.85"/>
+  <rect x="169" y="128" width="38" height="4" rx="1" fill="#2dd4bf" opacity="0.6"/>
+  <rect x="210" y="128" width="16" height="4" rx="1" fill="#e2e8f0" opacity="0.35"/>
+
+  <!-- Active line highlight -->
+  <rect x="148" y="144" width="130" height="7" rx="1" fill="#0d9488" opacity="0.18"/>
+  <rect x="150" y="146" width="14" height="4" rx="1" fill="#2dd4bf"/>
+  <rect x="168" y="146" width="8" height="4" rx="1" fill="#e2e8f0" opacity="0.5"/>
+  <rect x="179" y="146" width="28" height="4" rx="1" fill="#fbbf24" opacity="0.9"/>
+  <rect x="210" y="146" width="2" height="4" rx="1" fill="#2dd4bf"/>
+
+  <rect x="154" y="155" width="42" height="4" rx="1" fill="#e2e8f0" opacity="0.28"/>
+  <rect x="150" y="164" width="20" height="4" rx="1" fill="#2dd4bf" opacity="0.7"/>
+  <rect x="174" y="164" width="30" height="4" rx="1" fill="#fbbf24" opacity="0.55"/>
+  <rect x="150" y="173" width="14" height="4" rx="1" fill="#2dd4bf" opacity="0.85"/>
+  <rect x="167" y="173" width="22" height="4" rx="1" fill="#e2e8f0" opacity="0.4"/>
+  <rect x="150" y="182" width="50" height="4" rx="1" fill="#94a3b8" opacity="0.22"/>
+  <rect x="154" y="191" width="30" height="4" rx="1" fill="#fbbf24" opacity="0.5"/>
+  <rect x="187" y="191" width="20" height="4" rx="1" fill="#2dd4bf" opacity="0.4"/>
+  <rect x="150" y="200" width="42" height="4" rx="1" fill="#94a3b8" opacity="0.2"/>
+
+  <!-- Minimap (right edge) -->
+  <rect x="272" y="114" width="16" height="100" fill="#081520"/>
+  <rect x="274" y="118" width="10" height="2" rx="1" fill="#2dd4bf" opacity="0.35"/>
+  <rect x="274" y="122" width="7"  height="2" rx="1" fill="#fbbf24" opacity="0.3"/>
+  <rect x="274" y="126" width="12" height="2" rx="1" fill="#2dd4bf" opacity="0.25"/>
+  <rect x="274" y="130" width="8"  height="2" rx="1" fill="#e2e8f0" opacity="0.2"/>
+  <rect x="274" y="134" width="10" height="2" rx="1" fill="#fbbf24" opacity="0.3"/>
+  <rect x="274" y="138" width="6"  height="2" rx="1" fill="#2dd4bf" opacity="0.2"/>
+  <!-- Minimap viewport -->
+  <rect x="273" y="142" width="14" height="18" rx="1" fill="#2dd4bf" opacity="0.1" stroke="#2dd4bf" stroke-width="0.5" stroke-opacity="0.3"/>
+  <rect x="274" y="162" width="9"  height="2" rx="1" fill="#94a3b8" opacity="0.2"/>
+  <rect x="274" y="166" width="11" height="2" rx="1" fill="#2dd4bf" opacity="0.2"/>
+  <rect x="274" y="170" width="7"  height="2" rx="1" fill="#fbbf24" opacity="0.2"/>
+  <rect x="274" y="174" width="10" height="2" rx="1" fill="#94a3b8" opacity="0.15"/>
+  <rect x="274" y="178" width="8"  height="2" rx="1" fill="#2dd4bf" opacity="0.2"/>
+  <rect x="274" y="182" width="12" height="2" rx="1" fill="#e2e8f0" opacity="0.15"/>
+  <rect x="274" y="186" width="6"  height="2" rx="1" fill="#fbbf24" opacity="0.2"/>
+  <rect x="274" y="190" width="10" height="2" rx="1" fill="#2dd4bf" opacity="0.15"/>
+  <rect x="274" y="194" width="8"  height="2" rx="1" fill="#94a3b8" opacity="0.15"/>
+  <rect x="274" y="198" width="11" height="2" rx="1" fill="#fbbf24" opacity="0.15"/>
+
+  <!-- ── VS CODE STATUS BAR ── -->
+  <rect x="76" y="207" width="212" height="7" rx="0" fill="#0d9488" opacity="0.85"/>
+  <rect x="80" y="209" width="18" height="3" rx="1" fill="white" opacity="0.5"/>
+  <rect x="103" y="209" width="14" height="3" rx="1" fill="white" opacity="0.4"/>
+  <rect x="256" y="209" width="14" height="3" rx="1" fill="white" opacity="0.4"/>
+  <rect x="274" y="209" width="10" height="3" rx="1" fill="white" opacity="0.4"/>
+
+  <!-- Laptop keyboard/base -->
+  <rect x="58" y="222" width="248" height="22" rx="7" fill="#0f2430"/>
+  <rect x="66" y="227" width="232" height="7"  rx="3" fill="#1a3548"/>
+  <rect x="66" y="235" width="200" height="6"  rx="3" fill="#1a3548"/>
+  <rect x="148" y="227" width="68" height="12" rx="4" fill="#0d2030"/>
+  <!-- Hinge accent -->
+  <rect x="68" y="220" width="228" height="3" rx="1.5" fill="#0d9488" opacity="0.4"/>
+
+  <!-- ── PERSON (standing right) ── -->
+  <ellipse cx="372" cy="413" rx="38" ry="9" fill="#000" opacity="0.15"/>
+  <!-- Legs -->
+  <rect x="354" y="340" width="18" height="74" rx="8" fill="#1c3545"/>
+  <rect x="380" y="340" width="18" height="74" rx="8" fill="#1c3545"/>
+  <!-- Shoes -->
+  <rect x="350" y="402" width="26" height="14" rx="5" fill="#0a1620"/>
+  <rect x="376" y="402" width="26" height="14" rx="5" fill="#0a1620"/>
+  <!-- Left arm reaching toward laptop keyboard -->
+  <path d="M348 272 Q300 272 284 234" stroke="#1c3545" stroke-width="20" stroke-linecap="round" fill="none"/>
+  <!-- Right arm at side -->
+  <path d="M396 272 Q414 286 408 314" stroke="#1c3545" stroke-width="20" stroke-linecap="round" fill="none"/>
+  <!-- Torso / hoodie -->
+  <rect x="344" y="232" width="60" height="110" rx="16" fill="#1c3545"/>
+  <!-- Kangaroo pocket -->
+  <rect x="356" y="304" width="36" height="22" rx="6" fill="#16303f"/>
+  <rect x="358" y="306" width="32" height="18" rx="4" fill="#0d2030" opacity="0.6"/>
+  <!-- Collar -->
+  <path d="M362 232 L374 252 L386 232" fill="#0d9488" stroke="#2dd4bf" stroke-width="1.5"/>
+  <!-- Badge -->
+  <rect x="388" y="248" width="12" height="8" rx="2" fill="#fbbf24" opacity="0.55"/>
+  <!-- Neck -->
+  <rect x="365" y="218" width="18" height="18" rx="7" fill="#f4b183"/>
+  <!-- Head (oval) -->
+  <ellipse cx="374" cy="200" rx="27" ry="29" fill="#f4b183"/>
+  <!-- Ears -->
+  <ellipse cx="347" cy="203" rx="7" ry="9"   fill="#e8a070"/>
+  <ellipse cx="401" cy="203" rx="7" ry="9"   fill="#e8a070"/>
+  <ellipse cx="347" cy="203" rx="4" ry="5.5" fill="#d4905a"/>
+  <ellipse cx="401" cy="203" rx="4" ry="5.5" fill="#d4905a"/>
+  <!-- Hair -->
+  <path d="M347 198 Q347 170 374 168 Q401 170 401 198 Q396 180 374 179 Q352 180 347 198Z" fill="#2d1b0e"/>
+  <!-- Hair sheen -->
+  <path d="M362 173 Q374 168 386 173" stroke="#4a2e14" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+  <!-- Cheeks -->
+  <ellipse cx="360" cy="206" rx="6"   ry="3.5" fill="#f87171" opacity="0.18"/>
+  <ellipse cx="388" cy="206" rx="6"   ry="3.5" fill="#f87171" opacity="0.18"/>
+  <!-- Eye whites -->
+  <ellipse cx="365" cy="198" rx="7"   ry="6"   fill="white"/>
+  <ellipse cx="383" cy="198" rx="7"   ry="6"   fill="white"/>
+  <!-- Iris -->
+  <circle  cx="365" cy="198" r="4"            fill="#0d9488"/>
+  <circle  cx="383" cy="198" r="4"            fill="#0d9488"/>
+  <!-- Pupil -->
+  <circle  cx="365" cy="198" r="2.3"          fill="#1a2535"/>
+  <circle  cx="383" cy="198" r="2.3"          fill="#1a2535"/>
+  <!-- Eye shine -->
+  <circle  cx="367"   cy="195.5" r="1.5"      fill="white"/>
+  <circle  cx="385"   cy="195.5" r="1.5"      fill="white"/>
+  <!-- Upper eyelid arc -->
+  <path d="M358 194 Q365 190 372 194" stroke="#2d1b0e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M376 194 Q383 190 390 194" stroke="#2d1b0e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Lower lash line -->
+  <path d="M359 203 Q365 205 371 203" stroke="#2d1b0e" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.28"/>
+  <path d="M377 203 Q383 205 389 203" stroke="#2d1b0e" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.28"/>
+  <!-- Eyebrows -->
+  <path d="M358 190 Q365 186 372 190" stroke="#2d1b0e" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <path d="M376 190 Q383 186 390 190" stroke="#2d1b0e" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M371 206 Q374 209.5 377 206" stroke="#c4845a" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="372.5" cy="208.5" r="1.3" fill="#c4845a" opacity="0.4"/>
+  <circle cx="375.5" cy="208.5" r="1.3" fill="#c4845a" opacity="0.4"/>
+  <!-- Upper lip -->
+  <path d="M367 211 Q371 209 374 210 Q377 209 381 211" stroke="#c07850" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Smile curve -->
+  <path d="M366 212 Q374 219 382 212" stroke="#c07850" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <!-- Teeth -->
+  <path d="M369 213 Q374 218.5 379 213 Q374 220 369 213Z" fill="white" opacity="0.65"/>
+
+  <!-- ── GLASSES ── -->
+  <!-- Left lens frame -->
+  <rect x="356" y="193" width="17" height="12" rx="4" fill="none" stroke="#1a2535" stroke-width="2"/>
+  <!-- Right lens frame -->
+  <rect x="374" y="193" width="17" height="12" rx="4" fill="none" stroke="#1a2535" stroke-width="2"/>
+  <!-- Nose bridge -->
+  <path d="M373 199 L374 199" stroke="#1a2535" stroke-width="2" stroke-linecap="round"/>
+  <!-- Left temple -->
+  <path d="M356 197 Q350 196 347 198" stroke="#1a2535" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Right temple -->
+  <path d="M391 197 Q397 196 401 198" stroke="#1a2535" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Lens glass tint -->
+  <rect x="356" y="193" width="17" height="12" rx="4" fill="#2dd4bf" opacity="0.06"/>
+  <rect x="374" y="193" width="17" height="12" rx="4" fill="#2dd4bf" opacity="0.06"/>
+
+  <!-- ── DECORATIVE ── -->
+  <!-- </> floating -->
+  <text x="160" y="44" font-family="'Courier New',monospace" font-size="22" fill="#2dd4bf" opacity="0.18" font-weight="bold">&lt;/&gt;</text>
+  <!-- Dot cluster top right -->
+  <circle cx="434" cy="40"  r="5.5" fill="#fbbf24" opacity="0.4"/>
+  <circle cx="447" cy="56"  r="3.5" fill="#2dd4bf" opacity="0.3"/>
+  <circle cx="422" cy="58"  r="3"   fill="#fbbf24" opacity="0.25"/>
+  <!-- Dot cluster bottom right -->
+  <circle cx="436" cy="352" r="5"   fill="#2dd4bf" opacity="0.3"/>
+  <circle cx="449" cy="366" r="3.5" fill="#fbbf24" opacity="0.25"/>
+  <!-- Grid dots mid-right -->
+  <circle cx="432" cy="278" r="2" fill="#2dd4bf" opacity="0.14"/>
+  <circle cx="445" cy="278" r="2" fill="#2dd4bf" opacity="0.14"/>
+  <circle cx="432" cy="291" r="2" fill="#2dd4bf" opacity="0.14"/>
+  <circle cx="445" cy="291" r="2" fill="#2dd4bf" opacity="0.14"/>
+  <circle cx="432" cy="304" r="2" fill="#2dd4bf" opacity="0.14"/>
+  <circle cx="445" cy="304" r="2" fill="#2dd4bf" opacity="0.14"/>
+  <!-- Subtle orbit ring around figure -->
+  <circle cx="374" cy="200" r="38" stroke="#2dd4bf" stroke-width="1" stroke-dasharray="4 5" opacity="0.12" fill="none"/>
+  <!-- Floor ambient -->
+  <ellipse cx="230" cy="408" rx="215" ry="10" fill="#2dd4bf" opacity="0.04"/>
+</svg>

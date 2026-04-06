@@ -39,7 +39,7 @@ import { defineComponent } from 'vue'
 import Particle from '../Particles.vue'
 import Type from './Type.vue'
 import Home2 from './Home2.vue'
-import homeLogo from '@/assets/home-main.png'
+import homeLogo from '@/assets/home-main.svg'
 
 export default defineComponent({
   name: 'TheHome',

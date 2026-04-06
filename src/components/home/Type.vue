@@ -15,7 +15,7 @@ export default {
         'Full-Stack Developer',
         'SaaS Builder',
         'Vue & React Engineer',
-        'Node.js / Go Developer',
+        'Node.js / Python Developer',
         'Freelancer on Upwork',
         'AI-powered Dev Workflows',
         'Open Source Contributor'
