@@ -16,7 +16,7 @@
         <div v-for="service in services" :key="service.title" class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon">
-              <font-awesome-icon :icon="service.icon" />
+              <font-awesome-icon :icon="service.icon" aria-hidden="true" />
             </div>
             <h3 class="service-title">{{ service.title }}</h3>
             <p class="service-description">{{ service.description }}</p>
@@ -49,7 +49,7 @@
           Send me a message with a quick overview of your project.
         </p>
         <router-link to="/contact" class="btn btn-cta">
-          <font-awesome-icon icon="paper-plane" />
+          <font-awesome-icon icon="paper-plane" aria-hidden="true" />
           Start a Conversation
         </router-link>
       </div>
@@ -82,28 +82,28 @@ export default defineComponent({
       },
       {
         title: 'Real-time Systems',
-        icon: 'desktop',
+        icon: 'bolt',
         description:
           'Live dashboards, chat systems, notifications, and event-driven data flows. WebSocket and MQTT-powered features that deliver instant updates at scale.',
         tags: ['Socket.IO', 'WebSockets', 'MQTT', 'Redis', 'Node.js']
       },
       {
         title: 'Cloud Deployment & DevOps',
-        icon: 'briefcase',
+        icon: 'cloud',
         description:
           'Infrastructure setup and CI/CD pipelines on AWS or Azure. Docker containerization, automated deployments via GitHub Actions, monitoring, and rollback strategies.',
         tags: ['AWS', 'Azure', 'Docker', 'GitHub Actions', 'Terraform']
       },
       {
         title: 'LLM & AI Integrations',
-        icon: 'star',
+        icon: 'wand-magic-sparkles',
         description:
           'AI-powered features integrated into your product — semantic search, document Q&A, automated content pipelines, and custom LLM workflows using OpenAI, Claude, and more.',
         tags: ['OpenAI', 'Claude API', 'FastAPI', 'Python', 'Redis', 'AWS Lambda']
       },
       {
         title: 'MVP & Rapid Prototyping',
-        icon: 'file-lines',
+        icon: 'fire',
         description:
           'Fast, focused MVP builds to validate your idea quickly. I build iteratively so you can give feedback early, keeping scope realistic and delivery date predictable.',
         tags: ['Vue 3', 'React', 'Supabase', 'Tailwind CSS', 'Vercel']

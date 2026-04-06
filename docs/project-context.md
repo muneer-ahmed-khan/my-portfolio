@@ -108,5 +108,5 @@ Design tokens live in `src/assets/main.css` under `:root`. See `docs/design-syst
 ## Planned Improvements
 
 1. **Colors & Theme** — ✅ Done — "Deep Ocean" teal/amber palette, dark+light modes, navbar toggle
-2. **Icons** — Audit and upgrade icon usage (FontAwesome → alternatives, or expand usage)
+2. **Icons** — ✅ Done — Standardized FA6 icon usage: semantic service icons, distinct hobby icons, inline SVG eliminated, dead bundle imports purged, aria-hidden applied throughout
 3. **Animations** — Add/improve micro-interactions, scroll animations, transitions

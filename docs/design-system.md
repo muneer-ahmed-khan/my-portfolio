@@ -126,15 +126,55 @@
 
 ## Icons
 
-**Library:** FontAwesome 6 via `@fortawesome/vue-fontawesome`
+### FontAwesome 6 — UI chrome icons
 
-Packages installed:
-- `@fortawesome/free-solid-svg-icons`
-- `@fortawesome/free-brands-svg-icons`
+**Library:** `@fortawesome/vue-fontawesome` · Registered globally as `<font-awesome-icon>` in `src/main.ts`
 
-**Skill icons:** Devicons via CDN (`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons`)
-- Used in `src/data/skills.ts` as SVG URLs
-- Some icons use `invert: true` flag (e.g. Next.js, GitHub) for dark background visibility
+Packages: `@fortawesome/free-solid-svg-icons`, `@fortawesome/free-brands-svg-icons`
+
+**Rules:**
+- All decorative icons **must** have `aria-hidden="true"`. Icons inside links/buttons that already carry an `aria-label` are decorative.
+- Never register icons in `library.add()` that aren't used in a template — it bloats the bundle.
+- Use the `['fas', 'icon-name']` tuple syntax for solid icons when mixing prefixes; shorthand string `'icon-name'` is fine when the context is unambiguous solid.
+
+**Icon assignments by location:**
+
+| Location | Icon(s) | Rationale |
+|---|---|---|
+| Navbar — nav links | `home`, `user`, `desktop`, `briefcase`, `file-lines` | Standard navigation metaphors |
+| Navbar — Blog | `pen-nib` | Writing |
+| Navbar — Contact CTA | `envelope` | Email/contact |
+| Navbar — Fork button | `code-branch` + `star` | GitHub fork/star action |
+| Navbar — Theme toggle | `sun` / `moon` | Light/dark mode |
+| Services — Custom SaaS | `rocket` | Launch / scale |
+| Services — Backend APIs | `code` | Development |
+| Services — Real-time Systems | `bolt` | Speed / instant updates |
+| Services — Cloud & DevOps | `cloud` | Cloud infrastructure |
+| Services — LLM & AI | `wand-magic-sparkles` | Magic / AI generation |
+| Services — MVP | `fire` | Fast iteration / momentum |
+| Services — CTA button | `paper-plane` | Send / start |
+| About — Gaming hobby | `gamepad` | Gaming |
+| About — Blog writing hobby | `pen-nib` | Writing |
+| About — Travel hobby | `plane` | Travel |
+| About — AI tools hobby | `microchip` | Technology / AI |
+| Contact — Email info | `envelope` | Email |
+| Contact — Location info | `location-dot` | Location pin |
+| Contact — Submit button | `paper-plane` / `spinner` | Send / loading state |
+| Contact — Success state | `circle-check` | Confirmation |
+| Projects — GitHub button | `fab github` | GitHub brand |
+| Projects — Demo button | `arrow-up-right-from-square` | External link |
+| Resume — Download buttons | `arrow-down` | Download |
+| Footer — Social links | `fab github/linkedin/stack-overflow/medium-m`, `fas envelope` | Brand / contact |
+| 404 — Back to home | `home` | Navigation |
+
+### Devicons — Tech/tool logos
+
+**Source:** CDN `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons` (defined in `src/data/skills.ts`)
+
+Used in `TechStack.vue` and `ToolStack.vue` as `<img>` tags rendered from `src/data/skills.ts` and `tools` arrays.
+
+- `invert: true` flag applies a CSS `filter: invert(1)` for icons that are black-on-transparent (e.g. Next.js, GitHub) — needed for dark background visibility. Use only when no colored variant exists in devicons.
+- When adding new tech icons, prefer `-original` or `-plain` variants; use `-wordmark` variants only if the logo without text is unrecognizable.
 
 ---
 
@@ -179,7 +219,7 @@ Custom scrollbar defined globally in `main.css`:
 ## Planned Improvements
 
 - [ ] **Colors & Theme** — Revisit palette, consider theme switching (dark/light), ensure WCAG AA contrast
-- [ ] **Icons** — Audit FA icon usage across all sections, consider icon animation on hover
+- [x] **Icons** — Audited and standardized: semantic icons per service, distinct hobby icons in About, inline SVG replaced in ProjectCard, dead brand icons purged from bundle, `aria-hidden` applied consistently, `faSpinner` bug fixed
 - [ ] **Animations** — Scroll-reveal on section entry, stagger effects on skill cards, hero entrance animation
 - [ ] **Typography** — Fine-tune fluid scale, improve readability on mobile
 - [ ] **Micro-interactions** — Button hover states, card hover lifts, link underline animations

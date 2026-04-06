@@ -57,7 +57,7 @@
                 class="icon-colour home-social-icons"
                 :aria-label="link.name"
               >
-                <font-awesome-icon :icon="link.icon" />
+                <font-awesome-icon :icon="link.icon" aria-hidden="true" />
               </a>
             </li>
           </ul>

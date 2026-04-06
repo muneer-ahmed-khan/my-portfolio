@@ -21,7 +21,7 @@
 
             <div class="contact-info-item">
               <div class="contact-info-icon">
-                <font-awesome-icon icon="envelope" />
+                <font-awesome-icon icon="envelope" aria-hidden="true" />
               </div>
               <div>
                 <p class="contact-info-label">Email</p>
@@ -33,7 +33,7 @@
 
             <div class="contact-info-item">
               <div class="contact-info-icon">
-                <font-awesome-icon icon="location-dot" />
+                <font-awesome-icon icon="location-dot" aria-hidden="true" />
               </div>
               <div>
                 <p class="contact-info-label">Location</p>
@@ -43,7 +43,7 @@
 
             <div class="contact-info-item">
               <div class="contact-info-icon">
-                <font-awesome-icon :icon="['fab', 'linkedin']" />
+                <font-awesome-icon :icon="['fab', 'linkedin']" aria-hidden="true" />
               </div>
               <div>
                 <p class="contact-info-label">LinkedIn</p>
@@ -61,7 +61,7 @@
 
             <div class="contact-info-item">
               <div class="contact-info-icon">
-                <font-awesome-icon :icon="['fab', 'github']" />
+                <font-awesome-icon :icon="['fab', 'github']" aria-hidden="true" />
               </div>
               <div>
                 <p class="contact-info-label">GitHub</p>
@@ -86,7 +86,7 @@
                 class="contact-social-link"
                 :aria-label="link.name"
               >
-                <font-awesome-icon :icon="link.icon" />
+                <font-awesome-icon :icon="link.icon" aria-hidden="true" />
               </a>
             </div>
           </div>

@@ -14,7 +14,7 @@
             class="btn btn-primary"
             style="display: inline-flex; align-items: center; gap: 6px; min-width: 180px; justify-content: center"
           >
-            <font-awesome-icon icon="arrow-down" />
+            <font-awesome-icon icon="arrow-down" aria-hidden="true" />
             Download CV
           </a>
         </div>
@@ -33,7 +33,7 @@
             class="btn btn-primary"
             style="display: inline-flex; align-items: center; gap: 6px; min-width: 180px; justify-content: center"
           >
-            <font-awesome-icon icon="arrow-down" />
+            <font-awesome-icon icon="arrow-down" aria-hidden="true" />
             Download CV
           </a>
         </div>

@@ -30,19 +30,19 @@
         </p>
         <ul class="activities-list">
           <li class="about-activity">
-            <font-awesome-icon :icon="['fas', 'hand-point-right']" class="activity-icon" />
+            <font-awesome-icon :icon="['fas', 'gamepad']" class="activity-icon" aria-hidden="true" />
             Gaming &amp; exploring new titles
           </li>
           <li class="about-activity">
-            <font-awesome-icon :icon="['fas', 'hand-point-right']" class="activity-icon" />
+            <font-awesome-icon :icon="['fas', 'pen-nib']" class="activity-icon" aria-hidden="true" />
             Writing technical blog posts
           </li>
           <li class="about-activity">
-            <font-awesome-icon :icon="['fas', 'hand-point-right']" class="activity-icon" />
+            <font-awesome-icon :icon="['fas', 'plane']" class="activity-icon" aria-hidden="true" />
             Travelling and exploring new places
           </li>
           <li class="about-activity">
-            <font-awesome-icon :icon="['fas', 'hand-point-right']" class="activity-icon" />
+            <font-awesome-icon :icon="['fas', 'microchip']" class="activity-icon" aria-hidden="true" />
             Experimenting with AI / LLM tools
           </li>
         </ul>

@@ -5,33 +5,33 @@ import {
   faUser,
   faEnvelope,
   faDesktop,
+  faBriefcase,
   faFileLines,
   faPenNib,
   faCodeBranch,
-  faStar,
-  faHandPointRight,
   faArrowDown,
-  faBriefcase,
   faPaperPlane,
   faLocationDot,
   faCircleCheck,
   faRocket,
   faCode,
   faSun,
-  faMoon
+  faMoon,
+  faSpinner,
+  faWandMagicSparkles,
+  faBolt,
+  faCloud,
+  faFire,
+  faGamepad,
+  faPlane,
+  faMicrochip,
+  faArrowUpRightFromSquare
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGithub,
   faLinkedin,
   faStackOverflow,
-  faMediumM,
-  faJs,
-  faNode,
-  faVuejs,
-  faReact,
-  faPython,
-  faGitAlt,
-  faAws
+  faMediumM
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Particles from '@tsparticles/vue3'
@@ -49,13 +49,11 @@ library.add(
   faUser,
   faEnvelope,
   faDesktop,
+  faBriefcase,
   faFileLines,
   faPenNib,
   faCodeBranch,
-  faStar,
-  faHandPointRight,
   faArrowDown,
-  faBriefcase,
   faPaperPlane,
   faLocationDot,
   faCircleCheck,
@@ -63,18 +61,20 @@ library.add(
   faCode,
   faSun,
   faMoon,
+  faSpinner,
+  faWandMagicSparkles,
+  faBolt,
+  faCloud,
+  faFire,
+  faGamepad,
+  faPlane,
+  faMicrochip,
+  faArrowUpRightFromSquare,
   // Brand icons
   faGithub,
   faLinkedin,
   faStackOverflow,
-  faMediumM,
-  faJs,
-  faNode,
-  faVuejs,
-  faReact,
-  faPython,
-  faGitAlt,
-  faAws
+  faMediumM
 )
 
 import App from './App.vue'

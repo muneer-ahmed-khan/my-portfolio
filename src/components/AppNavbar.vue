@@ -29,7 +29,7 @@
           @click="closeNavbar"
           :exact="link.exact"
         >
-          <font-awesome-icon :icon="link.icon" class="nav-link-icon" />
+          <font-awesome-icon :icon="link.icon" class="nav-link-icon" aria-hidden="true" />
           <span>{{ link.label }}</span>
         </router-link>
 
@@ -41,13 +41,13 @@
           class="nav-link-item"
           @click="closeNavbar"
         >
-          <font-awesome-icon icon="pen-nib" class="nav-link-icon" />
+          <font-awesome-icon icon="pen-nib" class="nav-link-icon" aria-hidden="true" />
           <span>Blog</span>
         </a>
 
         <!-- Contact CTA -->
         <router-link to="/contact" class="nav-link-item nav-link-cta" @click="closeNavbar">
-          <font-awesome-icon icon="envelope" class="nav-link-icon" />
+          <font-awesome-icon icon="envelope" class="nav-link-icon" aria-hidden="true" />
           <span>Contact</span>
         </router-link>
 
@@ -58,13 +58,13 @@
           rel="noopener noreferrer"
           class="nav-fork-btn"
         >
-          <font-awesome-icon icon="code-branch" />
-          <font-awesome-icon icon="star" style="margin-left: 2px" />
+          <font-awesome-icon icon="code-branch" aria-hidden="true" />
+          <font-awesome-icon icon="star" style="margin-left: 2px" aria-hidden="true" />
         </a>
 
         <!-- Theme toggle -->
         <button class="nav-theme-toggle" @click="toggleTheme" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
-          <font-awesome-icon :icon="isDark ? 'sun' : 'moon'" />
+          <font-awesome-icon :icon="isDark ? 'sun' : 'moon'" aria-hidden="true" />
         </button>
       </div>
     </div>

@@ -8,7 +8,7 @@
         Looks like this page doesn't exist or has been moved.
       </p>
       <router-link to="/" class="btn btn-cta">
-        <font-awesome-icon icon="home" />
+        <font-awesome-icon icon="home" aria-hidden="true" />
         Back to Home
       </router-link>
     </div>

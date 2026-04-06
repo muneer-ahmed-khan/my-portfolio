@@ -20,18 +20,23 @@ export const skillCategories: SkillCategory[] = [
       { name: 'React', icon: `${D}/react/react-original.svg` },
       { name: 'Next.js', icon: `${D}/nextjs/nextjs-original-wordmark.svg`, invert: true },
       { name: 'TypeScript', icon: `${D}/typescript/typescript-original.svg` },
-      { name: 'Tailwind CSS', icon: `${D}/tailwindcss/tailwindcss-original.svg` }
+      { name: 'Tailwind CSS', icon: `${D}/tailwindcss/tailwindcss-original.svg` },
+      { name: 'Bootstrap', icon: `${D}/bootstrap/bootstrap-original.svg` }
     ]
   },
   {
     name: 'Backend',
     skills: [
       { name: 'Node.js', icon: `${D}/nodejs/nodejs-original.svg` },
+      { name: 'Express.js', icon: `${D}/express/express-original.svg`, invert: true },
       { name: 'NestJS', icon: `${D}/nestjs/nestjs-original.svg` },
       { name: 'Go', icon: `${D}/go/go-original.svg` },
       { name: 'Python', icon: `${D}/python/python-original.svg` },
+      { name: 'Django', icon: `${D}/django/django-plain.svg` },
       { name: 'FastAPI', icon: `${D}/fastapi/fastapi-original.svg` },
-      { name: 'GraphQL', icon: `${D}/graphql/graphql-plain.svg` }
+      { name: 'GraphQL', icon: `${D}/graphql/graphql-plain.svg` },
+      { name: 'Prisma', icon: `${D}/prisma/prisma-original.svg`, invert: true },
+      { name: 'Socket.IO', icon: 'https://cdn.simpleicons.org/socketdotio', invert: true }
     ]
   },
   {
@@ -60,6 +65,8 @@ export const tools: Skill[] = [
   { name: 'GitHub', icon: `${D}/github/github-original.svg`, invert: true },
   { name: 'Figma', icon: `${D}/figma/figma-original.svg` },
   { name: 'Postman', icon: `${D}/postman/postman-original.svg` },
-  { name: 'Slack', icon: `${D}/slack/slack-original.svg` },
-  { name: 'Docker', icon: `${D}/docker/docker-original.svg` }
+  { name: 'Jira', icon: `${D}/jira/jira-original.svg` },
+  { name: 'Linear', icon: 'https://cdn.simpleicons.org/linear' },
+  { name: 'ClickUp', icon: 'https://cdn.simpleicons.org/clickup' },
+  { name: 'Slack', icon: `${D}/slack/slack-original.svg` }
 ]
