@@ -49,10 +49,10 @@ This is the source code for my personal developer portfolio — built from scrat
 
 Key design decisions:
 
-- **Composition API + TypeScript** throughout — no Options API shortcuts
-- **Data-driven pages** — projects, skills, and social links live in `/src/data/` so content updates never touch component logic
-- **Scoped + global CSS split** — component-level styles are scoped; design tokens and section layouts live in `main.css`
-- **No heavy UI framework** — Bootstrap 5 is used only for grid and utility classes; all components are hand-crafted
+- **Composition API + TypeScript** throughout — `<script setup lang="ts">` in every component, no Options API
+- **Data-driven pages** — projects, skills, services, and social links live in `/src/data/` so content updates never touch component logic
+- **Scoped + global CSS split** — component-level styles are scoped; design tokens live in `src/assets/styles/tokens.css`; section layouts are in `src/assets/styles/sections/`
+- **No heavy UI framework** — Bootstrap 5 is used only for its responsive grid; all components are hand-crafted
 
 ---
 
@@ -69,7 +69,8 @@ Key design decisions:
 - Animated particle background (tsParticles) on every page
 - Typewriter effect on the home hero section
 - Tilt-on-hover avatar card
-- Interactive skill & tool grid with icon categories
+- Scroll-reveal animations via a custom `v-reveal` IntersectionObserver directive
+- Interactive skill & tool icon grid with categories
 - Project cards with tech stack tags, GitHub links, and live demo links
 - Services page with a six-card offer grid and a four-step process section
 - Inline PDF resume viewer with download button (vue3-pdfjs)
@@ -77,6 +78,7 @@ Key design decisions:
 - Smooth scroll-to-top on every route transition
 - GitHub contribution heatmap (vue3-calendar-heatmap)
 - Responsive navbar with animated hamburger toggle and active-route underline indicator
+- Dark / light theme toggle with `localStorage` persistence and system-preference fallback
 - Preloader screen on initial app load
 - Custom scrollbar styling
 
@@ -86,12 +88,12 @@ Key design decisions:
 
 | Category | Technology |
 |---|---|
-| Framework | Vue 3 (Composition API) |
+| Framework | Vue 3 (Composition API, `<script setup>`) |
 | Language | TypeScript 5.5 |
 | Build tool | Vite 5 |
 | Routing | Vue Router 4 |
 | State management | Pinia 2 |
-| Styling | Bootstrap 5 + Custom CSS (design tokens) |
+| Styling | Bootstrap 5 grid + Custom CSS design tokens |
 | Icons | Font Awesome 6 (free-solid + free-brands) |
 | Particles | tsParticles / @tsparticles/vue3 |
 | PDF viewer | vue3-pdfjs |
@@ -109,55 +111,91 @@ Key design decisions:
 ```
 my-portfolio/
 ├── public/
-│   └── favicon.svg               # Personal logo (gradient M)
+│   ├── favicon.svg               # Brand logo (gradient M mark)
+│   └── favicon.ico               # Fallback favicon
 ├── src/
 │   ├── assets/
-│   │   ├── main.css              # Global styles & design tokens
-│   │   ├── base.css              # CSS reset / base
-│   │   ├── home-bg.png           # Home section background
-│   │   ├── home-main.png         # Hero illustration
-│   │   ├── avatar.png            # About page avatar
-│   │   ├── about.png             # About section image
-│   │   ├── preloader.svg         # Preloader animation
-│   │   ├── logo.svg              # Vue logo (dev reference)
+│   │   ├── main.css              # CSS entry point — import order: tokens → base → global → sections → overrides
+│   │   ├── base.css              # CSS reset, font imports, base element styles
+│   │   ├── animations.css        # Scroll-reveal system, hero keyframes, micro-interactions
+│   │   ├── styles/
+│   │   │   ├── tokens.css        # Design tokens — colors, typography, spacing (dark + light mode)
+│   │   │   ├── global.css        # Global utilities — buttons, scrollbar, badges, footer
+│   │   │   ├── sections/         # Per-page layout styles
+│   │   │   │   ├── home.css
+│   │   │   │   ├── about.css
+│   │   │   │   ├── projects.css
+│   │   │   │   ├── services.css
+│   │   │   │   ├── contact.css
+│   │   │   │   ├── resume.css
+│   │   │   │   └── not-found.css
+│   │   │   └── overrides/        # Light mode + third-party component overrides
+│   │   │       ├── light-mode.css
+│   │   │       └── vendors.css
+│   │   ├── home-bg.svg           # Home section background graphic
+│   │   ├── home-main.svg         # Hero illustration
+│   │   ├── avatar.svg            # Intro section avatar
+│   │   ├── about.svg             # About page illustration
+│   │   ├── preloader.svg         # Preloader animation graphic
+│   │   ├── projects/
+│   │   │   └── placeholder.png   # Project card placeholder image
 │   │   └── Muneer-Ahmed-Resume.pdf
 │   ├── components/
-│   │   ├── AppNavbar.vue         # Fixed top navigation bar
-│   │   ├── AppLogo.vue           # Brand logo component
-│   │   ├── Footer.vue            # Site footer
-│   │   ├── Particles.vue         # tsParticles background
-│   │   ├── PreLoader.vue         # Initial load screen
-│   │   ├── ScrollToTop.vue       # Scroll reset on route change
-│   │   ├── NotFound.vue          # 404 page
+│   │   ├── layout/
+│   │   │   ├── AppNavbar.vue     # Fixed top navigation with theme toggle
+│   │   │   ├── AppLogo.vue       # Brand logo component (SVG monogram)
+│   │   │   ├── AppFooter.vue     # Site footer with social links
+│   │   │   └── AppPreLoader.vue  # Full-screen preloader on initial load
 │   │   ├── home/
-│   │   │   ├── Home.vue          # Hero section
-│   │   │   ├── Home2.vue         # Intro + social links section
-│   │   │   ├── Type.vue          # Typewriter component
-│   │   │   └── Tilt.vue          # Mouse-tilt wrapper
+│   │   │   ├── HomeHero.vue      # Hero section — typewriter, particle bg, illustration
+│   │   │   ├── HomeIntro.vue     # Intro section — bio, avatar tilt card, social links
+│   │   │   ├── TypeWriter.vue    # Typewriter effect component
+│   │   │   └── TiltCard.vue      # Mouse-tracking 3D tilt wrapper
 │   │   ├── about/
 │   │   │   ├── About.vue         # About page shell
-│   │   │   ├── AboutCard.vue     # Bio card
-│   │   │   ├── TechStack.vue     # Skill icon grid
+│   │   │   ├── AboutCard.vue     # Bio card with experience, hobbies, quote
+│   │   │   ├── TechStack.vue     # Skill icon grid by category
 │   │   │   ├── ToolStack.vue     # Tools icon grid
-│   │   │   └── Github.vue        # GitHub contribution heatmap
+│   │   │   └── GitHubHeatmap.vue # GitHub contribution calendar heatmap
 │   │   ├── projects/
 │   │   │   ├── Projects.vue      # Projects page
 │   │   │   └── ProjectCard.vue   # Individual project card
 │   │   ├── services/
-│   │   │   └── Services.vue      # Services + process section
+│   │   │   └── Services.vue      # Services grid + four-step process + CTA
 │   │   ├── resume/
-│   │   │   └── Resume.vue        # PDF viewer page
+│   │   │   └── Resume.vue        # Inline PDF viewer + download button
 │   │   ├── contact/
-│   │   │   └── Contact.vue       # Contact info + form
-│   │   └── bootstrap/            # Thin Bootstrap wrapper components
+│   │   │   └── Contact.vue       # Contact info panel + EmailJS form
+│   │   ├── ui/
+│   │   │   ├── Particles.vue     # tsParticles background wrapper
+│   │   │   └── ScrollToTop.vue   # Scroll-to-top on route change
+│   │   └── NotFound.vue          # 404 page
 │   ├── data/
-│   │   ├── projects.ts           # Project definitions (edit here to add projects)
-│   │   ├── skills.ts             # Skill categories + icon paths
-│   │   └── socialLinks.ts        # Social/contact link definitions
+│   │   ├── projects.ts           # Project definitions — edit here to add projects
+│   │   ├── services.ts           # Service cards and process steps
+│   │   ├── skills.ts             # Skill categories with icon paths
+│   │   └── social-links.ts       # Social and contact link definitions
+│   ├── directives/
+│   │   └── v-reveal.ts           # Custom scroll-reveal IntersectionObserver directive
 │   ├── router/
-│   │   └── index.ts              # Vue Router route definitions
+│   │   └── index.ts              # Vue Router route definitions (lazy-loaded)
+│   ├── stores/
+│   │   └── theme.ts              # Pinia store for dark/light theme state
+│   ├── types/
+│   │   ├── directive.ts          # RevealOptions interface
+│   │   ├── project.ts            # Project interface
+│   │   ├── service.ts            # Service and ProcessStep interfaces
+│   │   ├── skill.ts              # Skill and SkillCategory interfaces
+│   │   └── social.ts             # SocialLink interface
 │   ├── App.vue                   # Root component
-│   └── main.ts                   # App entry point
+│   ├── main.ts                   # App entry point — plugins, directives, FA icons
+│   └── shims-vue.d.ts            # Vue module type declaration
+├── docs/
+│   ├── design-system.md          # Design token reference and palette rationale
+│   ├── lessons-learned.md        # Build notes and architectural decisions
+│   └── project-context.md        # Project background and goals
+├── .env.example                  # Required environment variable template
+├── index.html                    # App shell with anti-FOUC theme script and SEO meta
 ├── vite.config.ts
 ├── tsconfig.json
 ├── package.json
@@ -185,7 +223,10 @@ cd my-portfolio
 # 3. Install dependencies
 npm install
 
-# 4. Start the development server
+# 4. Copy the environment variable template and fill in your values
+cp .env.example .env
+
+# 5. Start the development server
 npm run dev
 ```
 
@@ -210,9 +251,9 @@ The app will be available at `http://localhost:5173`.
 
 | Route | Component | Description |
 |---|---|---|
-| `/` | `Home.vue` + `Home2.vue` | Hero with typewriter, intro, and social links |
-| `/about` | `About.vue` | Bio, tech stack grid, tools grid, GitHub heatmap |
-| `/projects` | `Projects.vue` | Project cards with tags and links |
+| `/` | `HomeHero.vue` + `HomeIntro.vue` | Hero with typewriter effect, intro, and social links |
+| `/about` | `About.vue` | Bio card, tech stack grid, tools grid, GitHub heatmap |
+| `/projects` | `Projects.vue` | Project cards with tech tags and links |
 | `/services` | `Services.vue` | Six service cards + four-step process + CTA |
 | `/resume` | `Resume.vue` | Inline PDF viewer + download button |
 | `/contact` | `Contact.vue` | Contact info panel + EmailJS contact form |
@@ -243,11 +284,11 @@ Edit `src/data/projects.ts`:
 
 ### Add or edit skills
 
-Edit `src/data/skills.ts` — skills are grouped into categories, each with a name, icon path, and optional `invert` flag for dark icons.
+Edit `src/data/skills.ts` — skills are grouped into categories, each with a `name`, `icon` URL, and optional `invert` flag for icons that need colour inversion in dark mode.
 
 ### Update social links
 
-Edit `src/data/socialLinks.ts` — used in both the home intro section and the contact page.
+Edit `src/data/social-links.ts` — used in both the home intro section and the footer.
 
 ### Replace the resume PDF
 
@@ -259,27 +300,30 @@ import pdf from '@/assets/Your-Resume.pdf'
 
 ### Configure EmailJS (contact form)
 
-The contact form uses [EmailJS](https://emailjs.com) to send emails directly from the browser. To set it up with your own account, open `src/components/contact/Contact.vue` and replace the three constants near the top of the `<script>` block:
+The contact form uses [EmailJS](https://emailjs.com) to send emails directly from the browser with no backend required.
 
-```ts
-const EMAILJS_SERVICE_ID  = 'your_service_id'   // EmailJS > Email Services
-const EMAILJS_TEMPLATE_ID = 'your_template_id'  // EmailJS > Email Templates
-const EMAILJS_PUBLIC_KEY  = 'your_public_key'   // EmailJS > Account > General
+Copy `.env.example` to `.env` and fill in your credentials:
+
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id     # EmailJS > Email Services
+VITE_EMAILJS_TEMPLATE_ID=your_template_id   # EmailJS > Email Templates
+VITE_EMAILJS_PUBLIC_KEY=your_public_key     # EmailJS > Account > General
 ```
 
 Your email template should use these variables: `{{from_name}}`, `{{from_email}}`, `{{subject}}`, `{{message}}`, `{{reply_to}}`.
 
-The free EmailJS tier allows 200 emails per month with no backend required.
+The free EmailJS tier allows 200 emails per month.
 
 ### Design tokens
 
-All colours, borders, and backgrounds are defined as CSS custom properties at the top of `src/assets/main.css`:
+All colours, type scale, and spacing are CSS custom properties defined in `src/assets/styles/tokens.css`. The dark mode palette is set on `:root`; light mode overrides are under `html[data-theme="light"]`.
 
 ```css
+/* src/assets/styles/tokens.css */
 :root {
-  --color-primary: #007bff;
-  --color-accent:  #6c63ff;
-  --color-bg:      #0c0513;
+  --color-primary: #2dd4bf;   /* deep ocean teal */
+  --color-accent:  #fbbf24;   /* warm amber */
+  --color-bg:      #040d10;   /* near-black ocean */
   /* ... */
 }
 ```
@@ -300,7 +344,7 @@ npm i -g vercel
 vercel
 ```
 
-Vercel auto-detects Vite and sets the build command to `npm run build` and output directory to `dist`.
+Vercel auto-detects Vite and sets the build command to `npm run build` and output directory to `dist`. The included `vercel.json` configures SPA rewrites for client-side routing.
 
 ### Netlify
 

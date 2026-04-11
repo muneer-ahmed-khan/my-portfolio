@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'ParticlesBackground' })
 const particlesOptions = {
   particles: {
     number: {

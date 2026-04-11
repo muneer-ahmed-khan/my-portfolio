@@ -68,6 +68,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'ServicesPage' })
 import Particles from '@/components/ui/Particles.vue'
 import { services, processSteps } from '@/data/services'
 </script>

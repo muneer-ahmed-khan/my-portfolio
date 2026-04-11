@@ -34,6 +34,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'AboutPage' })
 import Particles from '@/components/ui/Particles.vue'
 import GithubHeatmap from './GitHubHeatmap.vue'
 import TechStack from './TechStack.vue'

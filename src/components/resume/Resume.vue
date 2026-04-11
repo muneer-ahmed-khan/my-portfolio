@@ -59,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'ResumePage' })
 import { ref, onMounted } from 'vue'
 import { VuePdf, createLoadingTask } from 'vue3-pdfjs'
 import Particles from '@/components/ui/Particles.vue'

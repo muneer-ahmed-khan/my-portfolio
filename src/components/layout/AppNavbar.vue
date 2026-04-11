@@ -27,7 +27,6 @@
           :to="link.to"
           class="nav-link-item"
           @click="closeNavbar"
-          :exact="link.exact"
         >
           <font-awesome-icon :icon="link.icon" class="nav-link-icon" aria-hidden="true" />
           <span>{{ link.label }}</span>
@@ -75,48 +74,40 @@
   </nav>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted } from 'vue'
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import AppLogo from '@/components/layout/AppLogo.vue'
 import { useThemeStore } from '@/stores/theme'
 
-export default defineComponent({
-  name: 'AppNavbar',
-  components: { AppLogo },
-  setup() {
-    const theme = useThemeStore()
-    const navColour = ref(false)
-    const menuOpen = ref(false)
+const theme = useThemeStore()
+const navColour = ref(false)
+const menuOpen = ref(false)
 
-    const navLinks = [
-      { to: '/', label: 'Home', icon: 'home', exact: true },
-      { to: '/about', label: 'About', icon: 'user', exact: false },
-      { to: '/projects', label: 'Projects', icon: 'desktop', exact: false },
-      { to: '/services', label: 'Services', icon: 'briefcase', exact: false },
-      { to: '/resume', label: 'Resume', icon: 'file-lines', exact: false }
-    ]
+const navLinks = [
+  { to: '/', label: 'Home', icon: 'home' },
+  { to: '/about', label: 'About', icon: 'user' },
+  { to: '/projects', label: 'Projects', icon: 'desktop' },
+  { to: '/services', label: 'Services', icon: 'briefcase' },
+  { to: '/resume', label: 'Resume', icon: 'file-lines' }
+]
 
-    const scrollHandler = () => {
-      navColour.value = window.scrollY >= 20
-    }
+const scrollHandler = () => {
+  navColour.value = window.scrollY >= 20
+}
 
-    const toggleMenu = () => {
-      menuOpen.value = !menuOpen.value
-    }
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value
+}
 
-    const closeNavbar = () => {
-      menuOpen.value = false
-    }
+const closeNavbar = () => {
+  menuOpen.value = false
+}
 
-    onMounted(() => {
-      theme.init()
-      window.addEventListener('scroll', scrollHandler, { passive: true })
-    })
-    onUnmounted(() => window.removeEventListener('scroll', scrollHandler))
-
-    return { theme, navColour, menuOpen, navLinks, toggleMenu, closeNavbar }
-  }
+onMounted(() => {
+  theme.init()
+  window.addEventListener('scroll', scrollHandler, { passive: true })
 })
+onUnmounted(() => window.removeEventListener('scroll', scrollHandler))
 </script>
 
 <style scoped>

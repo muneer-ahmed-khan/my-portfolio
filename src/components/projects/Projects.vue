@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'ProjectsPage' })
 import Particles from '@/components/ui/Particles.vue'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
 import { projects } from '@/data/projects'

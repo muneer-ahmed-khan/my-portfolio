@@ -168,6 +168,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'ContactPage' })
 import { ref, reactive } from 'vue'
 import emailjs from '@emailjs/browser'
 import Particles from '@/components/ui/Particles.vue'

@@ -2,10 +2,10 @@
   <footer class="footer" v-reveal="{ direction: 'up', threshold: 0.05 }">
     <div class="container-fluid">
       <div class="row text-center py-2">
-        <div class="col-md-4 footer-copywright">
+        <div class="col-md-4 footer-copyright">
           <h3>Designed and Developed by Muneer Ahmed</h3>
         </div>
-        <div class="col-md-4 footer-copywright">
+        <div class="col-md-4 footer-copyright">
           <h3 style="display: flex; align-items: center; justify-content: center; gap: 6px">
             Copyright © {{ year }}
             <img src="/favicon.svg" alt="Muneer Ahmed logo" class="footer-logo" />
