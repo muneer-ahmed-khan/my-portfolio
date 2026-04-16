@@ -1,5 +1,6 @@
 <template>
   <AppPreLoader :load="load" />
+  <div :class="['nav-progress-bar', navLoading ? 'active' : '']" role="progressbar" aria-hidden="true" />
   <div :class="['app', load ? 'no-scroll' : 'scroll']">
     <AppNavbar />
     <ScrollToTop />
@@ -16,14 +17,23 @@ import ScrollToTop from '@/components/ui/ScrollToTop.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 
 const load = ref(true)
+const navLoading = ref(false)
+
+const onNavStart = () => { navLoading.value = true }
+const onNavEnd = () => { navLoading.value = false }
 
 onMounted(() => {
   const timer = setTimeout(() => {
     load.value = false
   }, 1200)
 
+  document.addEventListener('nav-loading-start', onNavStart)
+  document.addEventListener('nav-loading-end', onNavEnd)
+
   onUnmounted(() => {
     clearTimeout(timer)
+    document.removeEventListener('nav-loading-start', onNavStart)
+    document.removeEventListener('nav-loading-end', onNavEnd)
   })
 })
 </script>

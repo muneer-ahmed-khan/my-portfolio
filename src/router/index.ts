@@ -53,4 +53,12 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach(() => {
+  document.dispatchEvent(new CustomEvent('nav-loading-start'))
+})
+
+router.afterEach(() => {
+  document.dispatchEvent(new CustomEvent('nav-loading-end'))
+})
+
 export default router
