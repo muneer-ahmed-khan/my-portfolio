@@ -60,7 +60,7 @@ Key design decisions:
 
 > **[muneer-ahmed.vercel.app](https://muneer-ahmed.vercel.app)** ← Portfolio (live on Vercel)
 
-> **[nest-of-blogs.vercel.app](https://nest-of-blogs.vercel.app/)** ← Blog demo (linked from portfolio)
+> **[muneer-dev.vercel.app](https://muneer-dev.vercel.app/)** ← Blog (linked from portfolio)
 
 ---
 
@@ -398,7 +398,7 @@ Senior Full-Stack Developer, Karachi, Pakistan
 | GitHub | [github.com/muneer-ahmed-khan](https://github.com/muneer-ahmed-khan) |
 | LinkedIn | [linkedin.com/in/muneer-ahmed-a59362140](https://www.linkedin.com/in/muneer-ahmed-a59362140/) |
 | Stack Overflow | [stackoverflow.com/users/8422060](https://stackoverflow.com/users/8422060/muneer-khan) |
-| Blog | [nest-of-blogs.vercel.app](https://nest-of-blogs.vercel.app/) |
+| Blog | [muneer-dev.vercel.app](https://muneer-dev.vercel.app/) |
 | Email | muneerkhan31886@gmail.com |
 
 ---

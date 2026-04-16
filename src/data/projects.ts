@@ -44,14 +44,14 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    title: 'Nest of Blogs – Blog Platform',
+    title: 'muneer.dev – Blog Platform',
     description:
-      'Full-stack blog platform with markdown support, SSR/SSG for SEO, and dynamic content management. Backed by Supabase for real-time data and authentication.',
+      'Full-stack blogging platform with markdown-driven content, SSR/SSG for SEO, Google authentication, and real-time comments and likes backed by Firebase Firestore.',
     imgPath: placeholder,
     ghLink: 'https://github.com/muneer-ahmed-khan',
-    demoLink: 'https://nest-of-blogs.vercel.app/',
+    demoLink: 'https://muneer-dev.vercel.app/',
     isBlog: true,
-    techStack: ['Nuxt.js', 'Supabase', 'Tailwind CSS', 'TypeScript']
+    techStack: ['Nuxt.js', 'Firebase', 'Tailwind CSS', 'TypeScript']
   },
   {
     id: 6,

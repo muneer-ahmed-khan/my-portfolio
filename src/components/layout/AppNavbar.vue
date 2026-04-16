@@ -34,7 +34,7 @@
 
         <!-- External blog link -->
         <a
-          href="https://nest-of-blogs.vercel.app/"
+          href="https://muneer-dev.vercel.app/"
           target="_blank"
           rel="noreferrer"
           class="nav-link-item"
