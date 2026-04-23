@@ -1,9 +1,21 @@
 import type { Project } from '@/types/project'
 import placeholder from '@/assets/projects/placeholder.png'
+import muneerDev from '@/assets/projects/muneer-dev.png'
 
 export const projects: Project[] = [
   {
     id: 1,
+    title: 'muneer.dev – Blog Platform',
+    description:
+      'Full-stack blog platform built with Nuxt 3 and @nuxt/content. Markdown-driven articles with table of contents, reading time, and tags. Google OAuth via Firebase Auth, Firestore-backed comments and likes through server-side API routes, and dark/light theming.',
+    imgPath: muneerDev,
+    ghLink: 'https://github.com/muneer-ahmed-khan/nest-of-blogs',
+    demoLink: 'https://muneer-dev.vercel.app/',
+    isBlog: true,
+    techStack: ['Nuxt 3', 'TypeScript', 'Firebase', 'Tailwind CSS', 'Pinia']
+  },
+  {
+    id: 2,
     title: 'TypeSync – SaaS Platform',
     description:
       'Full-stack multi-tenant SaaS platform with real-time collaboration, role-based access control, and team workspaces. Subscription billing, onboarding flows, and clean admin dashboard.',
@@ -13,7 +25,7 @@ export const projects: Project[] = [
     techStack: ['Vue 3', 'NestJS', 'PostgreSQL', 'AWS', 'Docker']
   },
   {
-    id: 2,
+    id: 3,
     title: 'StreamDash – Live Analytics',
     description:
       'Real-time analytics dashboard with WebSocket-powered data feeds, configurable chart widgets, and event-driven push notifications. Handles thousands of concurrent connections.',
@@ -23,7 +35,7 @@ export const projects: Project[] = [
     techStack: ['React', 'Node.js', 'Socket.IO', 'Redis', 'Docker']
   },
   {
-    id: 3,
+    id: 4,
     title: 'GoFlow – High-Performance API',
     description:
       'Scalable REST and GraphQL API backend built in Go with PostgreSQL. Designed for high-throughput workloads with connection pooling, intelligent caching, and horizontal scaling on Azure.',
@@ -33,7 +45,7 @@ export const projects: Project[] = [
     techStack: ['Go', 'GraphQL', 'PostgreSQL', 'Azure', 'Docker']
   },
   {
-    id: 4,
+    id: 5,
     title: 'LLM Pipeline – AI Integration',
     description:
       'Production-grade AI data processing pipeline integrating OpenAI and custom LLMs. Features semantic search, document Q&A, and automated content generation with rate-limiting and caching.',
@@ -41,17 +53,6 @@ export const projects: Project[] = [
     ghLink: 'https://github.com/muneer-ahmed-khan',
     isBlog: false,
     techStack: ['FastAPI', 'Python', 'OpenAI', 'Redis', 'AWS Lambda']
-  },
-  {
-    id: 5,
-    title: 'muneer.dev – Blog Platform',
-    description:
-      'Full-stack blogging platform with markdown-driven content, SSR/SSG for SEO, Google authentication, and real-time comments and likes backed by Firebase Firestore.',
-    imgPath: placeholder,
-    ghLink: 'https://github.com/muneer-ahmed-khan',
-    demoLink: 'https://muneer-dev.vercel.app/',
-    isBlog: true,
-    techStack: ['Nuxt.js', 'Firebase', 'Tailwind CSS', 'TypeScript']
   },
   {
     id: 6,
